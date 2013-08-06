@@ -1,13 +1,13 @@
 ﻿function leHandle(response) {
     console.log("entered leHandle(response)");
-    console.log(response);
+    console.log("le response: ", response);
 }
 
 function main() {
     console.log("entered main()");
     var request = new XMLHttpRequest();
 
-    request.open("POST", "testASP.aspx", true);
+    request.open("GET", "testASP.aspx?q=IamAVar", true);
 
     request.onreadystatechange = function () {
         if (request.readyState == 4) {
@@ -16,5 +16,5 @@ function main() {
             }
         }
     };
-    request.send("abcd");
+    request.send();
 }

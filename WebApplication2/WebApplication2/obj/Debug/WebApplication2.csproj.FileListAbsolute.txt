@@ -6,3 +6,7 @@ C:\Users\Ascendzor\Public\Programming\Ass\WebApplication2\WebApplication2\bin\We
 C:\Users\Ascendzor\Public\Programming\Ass\WebApplication2\WebApplication2\bin\WebApplication2.pdb
 C:\Users\Ascendzor\Public\Programming\Ass\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
 C:\Users\Ascendzor\Public\Programming\Ass\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\Users\Public\brogramming\Ass\WebApplication2\WebApplication2\bin\WebApplication2.dll
+C:\Users\Public\brogramming\Ass\WebApplication2\WebApplication2\bin\WebApplication2.pdb
+C:\Users\Public\brogramming\Ass\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
+C:\Users\Public\brogramming\Ass\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
