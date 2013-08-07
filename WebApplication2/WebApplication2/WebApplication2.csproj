@@ -53,6 +53,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\Database1.mdf" />
     <Content Include="HTMLPage1.aspx" />
     <Content Include="JScript1.js" />
     <Content Include="Web.config" />
