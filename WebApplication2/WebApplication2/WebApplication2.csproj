@@ -64,7 +64,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="testASP.asp" />
+    <Content Include="testASP.aspx" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

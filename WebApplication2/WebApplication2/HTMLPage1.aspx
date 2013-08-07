@@ -4,6 +4,6 @@
     <script src="JScript1.js" type="text/javascript"></script>
 </head>
 <body>
-<script>    main();</script>
+<script>main();</script>
 </body>
 </html>

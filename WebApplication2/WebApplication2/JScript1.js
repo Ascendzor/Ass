@@ -1,14 +1,20 @@
 ﻿function leHandle(response) {
-    console.log("le handle");
-    //console.log(response);
+    console.log("entered leHandle(response)");
+    console.log(response);
 }
 
 function main() {
+    console.log("entered main()");
     var request = new XMLHttpRequest();
-    console.log("asdfasdfasdfasdf");
-    request.open(null, "testASP.asp", true);
+
+    request.open("POST", "testASP.aspx", true);
+
+    request.onreadystatechange = function () {
+        if (request.readyState == 4) {
+            if (request.status == 200) {
+                leHandle(request.responseText);
+            }
+        }
+    };
     request.send("abcd");
-
-    console.log("LELELELELE");
 }
-
