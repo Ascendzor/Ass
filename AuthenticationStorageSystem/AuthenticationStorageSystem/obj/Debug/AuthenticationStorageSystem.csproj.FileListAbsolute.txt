@@ -6,3 +6,7 @@ C:\AuthenticationStorageSystem\AuthenticationStorageSystem\AuthenticationStorage
 C:\AuthenticationStorageSystem\AuthenticationStorageSystem\AuthenticationStorageSystem\bin\WebApplication2.pdb
 C:\AuthenticationStorageSystem\AuthenticationStorageSystem\AuthenticationStorageSystem\obj\Debug\WebApplication2.dll
 C:\AuthenticationStorageSystem\AuthenticationStorageSystem\AuthenticationStorageSystem\obj\Debug\WebApplication2.pdb
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AuthenticationStorageSystem\bin\WebApplication2.dll
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AuthenticationStorageSystem\bin\WebApplication2.pdb
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AuthenticationStorageSystem\obj\Debug\WebApplication2.dll
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AuthenticationStorageSystem\obj\Debug\WebApplication2.pdb

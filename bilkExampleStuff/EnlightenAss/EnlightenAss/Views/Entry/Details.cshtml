@@ -1,0 +1,57 @@
+﻿@model AssClassLibrary.Entry
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Entry</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Project.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Project.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Username)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Username)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Website)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Website)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Notes)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Notes)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isArchived)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isArchived)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.EntryId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

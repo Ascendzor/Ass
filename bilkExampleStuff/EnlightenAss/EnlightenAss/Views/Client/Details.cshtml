@@ -1,0 +1,36 @@
+﻿@model AssClassLibrary.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Client</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateAdded)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateAdded)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.isArchived)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.isArchived)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ClientId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
