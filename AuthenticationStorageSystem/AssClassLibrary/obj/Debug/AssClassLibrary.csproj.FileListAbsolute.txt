@@ -18,3 +18,13 @@ C:\Users\Ascendzor\Documents\EnlightenAss\EnlightenAss\AssClassLibrary\obj\Debug
 C:\Users\Ascendzor\Documents\EnlightenAss\EnlightenAss\AssClassLibrary\obj\Debug\AssClassLibrary.csproj.GenerateResource.Cache
 C:\Users\Ascendzor\Documents\EnlightenAss\EnlightenAss\AssClassLibrary\obj\Debug\AssClassLibrary.dll
 C:\Users\Ascendzor\Documents\EnlightenAss\EnlightenAss\AssClassLibrary\obj\Debug\AssClassLibrary.pdb
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.dll.config
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.dll
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.pdb
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\EntityFramework.dll
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\EntityFramework.xml
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.Migrations.myMigration.resources
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csproj.GenerateResource.Cache
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.dll
+C:\Users\Ascendzor\Public\Programming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.pdb
