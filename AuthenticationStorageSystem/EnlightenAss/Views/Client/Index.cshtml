@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<AssClassLibrary.Client>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Clients";
 }
 
-<h2>Index</h2>
+<h2>Clients</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -26,7 +26,8 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            <!--@Html.DisplayFor(modelItem => item.Name)-->
+                @Html.ActionLink(item.Name, "../Project/Index", new { id=item.ClientId })
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DateAdded)
