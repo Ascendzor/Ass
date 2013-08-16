@@ -15,11 +15,37 @@ namespace EnlightenAss.Controllers
 
         //
         // GET: /Client/
+        static int a = 0;
 
         public ActionResult Index(int id = 0)
         {
+             
             return View(db.Clients.ToList());
         }
+
+        public ActionResult Search()
+        {
+
+            a = a + 1;
+
+            ViewBag.Number = Convert.ToString(a);
+
+            List<Client> relevantClients = new List<Client>();
+            string searchString = "asd";
+            foreach (Client item in db.Clients)
+            {
+                if (item.Name.Contains(searchString))
+                {
+                    relevantClients.Add(item);
+
+                    ViewBag.test = item.ToString();
+                }
+            }
+
+            return View(relevantClients);
+        }
+
+        
 
         //
         // GET: /Client/Details/5
