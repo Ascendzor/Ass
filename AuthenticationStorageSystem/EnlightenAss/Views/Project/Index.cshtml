@@ -9,6 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+    @Html.ActionLink("Search", "../Search/Index")
 @if (Model.Count() > 0)
 {   
     <h3>This is for client: @Html.ActionLink(Model.First().Client.Name, "../Client/Index")</h3>    
