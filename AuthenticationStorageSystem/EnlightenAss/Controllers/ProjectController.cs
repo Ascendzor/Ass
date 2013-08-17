@@ -29,6 +29,7 @@ namespace EnlightenAss.Controllers
         public ActionResult Details(int id = 0)
         {
             Project project = db.Projects.Find(id);
+            ViewBag.ClientIdNum = project.ClientId;
             if (project == null)
             {
                 return HttpNotFound();
@@ -69,6 +70,7 @@ namespace EnlightenAss.Controllers
         public ActionResult Edit(int id = 0)
         {
             Project project = db.Projects.Find(id);
+            ViewBag.ClientIdNum = project.ClientId;
             if (project == null)
             {
                 return HttpNotFound();
@@ -99,6 +101,7 @@ namespace EnlightenAss.Controllers
         public ActionResult Delete(int id = 0)
         {
             Project project = db.Projects.Find(id);
+            ViewBag.ClientIdNum = project.ClientId;
             if (project == null)
             {
                 return HttpNotFound();

@@ -23,10 +23,6 @@ namespace EnlightenAss.Controllers
             return View(db.Clients.ToList());
         }
 
-        
-
-        
-
         //
         // GET: /Client/Details/5
 

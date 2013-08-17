@@ -3,3 +3,5 @@ list issues here
 1. When in "Projects" or "Entries" tables and there are no projects/entries in those tables. You cannot go back.(Up a level).
 2. When clicking on "Back to list" when you have clicked on details/edit/delete, it does not know what to go back to (Null space).
 3. Related to #2. When clicking on edit/details/delete then back to list. You cannot add a new project/entry without VS crashing.
+
+-----------Done^
