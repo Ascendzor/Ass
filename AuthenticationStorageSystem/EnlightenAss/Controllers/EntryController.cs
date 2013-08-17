@@ -15,7 +15,7 @@ namespace EnlightenAss.Controllers
 
         //
         // GET: /Entry/
-
+        //Returns entries where ProjectId = id
         public ActionResult Index(int id = 0)
         {
             ViewBag.ProjectId = id;
@@ -55,7 +55,7 @@ namespace EnlightenAss.Controllers
             {
                 db.Entries.Add(entry);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = entry.ProjectId });
             }
 
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);

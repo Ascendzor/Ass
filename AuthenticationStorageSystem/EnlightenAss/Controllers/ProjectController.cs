@@ -15,12 +15,11 @@ namespace EnlightenAss.Controllers
 
         //
         // GET: /Project/
-
+        //returns projects where ClientId = id
         public ActionResult Index(int id = 0)
         {
             ViewBag.ClientId = id;
             var projects = db.Projects.Include(p => p.Client);
-            //return View(projects.ToList());
             return View(projects.Where(i => i.ClientId == id));
         }
 
@@ -57,7 +56,7 @@ namespace EnlightenAss.Controllers
             {
                 db.Projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = project.ClientId });
             }
 
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
