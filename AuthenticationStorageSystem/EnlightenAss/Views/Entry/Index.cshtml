@@ -7,15 +7,16 @@
 <h2>Entries</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { id = ViewBag.ProjectId })
+    @Html.ActionLink("Create New", "Create", new { id = ViewBag.ProjectIdNum })
 </p>
     @Html.ActionLink("Search", "../Search/Index")
-@if (Model.Count() > 0)
-{   
-    <h3>Project: @Html.ActionLink(Model.First().Project.Name, "../Project/Index", new { id=Model.First().Project.ClientId})</h3>    
-}else{
-    <h3>@Html.ActionLink("To Clients", "../Client/Index")</h3>
-}
+
+<h3>@Html.ActionLink("To Clients", "../Client/Index")</h3>
+
+<h3>@Html.ActionLink("Up", "../Project/Index", new { id = ViewBag.ClientIdNum })</h3>
+
+<h3>Project: @ViewBag.ProjectName</h3>
+
 <table>
     <tr>
         <th>
