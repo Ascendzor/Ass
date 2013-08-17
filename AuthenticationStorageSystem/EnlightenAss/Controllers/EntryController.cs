@@ -16,10 +16,9 @@ namespace EnlightenAss.Controllers
         //
         // GET: /Entry/
 
-        public ActionResult Index()
+        public ActionResult Index(int id = 0)
         {
-            var entries = db.Entries.Include(e => e.Project);
-            return View(entries.ToList());
+            return View(db.Entries.Where(i => i.ProjectId == id));
         }
 
         //

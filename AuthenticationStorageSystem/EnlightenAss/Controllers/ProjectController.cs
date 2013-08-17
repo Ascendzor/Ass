@@ -16,10 +16,12 @@ namespace EnlightenAss.Controllers
         //
         // GET: /Project/
 
-        public ActionResult Index()
+        public ActionResult Index(int id = 0)
         {
+            
             var projects = db.Projects.Include(p => p.Client);
-            return View(projects.ToList());
+            //return View(projects.ToList());
+            return View(projects.Where(i => i.ClientId == id));
         }
 
         //

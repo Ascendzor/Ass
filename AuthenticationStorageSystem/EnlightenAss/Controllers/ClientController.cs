@@ -16,7 +16,7 @@ namespace EnlightenAss.Controllers
         //
         // GET: /Client/
 
-        public ActionResult Index()
+        public ActionResult Index(int id = 0)
         {
             return View(db.Clients.ToList());
         }

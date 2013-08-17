@@ -239,6 +239,7 @@
     <Content Include="Views\Entry\Edit.cshtml" />
     <Content Include="Views\Entry\Delete.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Client\NavClient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
