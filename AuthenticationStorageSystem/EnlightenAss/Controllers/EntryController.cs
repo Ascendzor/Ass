@@ -37,7 +37,7 @@ namespace EnlightenAss.Controllers
 
         //
         // GET: /Entry/Create
-
+        //Set ViewBag.ProjectId to force the Entry being created to under the current project 
         public ActionResult Create(int id = 0)
         {
             ViewBag.ProjectIdNum = id;
@@ -86,7 +86,7 @@ namespace EnlightenAss.Controllers
             {
                 db.Entry(entry).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = entry.ProjectId });
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
             return View(entry);
@@ -112,9 +112,10 @@ namespace EnlightenAss.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Entry entry = db.Entries.Find(id);
+            int projectId = entry.ProjectId; //Store parent directory for redirect action
             db.Entries.Remove(entry);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = projectId });
         }
 
         protected override void Dispose(bool disposing)

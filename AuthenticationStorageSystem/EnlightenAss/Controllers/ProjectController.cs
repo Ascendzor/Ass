@@ -38,7 +38,7 @@ namespace EnlightenAss.Controllers
 
         //
         // GET: /Project/Create
-
+        //Set ViewBag.ClientId to force the Project being created to be under the current Client 
         public ActionResult Create(int id = 0)
         {
             ViewBag.ClientIdNum = id;
@@ -87,7 +87,7 @@ namespace EnlightenAss.Controllers
             {
                 db.Entry(project).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = project.ClientId });
             }
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
             return View(project);
@@ -113,9 +113,10 @@ namespace EnlightenAss.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Project project = db.Projects.Find(id);
+            int clientId = project.ClientId; //Store parent directory for redirect action
             db.Projects.Remove(project);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", new { id = clientId });
         }
 
         protected override void Dispose(bool disposing)
