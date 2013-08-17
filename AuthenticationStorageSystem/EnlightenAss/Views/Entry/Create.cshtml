@@ -16,7 +16,7 @@
             @Html.LabelFor(model => model.ProjectId, "Project")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ProjectId", String.Empty)
+            @Html.DropDownList("ProjectId")
             @Html.ValidationMessageFor(model => model.ProjectId)
         </div>
 
@@ -67,7 +67,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.ProjectIdNum })
 </div>
 
 @section Scripts {

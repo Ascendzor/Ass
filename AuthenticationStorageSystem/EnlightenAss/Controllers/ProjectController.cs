@@ -18,7 +18,7 @@ namespace EnlightenAss.Controllers
 
         public ActionResult Index(int id = 0)
         {
-            
+            ViewBag.ClientId = id;
             var projects = db.Projects.Include(p => p.Client);
             //return View(projects.ToList());
             return View(projects.Where(i => i.ClientId == id));
@@ -40,9 +40,10 @@ namespace EnlightenAss.Controllers
         //
         // GET: /Project/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int id = 0)
         {
-            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name");
+            ViewBag.ClientIdNum = id;
+            ViewBag.ClientId = new SelectList(db.Clients.Where(i => i.ClientId == id), "ClientId", "Name");
             return View();
         }
 

@@ -1,11 +1,10 @@
 ﻿@model AssClassLibrary.Project
 
+
 @{
     ViewBag.Title = "Create";
 }
-
 <h2>Create</h2>
-
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -24,7 +23,7 @@
             @Html.LabelFor(model => model.ClientId, "Client")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ClientId", String.Empty)
+            @Html.DropDownList("ClientId")
             @Html.ValidationMessageFor(model => model.ClientId)
         </div>
 
@@ -51,7 +50,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.ClientIdNum })
 </div>
 
 @section Scripts {
