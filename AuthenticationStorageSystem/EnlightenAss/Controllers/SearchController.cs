@@ -24,7 +24,6 @@ namespace EnlightenAss.Controllers
         
         public List<Client> RelevantClients()
         {
-          
             List<Client> relevantClients = new List<Client>();
             string searchString = "asd";
             foreach (Client item in db.Clients)
@@ -39,5 +38,40 @@ namespace EnlightenAss.Controllers
             return relevantClients;
         }
 
+        [HttpPost]
+        public ActionResult Search(String searchText)
+        {
+            List<Client> clientResults = new List<Client>();
+            foreach (Client item in db.Clients)
+            {
+                if (item.Name.Contains(searchText))
+                {
+                    clientResults.Add(item);
+                }
+            }
+            ViewData["clientResults"] = clientResults;
+
+            List<Project> projectResults = new List<Project>();
+            foreach (Project item in db.Projects)
+            {
+                if (item.Name.Contains(searchText))
+                {
+                    projectResults.Add(item);
+                }
+            }
+            ViewData["projectResults"] = projectResults;
+
+            List<Entry> entryResults = new List<Entry>();
+            foreach (Entry item in db.Entries)
+            {
+                if (item.Username.Contains(searchText))
+                {
+                    entryResults.Add(item);
+                }
+            }
+            ViewData["entryResults"] = entryResults;
+
+            return View();
+        }
     }
 }

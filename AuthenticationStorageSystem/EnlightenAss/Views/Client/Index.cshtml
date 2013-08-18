@@ -10,7 +10,16 @@
 <p>
     @Html.ActionLink("Create New", "Create")
     <p></p>
-    @Html.ActionLink("Search", "../Search/Index")
+    @using (Html.BeginForm("Search", "Search"))
+    {
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Search</legend>
+            <input id="searchText" name="searchtext" type="text"/>
+            <input id="submitSearch" type="submit" value="Go" />
+        </fieldset>
+    }
 
 </p>
 <h3>All clients</h3>

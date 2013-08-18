@@ -38,3 +38,12 @@ C:\Users\Public\brogramming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\
 C:\Users\Public\brogramming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csproj.GenerateResource.Cache
 C:\Users\Public\brogramming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.dll
 C:\Users\Public\brogramming\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.pdb
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.dll.config
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.dll
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.pdb
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\EntityFramework.dll
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\EntityFramework.xml
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.Migrations.myMigration.resources
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csproj.GenerateResource.Cache
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.dll
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.pdb
