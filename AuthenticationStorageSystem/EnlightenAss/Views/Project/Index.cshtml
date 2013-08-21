@@ -14,16 +14,8 @@
 <body>
     <div class="containerDiv">
         <div class ="headerDiv"><img src="/Content/enlighten-logo.png"></div>
-        <div class="menuDiv">
-            <div class="menuItemDiv menuItemDivIdle">Create new...</div>
-            <div class="menuItemDiv menuItemDivIdle">Search</div>
-            <div class="menuItemDiv menuItemDivIdle">Clients</div>
-            <div class="menuItemDiv menuItemDivIdle">Projects</div>
-        </div>
+        <div class="titleDiv">Projects</div>
         <div class="contentDiv">
-
-<h1>Projects</h1>
-
 
 <p>@Html.ActionLink("Create New", "Create", new { id = ViewBag.ClientId })</p>
 
@@ -33,7 +25,7 @@
 <h3>Client: @ViewBag.ClientName</h3>
 
 <table>
-    <tr>
+    <tr class="tableHeader">
         <th>
             Project Name
         </th>

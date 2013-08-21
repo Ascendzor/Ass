@@ -1,11 +1,9 @@
-﻿.test0
-{
+﻿.test0{
     font-size:2000px;
     background-color:#4cff00;
 }
 
-.test1
-{
+.test1{
     font-size:40px;
     color:#0094ff;
 }
@@ -14,59 +12,40 @@
     margin-left:auto;
     margin-right:auto;
     width:1000px;
-    background-color:black;
+    background-color:#008fc5;
 }
 
 .headerDiv{
-    padding:30px;
+    padding:40px;
     background-color:#FFF;
-    border-bottom: 1px solid #333;
 }
 
-.menuDiv{
-/*background-color:#008fc5;*/
-background-color: #FFF;
-border-right: 1px solid #333;
-float: left;
-padding: 25px;
-padding-top: 0px;
-padding-bottom: 20px;
-width: 150px;
-height: 750px;
+.titleDiv{
+    padding:20px;
+    padding-left:40px;
+    color:#FFF;
+    font-size: 24pt;
+    font-family:Cambria;
 }
-
-.menuItemDiv{
-margin-bottom:10px;
-margin-top: 15px;
-color: #FFF;
-padding: 10px;
-cursor: pointer;
-}
-
-.menuItemDivIdle{
-background-color:#008fc5;
-}
-
-.menuItemDiv:hover{
-background-color:#CEE3F6;
-}
-
-.menuItemDivClicked{
-background-color:#104E8B;
+.subtitleDiv{
+    font-size: 16pt;
+    padding:25px;
+    color:#d56c6c;
 }
 
 .contentDiv{
-margin-left:200px;
-padding: 10px;
-background-color: #CEE3F6;
-height: 750px;
+    padding: 10px;
+    padding-left:40px;
+    /*background-color: #CEE3F6;*/
+    background-color:#FFF;
+    height: 680px;
 }
 
 .footerDiv{
-padding: 30px;
-background-color: #22333e;
-color:#FFF;
-text-align: right;
+    padding: 30px;
+    background-color: #22333e;
+    color:#FFF;
+    text-align: right;
 }
 
 body {
@@ -91,7 +70,7 @@ margin: 0 0 1.5em 0;
 border-collapse: collapse;
 border: solid;
 border-width: 1px;
-border-color: #104E8B;
+border-color: #008fc5;
 }
 
 th,td{
@@ -113,9 +92,9 @@ border-color:#104E8B;
 }
 
 fieldset {
-    border: 1px solid #FFF;
-    padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
+    border:none;
+    padding:0px;
 }
 
 legend {

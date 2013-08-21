@@ -13,27 +13,25 @@
 <body>
     <div class="containerDiv">
         <div class ="headerDiv"><img src="/Content/enlighten-logo.png"></div>
-        <div class="menuDiv">
-            <div class="menuItemDiv menuItemDivIdle">Create new...</div>
-            <div class="menuItemDiv menuItemDivIdle">Search</div>
-            <div class="menuItemDiv menuItemDivIdle">Clients</div>
-            <div class="menuItemDiv menuItemDivIdle">Projects</div>
-        </div>
+        <div class="titleDiv">Clients</div>
+                
+        
         <div class="contentDiv">
-        <h1>Clients</h1>
+            @using (Html.BeginForm("Search", "Search"))
+                {
+                 @Html.ValidationSummary(true)
+                <fieldset>
+                <legend>Search</legend>
+                <input id="searchText" name="searchtext" type="text"/>
+                <input id="submitSearch" type="submit" value="Go" />
+                </fieldset>
+                }
     
+        
+
+        
+
         @Html.ActionLink("Create New", "Create")
-
-        @using (Html.BeginForm("Search", "Search"))
-        {
-            @Html.ValidationSummary(true)
-
-            <fieldset>
-             <legend>Search</legend>
-             <input id="searchText" name="searchtext" type="text"/>
-             <input id="submitSearch" type="submit" value="Go" />
-            </fieldset>
-        }
         
         <h3>All clients</h3>
         <table>
