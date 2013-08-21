@@ -1,20 +1,80 @@
 ﻿.test0
 {
-    font-size:20px;
-    color:#4cff00
+    font-size:2000px;
+    background-color:#4cff00;
 }
 
 .test1
 {
     font-size:40px;
-    color:#0094ff
+    color:#0094ff;
+}
+
+.containerDiv{
+    margin-left:auto;
+    margin-right:auto;
+    width:1000px;
+    background-color:black;
+}
+
+.headerDiv{
+    padding:30px;
+    background-color:#FFF;
+    border-bottom: 1px solid #333;
+}
+
+.menuDiv{
+/*background-color:#008fc5;*/
+background-color: #FFF;
+border-right: 1px solid #333;
+float: left;
+padding: 25px;
+padding-top: 0px;
+padding-bottom: 20px;
+width: 150px;
+height: 750px;
+}
+
+.menuItemDiv{
+margin-bottom:10px;
+margin-top: 15px;
+color: #FFF;
+padding: 10px;
+cursor: pointer;
+}
+
+.menuItemDivIdle{
+background-color:#008fc5;
+}
+
+.menuItemDiv:hover{
+background-color:#CEE3F6;
+}
+
+.menuItemDivClicked{
+background-color:#104E8B;
+}
+
+.contentDiv{
+margin-left:200px;
+padding: 10px;
+background-color: #CEE3F6;
+height: 750px;
+}
+
+.footerDiv{
+padding: 30px;
+background-color: #22333e;
+color:#FFF;
+text-align: right;
 }
 
 body {
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
-    background-color: #fff;
+    background:url("/Content/use_your_illusion.png");
+    background-repeat:repeat;
 }
 
 header, footer, nav, section {
@@ -24,8 +84,36 @@ header, footer, nav, section {
 
 /* Styles for basic forms
 -----------------------------------------------------------*/
+
+table{
+padding: 0 1.4em 1.4em 1.4em;
+margin: 0 0 1.5em 0;
+border-collapse: collapse;
+border: solid;
+border-width: 1px;
+border-color: #104E8B;
+}
+
+th,td{
+padding-left:10px;
+padding-right:10px;
+width:auto;
+}
+
+.rowHighlight:hover{
+background-color: #FFF;
+}
+
+
+.tableHeader{
+font-weight:bold;
+border:solid;
+border-width: 1px;
+border-color:#104E8B;
+}
+
 fieldset {
-    border: 1px solid #ddd;
+    border: 1px solid #FFF;
     padding: 0 1.4em 1.4em 1.4em;
     margin: 0 0 1.5em 0;
 }
@@ -46,6 +134,8 @@ textarea {
 .editor-field {
     margin: 0.5em 0 0 0;
 }
+
+
 
 
 /* Styles for validation helpers
