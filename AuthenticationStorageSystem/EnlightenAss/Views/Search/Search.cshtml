@@ -23,30 +23,9 @@
             <input id="submitSearch" type="submit" value="Go" />
             </fieldset>
             }
-
-    <h1>Clients</h1>
-    @if (ViewData["clientResults"] != null)
-    {
-        foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"]) {
-            <p>@item.Name</p>
-        }
-    }
-    <h1>Projects</h1>
-    @if (ViewData["projectResults"] != null)
-    {
-        foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
-        {
-            <p>@item.Name</p>
-        }
-    }
-    <h1>Entries</h1>
-    @if (ViewData["entryResults"] != null)
-    {
-        foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
-        {
-            <p>@item.Username</p>
-        }
-    }
+            Start Partial:
+            @{Html.RenderPartial("PartialSearchView1");}
+            End Partial.
 
     @Html.ActionLink("Home", "../Client")
 

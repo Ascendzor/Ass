@@ -242,6 +242,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Client\NavClient.cshtml" />
     <Content Include="Views\Search\Search.cshtml" />
+    <Content Include="Views\Search\PartialSearchView1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

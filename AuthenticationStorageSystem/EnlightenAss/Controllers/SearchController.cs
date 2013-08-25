@@ -14,9 +14,11 @@ namespace EnlightenAss.Controllers
         private DatabaseContext db = new DatabaseContext();
         //
         // GET: /Search/
-
+        static bool firstLoad = true;
+        static PartialViewResult partialVieResult;
         public ActionResult Index(int id = 0)
         {
+            ViewBag.TESTING = "LOLOOLOOLLDLDLD";
             return View(RelevantClients());
         }
         //
@@ -41,6 +43,7 @@ namespace EnlightenAss.Controllers
         [HttpPost]
         public ActionResult Search(String searchText)
         {
+            ViewBag.Numbera = searchText;
             List<Client> clientResults = new List<Client>();
             foreach (Client item in db.Clients)
             {
@@ -71,7 +74,10 @@ namespace EnlightenAss.Controllers
             }
             ViewData["entryResults"] = entryResults;
 
-            return View();
+
+                return View();
+
+
         }
     }
 }
