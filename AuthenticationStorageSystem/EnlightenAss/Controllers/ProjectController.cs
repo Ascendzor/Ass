@@ -34,7 +34,6 @@ namespace EnlightenAss.Controllers
         public ActionResult Details(int id = 0)
         {
             Project project = db.Projects.Find(id);
-            ViewBag.ClientIdNum = project.ClientId;
             if (project == null)
             {
                 return HttpNotFound();
@@ -47,7 +46,6 @@ namespace EnlightenAss.Controllers
         //Set ViewBag.ClientId to force the Project being created to be under the current Client 
         public ActionResult Create(int id = 0)
         {
-            ViewBag.ClientIdNum = id;
             ViewBag.ClientId = new SelectList(db.Clients.Where(i => i.ClientId == id), "ClientId", "Name");
             return View();
         }
@@ -75,7 +73,6 @@ namespace EnlightenAss.Controllers
         public ActionResult Edit(int id = 0)
         {
             Project project = db.Projects.Find(id);
-            ViewBag.ClientIdNum = project.ClientId;
             if (project == null)
             {
                 return HttpNotFound();
@@ -106,7 +103,6 @@ namespace EnlightenAss.Controllers
         public ActionResult Delete(int id = 0)
         {
             Project project = db.Projects.Find(id);
-            ViewBag.ClientIdNum = project.ClientId;
             if (project == null)
             {
                 return HttpNotFound();

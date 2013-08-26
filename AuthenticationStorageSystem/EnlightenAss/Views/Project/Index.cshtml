@@ -20,12 +20,10 @@
         <div class="titleDiv">Projects</div>
         <div class="contentDiv">
 
-            <p>@Html.ActionLink("Create New", "Create", new { id = ViewBag.ClientId })</p>
+            @Html.ActionLink("Create New", "Create", new { id = ViewBag.ClientId })
 
-
-            <h3>@Html.ActionLink("To Clients", "../Client/Index")</h3>
-
-            <h3>Client: @ViewBag.ClientName</h3>
+            <!--<h3>Client: @ViewBag.ClientName</h3> -->
+            <h3>@Html.ActionLink("Clients", "../Client/Index")/<u>@ViewBag.ClientName</u></h3>
 
             <table>
                 <tr class="tableHeader">

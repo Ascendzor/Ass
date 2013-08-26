@@ -15,20 +15,15 @@
 <body>
     <div class="containerDiv">
         <div class="headerDiv">
-            <img src="/Content/enlighten-logo.png"></div>
+            <img src="/Content/enlighten-logo.png">
+        </div>
         <div class="titleDiv">Entries</div>
         <div class="contentDiv">
 
-            <p>
-                @Html.ActionLink("Create New", "Create", new { id = ViewBag.ProjectIdNum })
-            </p>
 
-            <h3>@Html.ActionLink("To Clients", "../Client/Index")</h3>
+            @Html.ActionLink("Create New", "Create", new { id = ViewBag.ProjectIdNum })
 
-            <h3>@Html.ActionLink("Up", "../Project/Index", new { id = ViewBag.ClientIdNum })</h3>
-
-
-            <h3>Project: @ViewBag.ProjectName</h3>
+            <h3>@Html.ActionLink("Clients", "../Client/Index")/@Html.ActionLink((string)ViewBag.ClientName, "../Project/Index", new { id = ViewBag.ClientIdNum })/<u>@ViewBag.ProjectName</u></h3>
 
             <table>
                 <tr>
