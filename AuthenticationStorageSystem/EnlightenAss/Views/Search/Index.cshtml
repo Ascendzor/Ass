@@ -9,24 +9,24 @@
 <meta charset="utf-8" />
 <title>@ViewBag.Title</title>
 <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
     <div class="containerDiv">
         <div class ="headerDiv"><img src="/Content/enlighten-logo.png"></div>
         <div class="titleDiv">Search</div>
         
-        
         <div class="contentDiv">
 
         <!-- Search box + button, button onclick = ajax request to Controller search action -->
         <fieldset>
         <legend>Search</legend>
-        <input id="searchText" name="searchtext" type="text"/>
-        <button id="myButton" onclick="test()">Go</button>
+        <input id="searchText" oninput="requestSearch()" name="searchtext" type="text"/>
+        <button id="myButton" onclick="requestSearch()">Go</button>
         </fieldset>
 
         <script type="text/javascript">
-            function test() {
+            function requestSearch() {
                 $.ajax({
                     url: '/Search/Results',
                     data: { searchText: document.getElementById("searchText").value },
