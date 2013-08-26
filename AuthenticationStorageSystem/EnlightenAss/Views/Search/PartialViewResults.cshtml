@@ -1,6 +1,8 @@
-﻿    
-    
+﻿
+
     <h1>Clients</h1>
+
+    
     @if (ViewData["clientResults"] != null)
     {
         foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"]) {
@@ -23,5 +25,3 @@
             <p>@item.Username</p>
         }
     }
-    
-    

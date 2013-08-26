@@ -14,35 +14,20 @@ namespace EnlightenAss.Controllers
         private DatabaseContext db = new DatabaseContext();
         //
         // GET: /Search/
-        static bool firstLoad = true;
-        static PartialViewResult partialVieResult;
         public ActionResult Index(int id = 0)
         {
             ViewBag.TESTING = "LOLOOLOOLLDLDLD";
-            return View(RelevantClients());
+            return View();
         }
         //
-        // GET: /Search/
         
-        public List<Client> RelevantClients()
+        /**
+         * Search whole database for substring of 'searchText' parameter
+         * Return partial view containing the results
+         */
+        public ActionResult Results(String searchText)
         {
-            List<Client> relevantClients = new List<Client>();
-            string searchString = "asd";
-            foreach (Client item in db.Clients)
-            {
-                if (item.Name.Contains(searchString))
-                {
-                    relevantClients.Add(item);
-
-                    ViewBag.test = item.ToString();
-                }
-            }
-            return relevantClients;
-        }
-
-        [HttpPost]
-        public ActionResult Search(String searchText)
-        {
+            if (searchText == null) searchText = "";
             ViewBag.Numbera = searchText;
             List<Client> clientResults = new List<Client>();
             foreach (Client item in db.Clients)
@@ -74,10 +59,8 @@ namespace EnlightenAss.Controllers
             }
             ViewData["entryResults"] = entryResults;
 
-
-                return View();
-
-
+            return PartialView("PartialViewResults");
+            
         }
     }
 }

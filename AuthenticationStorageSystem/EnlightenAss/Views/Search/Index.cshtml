@@ -17,17 +17,29 @@
         
         
         <div class="contentDiv">
-            @using (Html.BeginForm("Search", "Search"))
-                {
-                 @Html.ValidationSummary(true)
-                <fieldset>
-                <legend>Search</legend>
-                <input id="searchText" name="searchtext" type="text"/>
-                <input id="submitSearch" type="submit" value="Go" />
-                </fieldset>
-                }
 
+        <!-- Search box + button, button onclick = ajax request to Controller search action -->
+        <fieldset>
+        <legend>Search</legend>
+        <input id="searchText" name="searchtext" type="text"/>
+        <button id="myButton" onclick="test()">Go</button>
+        </fieldset>
 
+        <script type="text/javascript">
+            function test() {
+                $.ajax({
+                    url: '/Search/Results',
+                    data: { searchText: document.getElementById("searchText").value },
+                    dataType: 'html',
+                    success: function (data) {
+                        $('#partialSearchResults').html(data);
+                    }
+                });
+            }
+        </script>
+
+        <!-- Search results placed inside here -->
+        <div id="partialSearchResults"></div>
      </div>
      <div class ="footerDiv">Authentication Storage System, Enlighten Designs 2013</div>
     </div>
