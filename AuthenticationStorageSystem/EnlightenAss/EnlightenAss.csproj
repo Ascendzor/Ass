@@ -240,7 +240,6 @@
     <Content Include="Views\Entry\Edit.cshtml" />
     <Content Include="Views\Entry\Delete.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Client\NavClient.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Search\PartialViewResults.cshtml" />
   </ItemGroup>

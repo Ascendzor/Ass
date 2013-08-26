@@ -60,7 +60,6 @@ namespace EnlightenAss.Controllers
             ViewData["entryResults"] = entryResults;
 
             return PartialView("PartialViewResults");
-            
         }
     }
 }
