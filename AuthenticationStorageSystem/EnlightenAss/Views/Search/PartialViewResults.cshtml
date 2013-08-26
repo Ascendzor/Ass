@@ -2,26 +2,112 @@
 
     <h1>Clients</h1>
 
-    
     @if (ViewData["clientResults"] != null)
-    {
-        foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"]) {
-            <p>@item.Name</p>
-        }
+    { 
+        <table>  
+            <tr class="tableHeader">
+                <th>
+                    Client Name
+                </th>
+                <th>
+                    Date Added
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"]) {
+                <tr class="rowHighlight">
+                    <td>
+                        @Html.ActionLink(item.Name, "../Project/Index", new { id=item.ClientId })
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateAdded)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "../Client/Edit", new { id=item.ClientId }) |
+                        @Html.ActionLink("Details", "../Client/Details", new { id=item.ClientId }) |
+                        @Html.ActionLink("Delete", "../Client/Delete", new { id=item.ClientId })
+                    </td>
+                    </tr>
+            }
+        </table>
     }
+
     <h1>Projects</h1>
+
     @if (ViewData["projectResults"] != null)
-    {
-        foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
-        {
-            <p>@item.Name</p>
-        }
+    { 
+        <table>  
+            <tr class="tableHeader">
+                <th>
+                    Project Name
+                </th>
+                <th>
+                    Date Added
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
+            {
+                <tr class="rowHighlight">
+                    <td>
+                        @Html.ActionLink(item.Name, "../Entry/Index", new { id = item.ProjectId})
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateAdded)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "../Project/Edit", new { id=item.ProjectId }) |
+                        @Html.ActionLink("Details", "../Project/Details", new { id=item.ProjectId }) |
+                        @Html.ActionLink("Delete", "../Project/Delete", new { id=item.ProjectId })
+                    </td>
+                    </tr>
+            }
+        </table>
     }
+
     <h1>Entries</h1>
+
     @if (ViewData["entryResults"] != null)
-    {
-        foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
-        {
-            <p>@item.Username</p>
-        }
+    { 
+        <table>  
+            <tr class="tableHeader">
+                <th>
+                    Username
+                </th>
+                <th>
+                    Password
+                </th>
+                <th>
+                    Notes
+                </th>
+                <th>
+                    Website
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
+            {
+                <tr class="rowHighlight">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Username)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td>
+                       @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td>
+                       @Html.DisplayFor(modelItem => item.Website)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "../Entry/Edit", new { id=item.ProjectId }) |
+                        @Html.ActionLink("Details", "../Entry/Details", new { id=item.ProjectId }) |
+                        @Html.ActionLink("Delete", "../Entry/Delete", new { id=item.ProjectId })
+                    </td>
+                    </tr>
+            }
+        </table>
     }
+
+
