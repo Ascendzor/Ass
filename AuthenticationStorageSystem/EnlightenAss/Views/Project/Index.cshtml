@@ -27,7 +27,8 @@
 
             <table>
                 <tr class="tableHeader">
-                    <th>Project Name
+                    <th>
+                        Project Name
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.DateAdded)
@@ -43,9 +44,6 @@
                     <tr>
                         <td>
                             @Html.ActionLink(item.Name, "../Entry/Index", new { id = item.ProjectId })
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Client.Name)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.DateAdded)

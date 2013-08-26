@@ -26,7 +26,7 @@
             <h3>@Html.ActionLink("Clients", "../Client/Index")/@Html.ActionLink((string)ViewBag.ClientName, "../Project/Index", new { id = ViewBag.ClientIdNum })/<u>@ViewBag.ProjectName</u></h3>
 
             <table>
-                <tr>
+                <tr class="tableHeader">
                     <th>
                         @Html.DisplayNameFor(model => model.Username)
                     </th>
