@@ -18,21 +18,12 @@
             <img src="/Content/enlighten-logo.png"></div>
         <div class="titleDiv">Create Entry</div>
         <div class="contentDiv">
-
             @using (Html.BeginForm())
             {
                 @Html.ValidationSummary(true)
 
                 <fieldset>
                     <legend>Entry</legend>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.ProjectId, "Project")
-                    </div>
-                    <div class="editor-field">
-                        @Html.DropDownList("ProjectId")
-                        @Html.ValidationMessageFor(model => model.ProjectId)
-                    </div>
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Username)
@@ -64,14 +55,6 @@
                     <div class="editor-field">
                         @Html.EditorFor(model => model.Notes)
                         @Html.ValidationMessageFor(model => model.Notes)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.isArchived)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.isArchived)
-                        @Html.ValidationMessageFor(model => model.isArchived)
                     </div>
 
                     <p>

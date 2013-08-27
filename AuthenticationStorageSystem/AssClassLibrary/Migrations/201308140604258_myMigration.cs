@@ -7,6 +7,7 @@ namespace AssClassLibrary.Migrations
     {
         public override void Up()
         {
+            
             CreateTable(
                 "dbo.Clients",
                 c => new
@@ -15,6 +16,9 @@ namespace AssClassLibrary.Migrations
                         Name = c.String(nullable: false),
                         DateAdded = c.DateTime(nullable: false),
                         isArchived = c.Boolean(nullable: false),
+                        Notes = c.String(nullable: false),
+                        LastModified = c.DateTime(nullable: false),
+                        LastModifiedBy = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.ClientId);
             

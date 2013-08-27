@@ -61,6 +61,7 @@ namespace EnlightenAss.Controllers
         {
             if (ModelState.IsValid)
             {
+                entry.ProjectId = ViewBag.ProjectIdNum;
                 db.Entries.Add(entry);
                 db.SaveChanges();
                 return RedirectToAction("Index", new { id = entry.ProjectId });

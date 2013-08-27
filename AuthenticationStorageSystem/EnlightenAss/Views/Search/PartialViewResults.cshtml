@@ -13,6 +13,7 @@
         @foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
         {
             <tr class="rowHighlight">
+                <td>client id: @item.Notes</td>
                 <td>
                     @Html.ActionLink(item.Name, "../Project/Index", new { id = item.ClientId })
                 </td>

@@ -58,6 +58,10 @@ namespace EnlightenAss.Controllers
         {
             if (ModelState.IsValid)
             {
+                project.DateAdded = DateTime.Now;
+                project.isArchived = false;
+                project.LastModified = DateTime.Now;
+                project.LastModifiedBy = "X";
                 db.Projects.Add(project);
                 db.SaveChanges();
                 return RedirectToAction("Index", new { id = project.ClientId });
@@ -89,7 +93,11 @@ namespace EnlightenAss.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(project).State = EntityState.Modified;
+                Project currentProject = db.Projects.Find(project.ProjectId);
+                currentProject.Name = project.Name;
+                currentProject.Notes = project.Notes;
+                currentProject.LastModified = DateTime.Now;
+                db.Entry(currentProject).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", new { id = project.ClientId });
             }

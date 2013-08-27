@@ -24,33 +24,30 @@
             <h3>Clients</h3>
             <table>
                 <tr class="tableHeader">
-                    <th>Client Name
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DateAdded)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.isArchived)
-                    </th>
+                    <th>id</th>
+                    <th>Client Name</th>
+                    <th>Date Added</th>
+                    <th>isArchived</th>
+                    <th>Notes</th>
+                    <th>LastModified</th>
+                    <th>LastModifiedBy</th>
                     <th></th>
                 </tr>
 
                 @foreach (var item in Model)
                 {
                     <tr class="rowHighlight">
-                        <td>
-                            @Html.ActionLink(item.Name, "../Project/Index", new { id = item.ClientId })
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DateAdded)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.isArchived)
-                        </td>
+                        <td>@Html.DisplayFor(modelIem => item.ClientId)</td>
+                        <td>@Html.ActionLink(item.Name, "../Project/Index", new { id = item.ClientId })</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateAdded)</td>
+                        <td>@Html.DisplayFor(modelItem => item.isArchived)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LastModified)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LastModifiedBy)</td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }) |
-              @Html.ActionLink("Details", "Details", new { id = item.ClientId }) |
-              @Html.ActionLink("Delete", "Delete", new { id = item.ClientId })
+                            @Html.ActionLink("Details", "Details", new { id = item.ClientId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ClientId })
                         </td>
                     </tr>
                 }

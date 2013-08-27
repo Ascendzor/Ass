@@ -14,6 +14,9 @@ namespace AssClassLibrary
         public String Name { get; set; }
         public DateTime DateAdded { get; set; }
         public bool isArchived { get; set; }
+        public String Notes { get; set; }
+        public DateTime LastModified { get; set; }
+        public String LastModifiedBy { get; set; }
 
         public virtual ICollection<Project> Projects { get; set; }
     }
@@ -26,6 +29,9 @@ namespace AssClassLibrary
         public int ClientId { get; set; }
         public DateTime DateAdded { get; set; }
         public bool isArchived { get; set; }
+        public String Notes { get; set; }
+        public DateTime LastModified { get; set; }
+        public String LastModifiedBy { get; set; }
 
         public virtual Client Client { get; set; }
 
@@ -42,6 +48,8 @@ namespace AssClassLibrary
         public String Website { get; set; }
         public String Notes { get; set; }
         public bool isArchived { get; set; }
+        public DateTime LastModified { get; set; }
+        public String LastModifiedBy { get; set; }
 
         public virtual Project Project { get; set; }
     }

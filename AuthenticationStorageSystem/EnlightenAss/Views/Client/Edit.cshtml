@@ -1,4 +1,4 @@
-﻿@model AssClassLibrary.Client
+﻿p[@model AssClassLibrary.Client
 
 @{
     ViewBag.Title = "Edit";
@@ -27,6 +27,7 @@
                     <legend>Client</legend>
 
                     @Html.HiddenFor(model => model.ClientId)
+                    @Html.DisplayFor(model => model.ClientId)
 
                     <div class="editor-label">
                         <!--@Html.LabelFor(model => model.Name)-->
@@ -38,19 +39,11 @@
                     </div>
 
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.DateAdded)
+                        Notes
                     </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.DateAdded)
-                        @Html.ValidationMessageFor(model => model.DateAdded)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.isArchived)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.isArchived)
-                        @Html.ValidationMessageFor(model => model.isArchived)
+                        @Html.EditorFor(model => model.Notes)
+                        @Html.ValidationMessageFor(model => model.Notes)
                     </div>
 
                     <p>

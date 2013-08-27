@@ -22,9 +22,9 @@
             @using (Html.BeginForm())
             {
                 @Html.ValidationSummary(true)
-
                 <fieldset>
                     <legend>Project</legend>
+                    @Html.HiddenFor(model => model.ClientId)
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Name)
@@ -35,27 +35,11 @@
                     </div>
 
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.ClientId, "Client")
+                        @Html.LabelFor(model => model.Notes)
                     </div>
                     <div class="editor-field">
-                        @Html.DropDownList("ClientId")
-                        @Html.ValidationMessageFor(model => model.ClientId)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.DateAdded)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.DateAdded)
-                        @Html.ValidationMessageFor(model => model.DateAdded)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.isArchived)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.isArchived)
-                        @Html.ValidationMessageFor(model => model.isArchived)
+                        @Html.EditorFor(model => model.Notes)
+                        @Html.ValidationMessageFor(model => model.Notes)
                     </div>
 
                     <p>

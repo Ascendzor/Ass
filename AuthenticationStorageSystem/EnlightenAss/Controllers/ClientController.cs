@@ -19,7 +19,6 @@ namespace EnlightenAss.Controllers
 
         public ActionResult Index(int id = 0)
         {
-             
             return View(db.Clients.ToList());
         }
 
@@ -52,6 +51,10 @@ namespace EnlightenAss.Controllers
         {
             if (ModelState.IsValid)
             {
+                client.isArchived = false;
+                client.DateAdded = DateTime.Now;
+                client.LastModified = DateTime.Now;
+                client.LastModifiedBy = "X";
                 db.Clients.Add(client);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -81,7 +84,11 @@ namespace EnlightenAss.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(client).State = EntityState.Modified;
+                Client currentClient = db.Clients.Find(client.ClientId);
+                currentClient.Name = client.Name;
+                currentClient.Notes = client.Notes;
+                currentClient.LastModified = DateTime.Now;
+                db.Entry(currentClient).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -34,21 +34,12 @@
                         @Html.EditorFor(model => model.Name)
                         @Html.ValidationMessageFor(model => model.Name)
                     </div>
-
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.DateAdded)
+                        @Html.LabelFor(model => model.Notes)
                     </div>
                     <div class="editor-field">
-                        @Html.EditorFor(model => model.DateAdded)
-                        @Html.ValidationMessageFor(model => model.DateAdded)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.isArchived)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.isArchived)
-                        @Html.ValidationMessageFor(model => model.isArchived)
+                        @Html.EditorFor(model => model.Notes)
+                        @Html.ValidationMessageFor(model => model.Notes)
                     </div>
 
                     <p>
