@@ -40,26 +40,10 @@
                         @Html.LabelFor(model => model.ClientId, "Client")
                     </div>
                     <div class="editor-field">
-                        @Html.DropDownList("ClientId", String.Empty)
+                        @Html.DropDownList("ClientId")
                         @Html.ValidationMessageFor(model => model.ClientId)
                     </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.DateAdded)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.DateAdded)
-                        @Html.ValidationMessageFor(model => model.DateAdded)
-                    </div>
-
-                    <div class="editor-label">
-                        @Html.LabelFor(model => model.isArchived)
-                    </div>
-                    <div class="editor-field">
-                        @Html.EditorFor(model => model.isArchived)
-                        @Html.ValidationMessageFor(model => model.isArchived)
-                    </div>
-
+                    
                     <p>
                         <input type="submit" value="Save" />
                     </p>

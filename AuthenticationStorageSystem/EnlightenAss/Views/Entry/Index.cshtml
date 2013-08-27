@@ -39,9 +39,6 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Notes)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.isArchived)
-                    </th>
                     <th></th>
                 </tr>
 
@@ -59,9 +56,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Notes)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.isArchived)
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.EntryId }) |

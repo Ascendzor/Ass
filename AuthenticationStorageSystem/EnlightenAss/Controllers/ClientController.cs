@@ -43,9 +43,9 @@ namespace EnlightenAss.Controllers
             return View();
         }
 
-        //
-        // POST: /Client/Create
-
+        /**
+         * Some fields cannot be set by the user, therefore they are set statically 
+         **/
         [HttpPost]
         public ActionResult Create(Client client)
         {
@@ -76,9 +76,9 @@ namespace EnlightenAss.Controllers
             return View(client);
         }
 
-        //
-        // POST: /Client/Edit/5
-
+        /**
+         * Some fields cannot be edited by the user, therefore they are changed statically 
+         **/
         [HttpPost]
         public ActionResult Edit(Client client)
         {

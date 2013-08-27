@@ -16,7 +16,8 @@
 <body>
     <div class="containerDiv">
         <div class="headerDiv">
-            <img src="/Content/enlighten-logo.png"></div>
+            <img src="/Content/enlighten-logo.png">
+        </div>
         <div class="titleDiv">Create new Project</div>
         <div class="contentDiv">
             @using (Html.BeginForm())
@@ -24,16 +25,26 @@
                 @Html.ValidationSummary(true)
                 <fieldset>
                     <legend>Project</legend>
-                    @Html.HiddenFor(model => model.ClientId)
 
+                    <!-- Client name (default value = current client) -->
+                     <div class="editor-label">
+                        @Html.LabelFor(model => model.ClientId, "Client")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("ClientId")
+                        @Html.ValidationMessageFor(model => model.ClientId)
+                    </div>
+
+                    <!-- Propject name -->
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.Name)
+                        Project @Html.LabelFor(model => model.Name)
                     </div>
                     <div class="editor-field">
                         @Html.EditorFor(model => model.Name)
                         @Html.ValidationMessageFor(model => model.Name)
                     </div>
 
+                    <!-- Notes for project -->
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Notes)
                     </div>

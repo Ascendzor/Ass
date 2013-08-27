@@ -43,16 +43,17 @@ namespace EnlightenAss.Controllers
 
         //
         // GET: /Project/Create
-        //Set ViewBag.ClientId to force the Project being created to be under the current Client 
         public ActionResult Create(int id = 0)
         {
-            ViewBag.ClientId = new SelectList(db.Clients.Where(i => i.ClientId == id), "ClientId", "Name");
+            //Drop down list for client name
+            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", id /*sets default value*/);
+                                               
             return View();
         }
 
-        //
-        // POST: /Project/Create
-
+        /**
+         * Some fields cannot be set by the user, therefore they are set statically 
+         **/
         [HttpPost]
         public ActionResult Create(Project project)
         {
@@ -85,9 +86,9 @@ namespace EnlightenAss.Controllers
             return View(project);
         }
 
-        //
-        // POST: /Project/Edit/5
-
+        /**
+         * Some fields cannot be edited by the user, therefore they are changed statically 
+         **/
         [HttpPost]
         public ActionResult Edit(Project project)
         {

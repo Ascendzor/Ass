@@ -24,11 +24,9 @@
             <h3>Clients</h3>
             <table>
                 <tr class="tableHeader">
-                    <th>id</th>
                     <th>Client Name</th>
-                    <th>Date Added</th>
-                    <th>isArchived</th>
                     <th>Notes</th>
+                    <th>Date Added</th>
                     <th>LastModified</th>
                     <th>LastModifiedBy</th>
                     <th></th>
@@ -37,11 +35,9 @@
                 @foreach (var item in Model)
                 {
                     <tr class="rowHighlight">
-                        <td>@Html.DisplayFor(modelIem => item.ClientId)</td>
                         <td>@Html.ActionLink(item.Name, "../Project/Index", new { id = item.ClientId })</td>
-                        <td>@Html.DisplayFor(modelItem => item.DateAdded)</td>
-                        <td>@Html.DisplayFor(modelItem => item.isArchived)</td>
                         <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateAdded)</td>
                         <td>@Html.DisplayFor(modelItem => item.LastModified)</td>
                         <td>@Html.DisplayFor(modelItem => item.LastModifiedBy)</td>
                         <td>

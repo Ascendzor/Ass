@@ -44,29 +44,32 @@ namespace EnlightenAss.Controllers
             return View(entry);
         }
 
-        //
-        // GET: /Entry/Create
-        //Set ViewBag.ProjectId to force the Entry being created to under the current project 
+
         public ActionResult Create(int id = 0)
         {
-            ViewBag.ProjectId = new SelectList(db.Projects.Where(i => i.ProjectId == id), "ProjectId", "Name");
+            //Drop down list for project names
+            ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", id);
             return View();
         }
 
-        //
-        // POST: /Entry/Create
-
+        /**
+         * Some fields cannot be set by the user, therefore they are set statically 
+         **/
         [HttpPost]
         public ActionResult Create(Entry entry)
         {
             if (ModelState.IsValid)
             {
-                entry.ProjectId = ViewBag.ProjectIdNum;
                 db.Entries.Add(entry);
+                //entry.DateAdded = DateTime.Now;
+                entry.isArchived = false;
+                entry.LastModified = DateTime.Now;
+                entry.LastModifiedBy = "X";
                 db.SaveChanges();
                 return RedirectToAction("Index", new { id = entry.ProjectId });
             }
 
+            //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
             return View(entry);
         }
@@ -81,22 +84,27 @@ namespace EnlightenAss.Controllers
             {
                 return HttpNotFound();
             }
+            //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
             return View(entry);
         }
 
-        //
-        // POST: /Entry/Edit/5
-
+        /**
+         * Some fields cannot be edited by the user, therefore they are changed statically 
+         **/
         [HttpPost]
         public ActionResult Edit(Entry entry)
         {
             if (ModelState.IsValid)
             {
+                entry.isArchived = false;
+                entry.LastModified = DateTime.Now;
+                entry.LastModifiedBy = "anon";
                 db.Entry(entry).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index", new { id = entry.ProjectId });
             }
+            //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
             return View(entry);
         }

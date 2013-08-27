@@ -26,12 +26,9 @@
 
             <table>
                 <tr class="tableHeader">
-                    <th>id</th>
-                    <th>Name</th>
-                    <th>ClientId</th>
-                    <th>DateAdded</th>
-                    <th>isArchived</th>
+                    <th>Project Name</th>
                     <th>Notes</th>
+                    <th>DateAdded</th>
                     <th>LastModified</th>
                     <th>LastModifiedBy</th>
                     <th></th>
@@ -41,10 +38,8 @@
                 {
                     <tr>
                         <td>@Html.ActionLink(item.Name, "../Entry/Index", new { id = item.ProjectId })</td>
-                        <td>@Html.DisplayFor(modelItem => item.ClientId)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DateAdded)</td>
-                        <td>@Html.DisplayFor(modelItem => item.isArchived)</td>
                         <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DateAdded)</td>
                         <td>@Html.DisplayFor(modelItem => item.LastModified)</td>
                         <td>@Html.DisplayFor(modelItem => item.LastModifiedBy)</td>
                         <td>

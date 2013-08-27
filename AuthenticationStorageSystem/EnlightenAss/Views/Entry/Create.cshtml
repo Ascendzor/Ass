@@ -26,6 +26,14 @@
                     <legend>Entry</legend>
 
                     <div class="editor-label">
+                        @Html.LabelFor(model => model.ProjectId, "Project")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("ProjectId")
+                        @Html.ValidationMessageFor(model => model.ProjectId)
+                    </div>
+
+                    <div class="editor-label">
                         @Html.LabelFor(model => model.Username)
                     </div>
                     <div class="editor-field">
