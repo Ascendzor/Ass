@@ -1,4 +1,4 @@
-﻿p[@model AssClassLibrary.Client
+﻿@model AssClassLibrary.Client
 
 @{
     ViewBag.Title = "Edit";
@@ -10,13 +10,17 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="/Scripts/buttonMethods.js"></script>
 </head>
 <body>
     <div class="containerDiv">
         <div class="headerDiv">
             <img src="/Content/enlighten-logo.png"></div>
-        <div class="titleDiv">Edit Client</div>
+        <div class="menuDiv">
+            <div class="menuItemDiv">@Html.ActionLink("Search", "../Search")</div>
+            <div class="menuItemDiv">@Html.ActionLink("Navigate", "../Client")</div>
+        </div>
         <div class="contentDiv">
 
             @using (Html.BeginForm())
@@ -27,7 +31,6 @@
                     <legend>Client</legend>
 
                     @Html.HiddenFor(model => model.ClientId)
-                    @Html.DisplayFor(model => model.ClientId)
 
                     <div class="editor-label">
                         <!--@Html.LabelFor(model => model.Name)-->

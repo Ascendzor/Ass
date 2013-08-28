@@ -1,54 +1,55 @@
-﻿<h1>Clients</h1>
+﻿<link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+<h3>Clients</h3>
 
 @if (ViewData["clientResults"] != null)
 { 
-    <table>
-        <tr class="tableHeader">
-            <th>Client Name
+    <table class="table table-bordered">
+        <tr>
+            <th class="table-bordered th">Client Name
             </th>
-            <th>Date Added
+            <th class="table-bordered th">Notes
             </th>
-            <th></th>
+            <th class="table-bordered th"></th>
         </tr>
         @foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
         {
-            <tr class="rowHighlight">
+            <tr>
                 <td>
                     @Html.ActionLink(item.Name, "../Project/Index", new { id = item.ClientId })
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DateAdded)
+                    @Html.DisplayFor(modelItem => item.Notes)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "../Client/Edit", new { id = item.ClientId }) |
-                        @Html.ActionLink("Details", "../Client/Details", new { id = item.ClientId }) |
-                        @Html.ActionLink("Delete", "../Client/Delete", new { id = item.ClientId })
+                    @Html.ActionLink("Details", "../Client/Details", new { id = item.ClientId }) |
+                    @Html.ActionLink("Delete", "../Client/Delete", new { id = item.ClientId })
                 </td>
             </tr>
         }
     </table>
 }
 
-<h1>Projects</h1>
+<h3>Projects</h3>
 
 @if (ViewData["projectResults"] != null)
 { 
-    <table>
-        <tr class="tableHeader">
-            <th>Project Name
+    <table class="table table-bordered">
+        <tr>
+            <th class="table-bordered th">Project Name
             </th>
-            <th>Date Added
+            <th class="table-bordered th">Notes
             </th>
-            <th></th>
+            <th class="table-bordered th"></th>
         </tr>
         @foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
         {
-            <tr class="rowHighlight">
+            <tr>
                 <td>
                     @Html.ActionLink(item.Name, "../Entry/Index", new { id = item.ProjectId })
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DateAdded)
+                    @Html.DisplayFor(modelItem => item.Notes)
                 </td>
                 <td>
                     @Html.ActionLink("Edit", "../Project/Edit", new { id = item.ProjectId }) |
@@ -60,25 +61,25 @@
     </table>
 }
 
-<h1>Entries</h1>
+<h3>Entries</h3>
 
 @if (ViewData["entryResults"] != null)
 { 
-    <table>
-        <tr class="tableHeader">
-            <th>Username
+    <table class="table table-bordered">
+        <tr>
+            <th class="table-bordered th">Username
             </th>
-            <th>Password
+            <th class="table-bordered th">Password
             </th>
-            <th>Notes
+            <th class="table-bordered th">Notes
             </th>
-            <th>Website
+            <th class="table-bordered th">Website
             </th>
-            <th></th>
+            <th class="table-bordered th"></th>
         </tr>
         @foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
         {
-            <tr class="rowHighlight">
+            <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Username)
                 </td>

@@ -10,6 +10,7 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="/Scripts/buttonMethods.js"></script>
 </head>
 <body>
@@ -17,30 +18,30 @@
         <div class="headerDiv">
             <img src="/Content/enlighten-logo.png">
         </div>
-        <div class="titleDiv">Entries</div>
+        
+        <div class="menuDiv">
+            <div class="menuItemDiv">@Html.ActionLink("Search", "../Search")</div>
+            <div class="menuItemDiv">@Html.ActionLink("Navigate", "../Client")</div>
+        </div>
+
         <div class="contentDiv">
-
-
+            
+            <legend>@Html.ActionLink("Clients", "../Client/Index")/@Html.ActionLink((string)ViewBag.ClientName, "../Project/Index", new { id = ViewBag.ClientIdNum })/<u>@ViewBag.ProjectName</u></legend>
             @Html.ActionLink("Create New", "Create", new { id = ViewBag.ProjectIdNum })
-
-            <h3>@Html.ActionLink("Clients", "../Client/Index")/@Html.ActionLink((string)ViewBag.ClientName, "../Project/Index", new { id = ViewBag.ClientIdNum })/<u>@ViewBag.ProjectName</u></h3>
-
-            <table>
-                <tr class="tableHeader">
-                    <th>
+            <table class="table table-bordered">
+                <tr>
+                    <th class="table-bordered th">
                         @Html.DisplayNameFor(model => model.Username)
                     </th>
-                    <th>
+                    <th class="table-bordered th">
                         @Html.DisplayNameFor(model => model.Password)
                     </th>
-                    <th>
+                    <th class="table-bordered th">
                         @Html.DisplayNameFor(model => model.Website)
                     </th>
-                    <th>
+                    <th class="table-bordered th">
                         @Html.DisplayNameFor(model => model.Notes)
                     </th>
-                    <th></th>
-                    <th></th>
                 </tr>
 
                 @foreach (var item in Model)
@@ -57,9 +58,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Notes)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LastModified)
                         </td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.EntryId }) |

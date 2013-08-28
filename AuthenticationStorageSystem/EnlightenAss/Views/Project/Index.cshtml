@@ -10,6 +10,7 @@
     <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript" src="/Scripts/buttonMethods.js"></script>
 </head>
 <body>
@@ -17,21 +18,24 @@
         <div class="headerDiv">
             <img src="/Content/enlighten-logo.png">
         </div>
-        <div class="titleDiv">Projects</div>
+        
+        <div class="menuDiv">
+            <div class="menuItemDiv">@Html.ActionLink("Search", "../Search")</div>
+            <div class="menuItemDiv">@Html.ActionLink("Navigate", "../Client")</div>
+        </div>
+
         <div class="contentDiv">
-            @Html.ActionLink("Create New", "Create", new { id = ViewBag.ClientId })
 
             <!--<h3>Client: @ViewBag.ClientName</h3> -->
-            <h3>@Html.ActionLink("Clients", "../Client/Index")/<u>@ViewBag.ClientName</u></h3>
+            <legend>@Html.ActionLink("Clients", "../Client/Index")/<u>@ViewBag.ClientName</u></legend>
+            
+            @Html.ActionLink("Create New", "Create", new { id = ViewBag.ClientId })
 
-            <table>
-                <tr class="tableHeader">
-                    <th>Project Name</th>
-                    <th>Notes</th>
-                    <th>DateAdded</th>
-                    <th>LastModified</th>
-                    <th>LastModifiedBy</th>
-                    <th></th>
+            <table class="table table-bordered">
+                <tr>
+                    <th class="table-bordered th">Project Name</th>
+                    <th class="table-bordered th">Notes</th>
+                    <th class="table-bordered th"></th>
                 </tr>
 
                 @foreach (var item in Model)
@@ -39,9 +43,6 @@
                     <tr>
                         <td>@Html.ActionLink(item.Name, "../Entry/Index", new { id = item.ProjectId })</td>
                         <td>@Html.DisplayFor(modelItem => item.Notes)</td>
-                        <td>@Html.DisplayFor(modelItem => item.DateAdded)</td>
-                        <td>@Html.DisplayFor(modelItem => item.LastModified)</td>
-                        <td>@Html.DisplayFor(modelItem => item.LastModifiedBy)</td>
                         <td>
                             @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }) |
                             @Html.ActionLink("Details", "Details", new { id = item.ProjectId }) |
