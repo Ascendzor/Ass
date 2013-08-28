@@ -27,6 +27,14 @@
                     <legend>Project</legend>
 
                     @Html.HiddenFor(model => model.ProjectId)
+                    
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.ClientId, "Client")
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownList("ClientId")
+                        @Html.ValidationMessageFor(model => model.ClientId)
+                    </div>
 
                     <div class="editor-label">
                         @Html.LabelFor(model => model.Name)
@@ -37,13 +45,13 @@
                     </div>
 
                     <div class="editor-label">
-                        @Html.LabelFor(model => model.ClientId, "Client")
+                        @Html.LabelFor(model => model.Notes)
                     </div>
                     <div class="editor-field">
-                        @Html.DropDownList("ClientId")
-                        @Html.ValidationMessageFor(model => model.ClientId)
+                        @Html.EditorFor(model => model.Notes)
+                        @Html.ValidationMessageFor(model => model.Notes)
                     </div>
-                    
+
                     <p>
                         <input type="submit" value="Save" />
                     </p>

@@ -47,6 +47,7 @@ namespace AssClassLibrary
         public String Password { get; set; }
         public String Website { get; set; }
         public String Notes { get; set; }
+        public DateTime DateAdded { get; set; }
         public bool isArchived { get; set; }
         public DateTime LastModified { get; set; }
         public String LastModifiedBy { get; set; }
