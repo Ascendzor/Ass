@@ -1,35 +1,47 @@
-﻿<h3>Clients</h3>
+﻿
 <table class="table table-bordered">
     <tr>
         <th class="table-bordered th">Client Name</th>
+        <th class="table-bordered th">Notes</th>
     </tr>
     @foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
     {
         <tr>
+            <td onclick="requestItem('@item.ClientId', '/Project/Index')">
+                @item.Name
+            </td>
             <td>
-                @Html.ActionLink(item.Name, "", new { id = item.ClientId })
+                @item.Notes
             </td>
         </tr>
     }
     <tr>
         <th class="table-bordered th">Project Name</th>
+        <th class="table-bordered th">Notes</th>
     </tr>
     @foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
     {
         <tr>
+            <td onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+                @item.Name
+            </td>
             <td>
-                @Html.ActionLink(item.Name, "", new { id = item.ClientId })
+                @item.Notes
             </td>
         </tr>
     }
     <tr>
         <th class="table-bordered th">Entry Name</th>
+        <th class="table-bordered th">Notes</th>
     </tr>
     @foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
     {
         <tr>
             <td>
                 @Html.ActionLink(item.Username, "", new { id = item.ProjectId })
+            </td>
+            <td>
+                @item.Notes
             </td>
         </tr>
     }

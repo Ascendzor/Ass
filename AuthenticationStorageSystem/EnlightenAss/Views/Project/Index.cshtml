@@ -1,60 +1,30 @@
 ﻿@model IEnumerable<AssClassLibrary.Project>
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <script type="text/javascript" src="/Scripts/buttonMethods.js"></script>
-</head>
-<body>
-    <div class="containerDiv">
-        <div class="headerDiv">
-            <img src="/Content/enlighten-logo.png">
-        </div>
-        
-        <div class="menuDiv">
-            <div class="menuItemDiv">@Html.ActionLink("Search", "../Search")</div>
-            <div class="menuItemDiv">@Html.ActionLink("Navigate", "../Client")</div>
-        </div>
+<legend><a onclick="requestItem('0', '/Client/Index')">Clients</a>/<u>@ViewBag.ClientName</u></legend>
 
-        <div class="contentDiv">
+<a onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">Create New</a>
 
-            <!--<h3>Client: @ViewBag.ClientName</h3> -->
-            <legend>@Html.ActionLink("Clients", "../Client/Index")/<u>@ViewBag.ClientName</u></legend>
-            
-            @Html.ActionLink("Create New", "Create", new { id = ViewBag.ClientId })
+<table class="table table-bordered">
+    <tr>
+        <th class="table-bordered th">Project Name</th>
+        <th class="table-bordered th">Notes</th>
+        <th class="table-bordered th"></th>
+    </tr>
 
-            <table class="table table-bordered">
-                <tr>
-                    <th class="table-bordered th">Project Name</th>
-                    <th class="table-bordered th">Notes</th>
-                    <th class="table-bordered th"></th>
-                </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+                @item.Name
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProjectId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId })
+            </td>
+        </tr>
+    }
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Html.ActionLink(item.Name, "../Entry/Index", new { id = item.ProjectId })</td>
-                        <td>@Html.DisplayFor(modelItem => item.Notes)</td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ProjectId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ProjectId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ProjectId })
-                        </td>
-                    </tr>
-                }
-
-            </table>
-        </div>
-        <div class="footerDiv">Authentication Storage System, Enlighten Designs 2013</div>
-    </div>
-</body>
-</html>
-
+</table>

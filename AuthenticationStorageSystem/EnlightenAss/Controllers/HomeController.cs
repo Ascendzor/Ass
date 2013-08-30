@@ -13,7 +13,6 @@ namespace EnlightenAss.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "LELELELE";
             return View();
         }
 

@@ -1,54 +1,26 @@
 ﻿@model IEnumerable<AssClassLibrary.Client>
 
-@{
-    ViewBag.Title = "Clients";
-}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <script type="text/javascript" src="/Scripts/buttonMethods.js"></script>
-</head>
-<body>
-    <div class="containerDiv">
-        <div class="headerDiv">
-            <img src="/Content/enlighten-logo.png">
-        </div>
+<h4>Clients</h4>
+@Html.ActionLink("Create New", "Create")
+<table class="table table-bordered">
+    <tr>
+        <th class="table-bordered th">Client Name</th>
+        <th class="table-bordered th">Notes</th>
+        <th class="table-bordered th"></th>
+    </tr>
 
-        <div class="menuDiv">
-            <div class="menuItemDiv">@Html.ActionLink("Search", "../Search")</div>
-            <div class="menuItemDiv">@Html.ActionLink("Navigate", "")</div>
-        </div>
-
-        <div class="contentDiv">
-            
-            <legend>Clients</legend>
-            @Html.ActionLink("Create New", "Create")
-            <table class="table table-bordered">
-                <tr>
-                    <th class="table-bordered th">Client Name</th>
-                    <th class="table-bordered th">Notes</th>
-                    <th class="table-bordered th"></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
-                    <tr class="rowHighlight">
-                        <td>@Html.ActionLink(item.Name, "../Project/Index", new { id = item.ClientId })</td>
-                        <td>@Html.DisplayFor(modelItem => item.Notes)</td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ClientId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ClientId })
-                        </td>
-                    </tr>
-                }
-            </table>
-        </div>
-        <div class="footerDiv">Authentication Storage System, Enlighten Designs 2013</div>
-    </div>
-</body>
-</html>
+    @foreach (var item in Model)
+    {
+        <tr class="rowHighlight">
+            <td onclick="requestItem('@item.ClientId', '/Project/Index')">
+                @item.Name
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ClientId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ClientId })
+            </td>
+        </tr>
+    }
+</table>
