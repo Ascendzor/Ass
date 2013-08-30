@@ -11,7 +11,7 @@
             @Html.LabelFor(model => model.ClientId, "Client")
         </div>
         <div class="editor-field">
-            @Html.DropDownList("ClientId")
+            @Html.DropDownList("ClientList")
             @Html.ValidationMessageFor(model => model.ClientId)
         </div>
 
@@ -39,4 +39,5 @@
     </fieldset>
 }
 
-<div id="backLink" class="contentButton" onclick="goBack()"><u>Back to List</u></div>
+<div id="backLink" class="contentButton" onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')"><u>Back to List</u></div>
+

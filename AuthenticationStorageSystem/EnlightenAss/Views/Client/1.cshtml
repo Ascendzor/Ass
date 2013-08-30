@@ -1,0 +1,62 @@
+﻿@model AssClassLibrary.Client
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/buttonMethods.js"></script>
+</head>
+<body>
+    <div class="containerDiv">
+        <div class="headerDiv">
+            <img src="/Content/enlighten-logo.png"></div>
+        <div class="titleDiv">Create new Client</div>
+        <div class="contentDiv">
+
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <legend>Client</legend>
+
+                    <div class="editor-label">
+                        <!--@Html.LabelFor(model => model.Name)-->
+                        Client Name
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Name)
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.Notes)
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.Notes)
+                        @Html.ValidationMessageFor(model => model.Notes)
+                    </div>
+
+                    <p>
+                        <input type="submit" value="Create" />
+                    </p>
+                </fieldset>
+            }
+
+            <div id="backLink" class="contentButton" onclick="goBack()"><u>Back to List</u></div>
+
+        </div>
+        <div class="footerDiv">Authentication Storage System, Enlighten Designs 2013</div>
+    </div>
+</body>
+</html>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -2,7 +2,8 @@
 
 
 <legend><a onclick="requestItem('0', '/Client/Index')">Clients</a>/<a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u></legend>
-@Html.ActionLink("Create New", "Create", new { id = ViewBag.ProjectIdNum })
+
+<a onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Create New</a>
 <table class="table table-bordered">
     <tr>
         <th class="table-bordered th">

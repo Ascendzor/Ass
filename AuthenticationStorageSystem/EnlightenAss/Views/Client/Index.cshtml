@@ -1,7 +1,8 @@
 ﻿@model IEnumerable<AssClassLibrary.Client>
 
 <h4>Clients</h4>
-@Html.ActionLink("Create New", "Create")
+<a onclick="requestItem('0', '/Client/Create')">Create New</a>
+
 <table class="table table-bordered">
     <tr>
         <th class="table-bordered th">Client Name</th>

@@ -48,7 +48,10 @@ namespace EnlightenAss.Controllers
         public ActionResult Create(int id = 0)
         {
             //Drop down list for project names
-            ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", id);
+            ViewBag.ProjectList = new SelectList(db.Projects, "ProjectId", "Name", id);
+            //Id to return to
+            ViewBag.ProjectIdNum = id;
+
             return View();
         }
 
