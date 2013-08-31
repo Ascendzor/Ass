@@ -11,4 +11,26 @@
             </td>
         </tr>
     }
+    <tr>
+        <th class="table-bordered th">Project Name</th>
+    </tr>
+    @foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "", new { id = item.ClientId })
+            </td>
+        </tr>
+    }
+    <tr>
+        <th class="table-bordered th">Entry Name</th>
+    </tr>
+    @foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Username, "", new { id = item.ProjectId })
+            </td>
+        </tr>
+    }
 </table>

@@ -17,23 +17,9 @@
                 <button id="myButton" onclick="search()" class="btn btn-small btn-primary" style="margin-bottom:10px">Go</button>
             </fieldset>
 
-            <script type="text/javascript">
-                function requestSearch() {
-                    $.ajax({
-                        url: '/Home/Search',
-                        data: { searchText: document.getElementById("searchText").value },
-                        dataType: 'html',
-                        success: function (data) {
-                            $('#partialSearchResults').html(data);
-                        }
-                    });
-                }
-            </script>
-
             <!-- Search results placed inside here -->
             <div id="partialSearchResults"></div>
         </div>
     </div>
 </body>
-    <script>initialize();</script>
 </html>

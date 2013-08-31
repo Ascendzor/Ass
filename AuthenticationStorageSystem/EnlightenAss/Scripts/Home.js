@@ -1,8 +1,4 @@
-﻿function initialize() {
-    search();
-}
-
-function search() {
+﻿function search() {
     $.ajax({
         url: '/Home/Search',
         data: { searchText: document.getElementById("searchText").value },
