@@ -47,7 +47,7 @@ namespace EnlightenAss.Controllers
         public ActionResult Create(int id = 0)
         {
             //Drop down list for project names
-            ViewBag.ProjectList = new SelectList(db.Projects, "ProjectId", "Name", id);
+            ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", id);
             //Id to return to
 
             ViewBag.ProjectIdNum = id;
@@ -69,7 +69,8 @@ namespace EnlightenAss.Controllers
                 entry.LastModifiedBy = "X";
                 db.Entries.Add(entry);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id = entry.ProjectId });
+                //return RedirectToAction("Index", new { id = entry.ProjectId });
+                return RedirectToAction("../Home");
             }
 
             //Drop down list for project names

@@ -99,7 +99,7 @@ namespace EnlightenAss.Controllers
         public ActionResult Create(int id = 0)
         {
             //Drop down list for client name
-            ViewBag.ClientList = new SelectList(db.Clients, "ClientId", "Name", id /*sets default value*/);
+            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", id /*sets default value*/);
             //Id to return to
             ViewBag.ClientIdNum = id;
 
