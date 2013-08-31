@@ -18,8 +18,12 @@ namespace EnlightenAss.Controllers
         //Returns entries where ProjectId = id
         public ActionResult Index(int id = 0)
         {
-            //Set viewbags values for the html to use (for html links and labels inside view)
             Project project = db.Projects.Find(id);
+
+            //if client with id cannot be found return view of all projects
+            if (project == null) return View(db.Entries.ToList());
+
+            //Set viewbags values for the html to use (for html links and labels inside view)
             ViewBag.ProjectIdNum = id;
             ViewBag.ClientIdNum = project.ClientId;
             ViewBag.ProjectName = project.Name;
@@ -29,6 +33,11 @@ namespace EnlightenAss.Controllers
             ViewBag.ClientName = client.Name;
 
             return View(db.Entries.Where(i => i.ProjectId == id));
+        }
+
+        public ActionResult IndexAll(int id = 0)
+        {
+            return View("Index", db.Entries.ToList());
         }
 
         //
@@ -50,6 +59,7 @@ namespace EnlightenAss.Controllers
             //Drop down list for project names
             ViewBag.ProjectList = new SelectList(db.Projects, "ProjectId", "Name", id);
             //Id to return to
+
             ViewBag.ProjectIdNum = id;
 
             return View();

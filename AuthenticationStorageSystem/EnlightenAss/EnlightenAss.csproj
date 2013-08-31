@@ -234,7 +234,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Client\Details.cshtml" />
-    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\1.cshtml" />
     <Content Include="Views\Client\Edit.cshtml" />
     <Content Include="Views\Client\Delete.cshtml" />
     <Content Include="Views\Project\Details.cshtml" />
@@ -252,6 +252,7 @@
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\Project\Create.cshtml" />
     <Content Include="Views\Entry\Create.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

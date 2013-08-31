@@ -1,7 +1,7 @@
 ﻿
 <table class="table table-bordered">
     <tr>
-        <th class="table-bordered th">Client Name</th>
+        <th class="table-bordered th" onclick="requestItem('0', '/Client/Index')">Client Name</th>
         <th class="table-bordered th">Notes</th>
     </tr>
     @foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
@@ -16,7 +16,7 @@
         </tr>
     }
     <tr>
-        <th class="table-bordered th">Project Name</th>
+        <th class="table-bordered th" onclick="requestItem('0', '/Project/IndexAll')">Project Name</th>
         <th class="table-bordered th">Notes</th>
     </tr>
     @foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
@@ -31,7 +31,7 @@
         </tr>
     }
     <tr>
-        <th class="table-bordered th">Entry Name</th>
+        <th class="table-bordered th" onclick="requestItem('0', '/Entry/IndexAll')">Entry Name</th>
         <th class="table-bordered th">Notes</th>
     </tr>
     @foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])

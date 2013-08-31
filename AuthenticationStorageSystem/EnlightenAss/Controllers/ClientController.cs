@@ -57,7 +57,7 @@ namespace EnlightenAss.Controllers
                 client.LastModifiedBy = "X";
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("../Home/Index");
             }
 
             return View(client);

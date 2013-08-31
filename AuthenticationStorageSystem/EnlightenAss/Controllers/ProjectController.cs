@@ -18,14 +18,23 @@ namespace EnlightenAss.Controllers
         //returns projects where ClientId = id
         public ActionResult Index(int id = 0)
         {
-            //Set Client name and Client id viewbags, for html links and labels inside view
             Client client = db.Clients.Find(id);
+
+            //if client with id cannot be found return view of all projects
+            if (client == null) return View(db.Projects.ToList());
+
+            //Set Client name and Client id viewbags, for html links and labels inside view
             ViewBag.ClientName = client.Name;
             ViewBag.ClientId = id;
 
-            //get and return list of projects with matching client id
-            var projects = db.Projects.Include(p => p.Client);
-            return View(projects.Where(i => i.ClientId == id));
+            //return list of projects with matching client id
+            //var projects = db.Projects.Include(p => p.Client);
+            return View(db.Projects.Where(i => i.ClientId == id));
+        }
+
+        public ActionResult IndexAll(int id = 0)
+        {
+            return View("Index", db.Projects.ToList());
         }
 
         //
