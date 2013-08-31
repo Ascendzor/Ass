@@ -14,6 +14,7 @@
     margin-top: 20px;
     width:1000px;
     background-color:#FFF;
+    min-height:950px;
 }
 
 .headerDiv{
@@ -21,13 +22,6 @@
     background-color:#FFF;
 }
 
-.titleDiv{
-    padding:20px;
-    padding-left:40px;
-    color:#FFF;
-    font-size: 24pt;
-    font-family:Cambria;
-}
 .subtitleDiv{
     font-size: 16pt;
     padding:25px;
@@ -64,15 +58,20 @@ background-color:#CEE3F6;
     /*background-color: #CEE3F6;*/
     background-color:#FFF;
     min-height:700px;
-    margin-left: 160px;
 }
 
+#searchText{
+    width:600px;
+}
+
+/*
 .footerDiv{
     padding: 30px;
     background-color: #22333e;
     color:#FFF;
     text-align: right;
 }
+    */
 
 body {
     font-size: .85em;

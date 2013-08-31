@@ -1,0 +1,14 @@
+﻿<h3>Clients</h3>
+<table class="table table-bordered">
+    <tr>
+        <th class="table-bordered th">Client Name</th>
+    </tr>
+    @foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.Name, "", new { id = item.ClientId })
+            </td>
+        </tr>
+    }
+</table>
