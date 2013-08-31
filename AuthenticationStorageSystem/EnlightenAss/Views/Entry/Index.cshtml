@@ -29,10 +29,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Notes)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.EntryId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.EntryId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.EntryId })
+            <td onclick="requestItem('@item.EntryId', '/Entry/Change')">
+                Change
             </td>
         </tr>
     }

@@ -16,9 +16,11 @@ namespace EnlightenAss.Controllers
             return View();
         }
 
-        //checks if a given string exists within each of the clients names.
-        //The given string and clients names are set to lowercase to make the contains() case-Insensitive
-        //returns a list of clients who contained the given string
+        /**
+         * Checks if a given string exists within each of the clients names.
+         * The given string and clients names are set to lowercase to make the contains() case-Insensitive
+         * returns a list of clients who contained the given string
+         */
         public ActionResult Search(string searchText)
         {
             searchText = searchText.ToLower();

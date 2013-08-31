@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<AssClassLibrary.Client>
 
-<h4>Clients</h4>
+<legend>Clients</legend>
 <a onclick="requestItem('0', '/Client/Create')">Create New</a>
 
 <table class="table table-bordered">
@@ -17,10 +17,8 @@
                 @item.Name
             </td>
             <td>@Html.DisplayFor(modelItem => item.Notes)</td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ClientId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ClientId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ClientId })
+            <td onclick="requestItem('@item.ClientId', '/Client/Change')">
+                Change
             </td>
         </tr>
     }

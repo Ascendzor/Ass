@@ -37,17 +37,61 @@ namespace EnlightenAss.Controllers
             return View("Index", db.Projects.ToList());
         }
 
-        //
-        // GET: /Project/Details/5
 
-        public ActionResult Details(int id = 0)
+        /**
+         * Edit Delete and details all in one view
+         */
+        public ActionResult Change(int id = 0)
         {
             Project project = db.Projects.Find(id);
             if (project == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
             return View(project);
+        }
+
+        /**
+         * Some fields cannot be edited by the user, therefore they are changed statically 
+         **/
+        [HttpPost]
+        public ActionResult Change(Project project, string submitButton)
+        {
+            switch (submitButton)
+            {
+                /* save the changes to the database */
+                case "Save Changes":
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            Project currentProject = db.Projects.Find(project.ProjectId);
+                            currentProject.Name = project.Name;
+                            currentProject.Notes = project.Notes;
+                            currentProject.LastModified = DateTime.Now;
+                            db.Entry(currentProject).State = EntityState.Modified;
+                            db.SaveChanges();
+                            //return RedirectToAction("Index", new { id = project.ClientId });
+                            return RedirectToAction("../Home");
+                        }
+                        ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
+                        return View(project);
+                    }
+                /* delete the client from the database */
+                case "Delete":
+                    {
+                        Project deleteProject = db.Projects.Find(project.ProjectId);
+                        //Store parent directory for redirect action
+                        int clientId = project.ClientId; 
+                        db.Projects.Remove(deleteProject);
+                        db.SaveChanges();
+                        //return RedirectToAction("Index", new { id = clientId });
+                        return RedirectToAction("../Home");
+                    }
+                default:
+                    ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
+                    return View(project);
+            }
         }
 
         //
@@ -58,7 +102,7 @@ namespace EnlightenAss.Controllers
             ViewBag.ClientList = new SelectList(db.Clients, "ClientId", "Name", id /*sets default value*/);
             //Id to return to
             ViewBag.ClientIdNum = id;
-                                               
+
             return View();
         }
 
@@ -76,71 +120,12 @@ namespace EnlightenAss.Controllers
                 project.LastModifiedBy = "X";
                 db.Projects.Add(project);
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id = project.ClientId });
+                //return RedirectToAction("Index", new { id = project.ClientId });
+                return RedirectToAction("../Home");
             }
 
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
             return View(project);
-        }
-
-        //
-        // GET: /Project/Edit/5
-
-        public ActionResult Edit(int id = 0)
-        {
-            Project project = db.Projects.Find(id);
-            if (project == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
-            return View(project);
-        }
-
-        /**
-         * Some fields cannot be edited by the user, therefore they are changed statically 
-         **/
-        [HttpPost]
-        public ActionResult Edit(Project project)
-        {
-            if (ModelState.IsValid)
-            {
-                Project currentProject = db.Projects.Find(project.ProjectId);
-                currentProject.Name = project.Name;
-                currentProject.Notes = project.Notes;
-                currentProject.LastModified = DateTime.Now;
-                db.Entry(currentProject).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index", new { id = project.ClientId });
-            }
-            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
-            return View(project);
-        }
-
-        //
-        // GET: /Project/Delete/5
-
-        public ActionResult Delete(int id = 0)
-        {
-            Project project = db.Projects.Find(id);
-            if (project == null)
-            {
-                return HttpNotFound();
-            }
-            return View(project);
-        }
-
-        //
-        // POST: /Project/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Project project = db.Projects.Find(id);
-            int clientId = project.ClientId; //Store parent directory for redirect action
-            db.Projects.Remove(project);
-            db.SaveChanges();
-            return RedirectToAction("Index", new { id = clientId });
         }
 
         protected override void Dispose(bool disposing)

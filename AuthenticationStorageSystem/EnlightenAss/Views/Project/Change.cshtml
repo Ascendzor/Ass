@@ -1,0 +1,62 @@
+﻿@model AssClassLibrary.Project
+
+<h2>Change</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+
+        @Html.HiddenFor(model => model.ProjectId)
+
+        <legend>Project</legend>
+
+        @Html.HiddenFor(model => model.ProjectId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClientId, "Client")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ClientId")
+            @Html.ValidationMessageFor(model => model.ClientId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <div class="details-label">
+            Date Added
+        </div>
+        <div class="details-field">
+            @Model.DateAdded
+        </div>
+        <div class="details-label">
+            Last Modified
+        </div>
+        <div class="details-field">
+            @Model.LastModified
+        </div>
+
+
+        <input name="submitButton" type="submit" value="Save Changes" class="btn btn-small btn-primary" />
+        <input name="submitButton" type="submit" value="Delete" class="btn btn-small btn-primary" />
+        <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ClientId', '/Project/Index')">Back to List</div>
+
+    </fieldset>
+}
+
+

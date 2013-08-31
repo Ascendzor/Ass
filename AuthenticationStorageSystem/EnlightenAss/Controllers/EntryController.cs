@@ -43,19 +43,6 @@ namespace EnlightenAss.Controllers
             return View("Index", db.Entries.ToList());
         }
 
-        //
-        // GET: /Entry/Details/5
-
-        public ActionResult Details(int id = 0)
-        {
-            Entry entry = db.Entries.Find(id);
-            if (entry == null)
-            {
-                return HttpNotFound();
-            }
-            return View(entry);
-        }
-
 
         public ActionResult Create(int id = 0)
         {
@@ -90,17 +77,17 @@ namespace EnlightenAss.Controllers
             return View(entry);
         }
 
-        //
-        // GET: /Entry/Edit/5
 
-        public ActionResult Edit(int id = 0)
+        /**
+         * Edit Delete and details all in one view
+         */
+        public ActionResult Change(int id = 0)
         {
             Entry entry = db.Entries.Find(id);
             if (entry == null)
             {
                 return HttpNotFound();
             }
-            //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
             return View(entry);
         }
@@ -109,50 +96,44 @@ namespace EnlightenAss.Controllers
          * Some fields cannot be edited by the user, therefore they are changed statically 
          **/
         [HttpPost]
-        public ActionResult Edit(Entry entry)
+        public ActionResult Change(Entry entry, string submitButton)
         {
-            if (ModelState.IsValid)
+            switch (submitButton)
             {
-                Entry currentEntry = db.Entries.Find(entry.EntryId);
-                currentEntry.Username = entry.Username;
-                currentEntry.Password = entry.Password;
-                currentEntry.Website = entry.Website;
-                currentEntry.Notes = entry.Notes;
-                currentEntry.LastModified = DateTime.Now;
-                currentEntry.LastModifiedBy = "X";
-                db.Entry(currentEntry).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index", new { id = entry.ProjectId });
+                /* save the changes to the database */
+                case "Save Changes":
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            Entry currentEntry = db.Entries.Find(entry.EntryId);
+                            currentEntry.Username = entry.Username;
+                            currentEntry.Password = entry.Password;
+                            currentEntry.Website = entry.Website;
+                            currentEntry.Notes = entry.Notes;
+                            currentEntry.LastModified = DateTime.Now;
+                            currentEntry.LastModifiedBy = "X";
+                            db.Entry(currentEntry).State = EntityState.Modified;
+                            db.SaveChanges();
+                            //return RedirectToAction("Index", new { id = entry.ProjectId });
+                            return RedirectToAction("../Home");
+                        }
+                        ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
+                        return View(entry);
+                    }
+                /* delete the enrty from the database */
+                case "Delete":
+                    {
+                        Entry entryDelete = db.Entries.Find(entry.EntryId);
+                        int projectId = entry.ProjectId; //Store parent directory for redirect action
+                        db.Entries.Remove(entryDelete);
+                        db.SaveChanges();
+                        //return RedirectToAction("Index", new { id = projectId });
+                        return RedirectToAction("../Home");
+                    }
+                default:
+                    ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
+                    return View(entry);
             }
-            //Drop down list for project names
-            ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
-            return View(entry);
-        }
-
-        //
-        // GET: /Entry/Delete/5
-
-        public ActionResult Delete(int id = 0)
-        {
-            Entry entry = db.Entries.Find(id);
-            if (entry == null)
-            {
-                return HttpNotFound();
-            }
-            return View(entry);
-        }
-
-        //
-        // POST: /Entry/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Entry entry = db.Entries.Find(id);
-            int projectId = entry.ProjectId; //Store parent directory for redirect action
-            db.Entries.Remove(entry);
-            db.SaveChanges();
-            return RedirectToAction("Index", new { id = projectId });
         }
 
         protected override void Dispose(bool disposing)

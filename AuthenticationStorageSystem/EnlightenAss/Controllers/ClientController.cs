@@ -13,19 +13,16 @@ namespace EnlightenAss.Controllers
     {
         private DatabaseContext db = new DatabaseContext();
 
-        //
-        // GET: /Client/
-        
 
         public ActionResult Index(int id = 0)
         {
             return View(db.Clients.ToList());
         }
 
-        //
-        // GET: /Client/Details/5
-
-        public ActionResult Details(int id = 0)
+        /**
+         * To replase Edit, delete, details views
+         */
+        public ActionResult Change(int id = 0)
         {
             Client client = db.Clients.Find(id);
             if (client == null)
@@ -35,8 +32,41 @@ namespace EnlightenAss.Controllers
             return View(client);
         }
 
-        //
-        // GET: /Client/Create
+        /**
+         * Some fields cannot be edited by the user, therefore they are changed statically 
+         **/
+        [HttpPost]
+        public ActionResult Change(Client client, string submitButton)
+        {
+            switch (submitButton)
+            {
+                /* save the changes to the database */
+                case "Save Changes":
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            Client currentClient = db.Clients.Find(client.ClientId);
+                            currentClient.Name = client.Name;
+                            currentClient.Notes = client.Notes;
+                            currentClient.LastModified = DateTime.Now;
+                            db.Entry(currentClient).State = EntityState.Modified;
+                            db.SaveChanges();
+                            return RedirectToAction("../Home");
+                        }
+                        return View(client);
+                    }
+                /* delete the client from the database */
+                case "Delete":
+                    {
+                        Client currentClient = db.Clients.Find(client.ClientId);
+                        db.Clients.Remove(currentClient);
+                        db.SaveChanges();
+                        return RedirectToAction("../Home");
+                    }
+                default:
+                    return View(client);
+            }
+        }
 
         public ActionResult Create()
         {
@@ -57,67 +87,10 @@ namespace EnlightenAss.Controllers
                 client.LastModifiedBy = "X";
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("../Home/Index");
+                return RedirectToAction("../Home");
             }
 
             return View(client);
-        }
-
-        //
-        // GET: /Client/Edit/5
-
-        public ActionResult Edit(int id = 0)
-        {
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
-            return View(client);
-        }
-
-        /**
-         * Some fields cannot be edited by the user, therefore they are changed statically 
-         **/
-        [HttpPost]
-        public ActionResult Edit(Client client)
-        {
-            if (ModelState.IsValid)
-            {
-                Client currentClient = db.Clients.Find(client.ClientId);
-                currentClient.Name = client.Name;
-                currentClient.Notes = client.Notes;
-                currentClient.LastModified = DateTime.Now;
-                db.Entry(currentClient).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(client);
-        }
-
-        //
-        // GET: /Client/Delete/5
-
-        public ActionResult Delete(int id = 0)
-        {
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
-            return View(client);
-        }
-
-        //
-        // POST: /Client/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Client client = db.Clients.Find(id);
-            db.Clients.Remove(client);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
