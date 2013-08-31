@@ -35,6 +35,9 @@ namespace EnlightenAss.Controllers
             return View(db.Entries.Where(i => i.ProjectId == id));
         }
 
+        /**
+         * Return all entries 
+         */
         public ActionResult IndexAll(int id = 0)
         {
             return View("Index", db.Entries.ToList());
