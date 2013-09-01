@@ -13,14 +13,12 @@ namespace EnlightenAss.Controllers
     {
         private DatabaseContext db = new DatabaseContext();
 
-        //
-        // GET: /Project/
         //returns projects where ClientId = id
         public ActionResult Index(int id = 0)
         {
             Client client = db.Clients.Find(id);
 
-            //if client with id cannot be found return view of all projects
+            //if client with id cannot be found return view of all projects (maybe should change to unable to find page)
             if (client == null) return View(db.Projects.ToList());
 
             //Set Client name and Client id viewbags, for html links and labels inside view
@@ -32,6 +30,9 @@ namespace EnlightenAss.Controllers
             return View(db.Projects.Where(i => i.ClientId == id));
         }
 
+        /**
+         * Return all projects, rather than projects under specific client
+         */
         public ActionResult IndexAll(int id = 0)
         {
             return View("Index", db.Projects.ToList());
@@ -39,7 +40,7 @@ namespace EnlightenAss.Controllers
 
 
         /**
-         * Edit Delete and details all in one view
+         * View to see all fields, edit the data or delete
          */
         public ActionResult Change(int id = 0)
         {
@@ -56,42 +57,35 @@ namespace EnlightenAss.Controllers
          * Some fields cannot be edited by the user, therefore they are changed statically 
          **/
         [HttpPost]
-        public ActionResult Change(Project project, string submitButton)
+        public ActionResult Change(Project project)
         {
-            switch (submitButton)
+            if (ModelState.IsValid)
             {
-                /* save the changes to the database */
-                case "Save Changes":
-                    {
-                        if (ModelState.IsValid)
-                        {
-                            Project currentProject = db.Projects.Find(project.ProjectId);
-                            currentProject.Name = project.Name;
-                            currentProject.Notes = project.Notes;
-                            currentProject.LastModified = DateTime.Now;
-                            db.Entry(currentProject).State = EntityState.Modified;
-                            db.SaveChanges();
-                            //return RedirectToAction("Index", new { id = project.ClientId });
-                            return RedirectToAction("../Home");
-                        }
-                        ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
-                        return View(project);
-                    }
-                /* delete the client from the database */
-                case "Delete":
-                    {
-                        Project deleteProject = db.Projects.Find(project.ProjectId);
-                        //Store parent directory for redirect action
-                        int clientId = project.ClientId; 
-                        db.Projects.Remove(deleteProject);
-                        db.SaveChanges();
-                        //return RedirectToAction("Index", new { id = clientId });
-                        return RedirectToAction("../Home");
-                    }
-                default:
-                    ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
-                    return View(project);
+                Project currentProject = db.Projects.Find(project.ProjectId);
+                currentProject.Name = project.Name;
+                currentProject.Notes = project.Notes;
+                currentProject.LastModified = DateTime.Now;
+                db.Entry(currentProject).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", new { id = project.ClientId });
             }
+            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
+            return View(project);
+
+        }
+
+        /**
+         * Do not know what these tags do...
+         */
+        [HttpPost, ActionName("Delete")]
+        public ActionResult Delete(Project project)
+        {
+            Project deleteProject = db.Projects.Find(project.ProjectId);
+            //Store parent directory for redirect action
+            int clientId = deleteProject.ClientId;
+            db.Projects.Remove(deleteProject);
+            db.SaveChanges();
+            return RedirectToAction("Index", new { id = clientId });
         }
 
         //
@@ -120,8 +114,7 @@ namespace EnlightenAss.Controllers
                 project.LastModifiedBy = "X";
                 db.Projects.Add(project);
                 db.SaveChanges();
-                //return RedirectToAction("Index", new { id = project.ClientId });
-                return RedirectToAction("../Home");
+                return RedirectToAction("Index", new { id = project.ClientId });
             }
 
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);

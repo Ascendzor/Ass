@@ -12,7 +12,6 @@
         @Html.HiddenFor(model => model.ClientId)
 
         <div class="editor-label">
-            <!--@Html.LabelFor(model => model.Name)-->
             Client Name
         </div>
         <div class="editor-field">
@@ -41,11 +40,15 @@
             @Model.LastModified
         </div>
 
-        <input name="submitButton" type="submit" value="Save Changes" class="btn btn-small btn-primary" />
-        <input name="submitButton" type="submit" value="Delete" class="btn btn-small btn-primary" />
+        <input class="btn btn-small btn-primary" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
         <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('0', '/Client/Index')">Back to List</div>
 
     </fieldset>
 }
 
-
+<!-- Seperate Form for deleting the item -->
+@using (Html.BeginForm("Delete", "Client", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.ClientId)
+    <input type="button" value="Delete" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
+}

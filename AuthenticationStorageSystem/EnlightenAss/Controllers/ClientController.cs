@@ -20,7 +20,7 @@ namespace EnlightenAss.Controllers
         }
 
         /**
-         * To replase Edit, delete, details views
+         * View to see all fields, edit the data or delete
          */
         public ActionResult Change(int id = 0)
         {
@@ -36,36 +36,32 @@ namespace EnlightenAss.Controllers
          * Some fields cannot be edited by the user, therefore they are changed statically 
          **/
         [HttpPost]
-        public ActionResult Change(Client client, string submitButton)
+        public ActionResult Change(Client client)
         {
-            switch (submitButton)
+            if (ModelState.IsValid)
             {
-                /* save the changes to the database */
-                case "Save Changes":
-                    {
-                        if (ModelState.IsValid)
-                        {
-                            Client currentClient = db.Clients.Find(client.ClientId);
-                            currentClient.Name = client.Name;
-                            currentClient.Notes = client.Notes;
-                            currentClient.LastModified = DateTime.Now;
-                            db.Entry(currentClient).State = EntityState.Modified;
-                            db.SaveChanges();
-                            return RedirectToAction("../Home");
-                        }
-                        return View(client);
-                    }
-                /* delete the client from the database */
-                case "Delete":
-                    {
-                        Client currentClient = db.Clients.Find(client.ClientId);
-                        db.Clients.Remove(currentClient);
-                        db.SaveChanges();
-                        return RedirectToAction("../Home");
-                    }
-                default:
-                    return View(client);
+                Client currentClient = db.Clients.Find(client.ClientId);
+                currentClient.Name = client.Name;
+                currentClient.Notes = client.Notes;
+                currentClient.LastModified = DateTime.Now;
+                db.Entry(currentClient).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
+            return View(client);
+
+        }
+
+        /**
+         * Do not know what these tags do...
+         */
+        [HttpPost, ActionName("Delete")]
+        public ActionResult Delete(Client client)
+        {
+            Client currentClient = db.Clients.Find(client.ClientId);
+            db.Clients.Remove(currentClient);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public ActionResult Create()
@@ -87,7 +83,7 @@ namespace EnlightenAss.Controllers
                 client.LastModifiedBy = "X";
                 db.Clients.Add(client);
                 db.SaveChanges();
-                return RedirectToAction("../Home");
+                return RedirectToAction("Index");
             }
 
             return View(client);

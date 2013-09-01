@@ -1,11 +1,18 @@
 ﻿﻿<!DOCTYPE html>
 <html>
 <head>
-<title>Layout Page Content</title>    
+    <title>Layout Page Content</title>
     <link href="/Content/Site.css" rel="Stylesheet" type="text/css" />
     <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-1.7.1.min.js"></script>
     <script src="~/Scripts/Home.js"></script>
+    <script type="text/javascript">
+        $('body').ajaxStart(function () {
+            $(this).css({ 'cursor': 'progress' })
+        }).ajaxStop(function () {
+            $(this).css({ 'cursor': 'default' })
+        });
+    </script>
 </head>
 <body>
     <div class="containerDiv">
@@ -13,7 +20,7 @@
             <fieldset>
                 <legend>Authentication Storage System</legend>
                 <input id="searchText" oninput="search()" name="searchtext" type="text" />
-                <button id="myButton" onclick="search()" class="btn btn-small btn-primary" style="margin-bottom:10px">Go</button>
+                <button id="myButton" onclick="search()" class="btn btn-small btn-primary" style="margin-bottom: 10px">Go</button>
             </fieldset>
 
             <!-- Search results placed inside here -->
