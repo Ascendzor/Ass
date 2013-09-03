@@ -1,19 +1,21 @@
 ﻿/* Search database without page reload */
 function search() {
-    $('body').css('cursor', 'progress');
-    $.ajax({
-        url: '/Home/Search',
-        data: { searchText: document.getElementById("searchText").value },
-        dataType: 'html',
-        error: function (xhr, status, error) {
-            //do something about the error
-            $('body').css('cursor', 'default');
-        },
-        success: function (data) {
-            $('#partialDiv').html(data);
-            $('body').css('cursor', 'default');
-        }
-    });
+    delay(function () {
+        $('body').css('cursor', 'progress');
+        $.ajax({
+            url: '/Home/Search',
+            data: { searchText: document.getElementById("searchText").value },
+            dataType: 'html',
+            error: function (xhr, status, error) {
+                //do something about the error
+                $('body').css('cursor', 'default');
+            },
+            success: function (data) {
+                $('#partialDiv').html(data);
+                $('body').css('cursor', 'default');
+            }
+        });
+    }, 200);
 }
 
 function goBack() {
@@ -24,19 +26,19 @@ function goBack() {
 function requestItem(item, url) {
     $('body').css('cursor', 'progress');
 
-	$.ajax({
-		url: url,
-		data: { id: item },
-		dataType: 'html',
-		error: function (xhr, status, error) {
-		    //do something about the error
-		    $('body').css('cursor', 'default');
-		},
-		success: function (data) {
-		    $('#partialDiv').html(data);
-		    $('body').css('cursor', 'default');
-		}
-	});
+    $.ajax({
+        url: url,
+        data: { id: item },
+        dataType: 'html',
+        error: function (xhr, status, error) {
+            //do something about the error
+            $('body').css('cursor', 'default');
+        },
+        success: function (data) {
+            $('#partialDiv').html(data);
+            $('body').css('cursor', 'default');
+        }
+    });
 }
 
 /* Submit form without page reload */
@@ -59,4 +61,13 @@ function ajaxSubmitForm(btnClicked) {
         }
     });
 }
+
+/* Function to throttle the ajax calls to database when typing in search box */
+var delay = (function () {
+    var timer = 0;
+    return function (callback, ms) {
+        clearTimeout(timer);
+        timer = setTimeout(callback, ms);
+    };
+})();
 
