@@ -27,7 +27,7 @@ namespace EnlightenAss.Controllers
 
             //return list of projects with matching client id
             //var projects = db.Projects.Include(p => p.Client);
-            return View(db.Projects.Where(i => i.ClientId == id));
+            return PartialView(db.Projects.Where(i => i.ClientId == id));
         }
 
         /**
@@ -35,7 +35,7 @@ namespace EnlightenAss.Controllers
          */
         public ActionResult IndexAll(int id = 0)
         {
-            return View("Index", db.Projects.ToList());
+            return PartialView("Index", db.Projects.ToList());
         }
 
 
@@ -50,7 +50,7 @@ namespace EnlightenAss.Controllers
                 return HttpNotFound();
             }
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
-            return View(project);
+            return PartialView(project);
         }
 
         /**
@@ -70,7 +70,7 @@ namespace EnlightenAss.Controllers
                 return RedirectToAction("Index", new { id = project.ClientId });
             }
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
-            return View(project);
+            return PartialView(project);
 
         }
 
@@ -97,7 +97,7 @@ namespace EnlightenAss.Controllers
             //Id to return to
             ViewBag.ClientIdNum = id;
 
-            return View();
+            return PartialView();
         }
 
         /**
@@ -118,7 +118,7 @@ namespace EnlightenAss.Controllers
             }
 
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
-            return View(project);
+            return PartialView(project);
         }
 
         protected override void Dispose(bool disposing)

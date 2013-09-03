@@ -1,7 +1,7 @@
 ﻿/* Search database without page reload */
 function search() {
+    //throttle
     delay(function () {
-        $('body').css('cursor', 'progress');
         $.ajax({
             url: '/Home/Search',
             data: { searchText: document.getElementById("searchText").value },
@@ -12,7 +12,7 @@ function search() {
             },
             success: function (data) {
                 $('#partialDiv').html(data);
-                $('body').css('cursor', 'default');
+                onPrtialLoad();
             }
         });
     }, 200);
@@ -36,6 +36,7 @@ function requestItem(item, url) {
         },
         success: function (data) {
             $('#partialDiv').html(data);
+            onPrtialLoad()
             $('body').css('cursor', 'default');
         }
     });
@@ -57,7 +58,7 @@ function ajaxSubmitForm(btnClicked) {
         },
         success: function (data) {
             $('#partialDiv').html(data);
-            $('body').css('cursor', 'default');
+            onPrtialLoad()
         }
     });
 }
@@ -71,3 +72,25 @@ var delay = (function () {
     };
 })();
 
+/* Toggle manage mode (hide/unhide buttons) */
+function toggleManage() {
+    if (!$('#manageToggle').is(":checked")) {
+        console.log("on-off");
+        $('#editLabel').text("Edit Mode off");
+        $('.editButton').css({ 'display': 'none' });
+    } else {
+        console.log("off-on");
+        $('#editLabel').text("Edit Mode on");
+        $('.editButton').css({ 'display': '' });
+    }
+    
+}
+
+/* When partial view is loaded check whether edit mode is enabled */
+function onPrtialLoad() {
+    if (!$('#manageToggle').is(":checked")) {
+        $('.editButton').css({ 'display': 'none' });
+    } else {
+        $('.editButton').css({ 'display': '' });
+    }
+}

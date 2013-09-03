@@ -3,7 +3,7 @@
 
 <legend><a onclick="requestItem('0', '/Client/Index')">Clients</a>/<a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u></legend>
 
-<a onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Create New</a>
+<a style="display:none" class="editButton" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Create New</a>
 <table class="table table-bordered">
     <tr>
         <th class="table-bordered th">
@@ -15,6 +15,7 @@
         <th class="table-bordered th">
             @Html.DisplayNameFor(model => model.Notes)
         </th>
+        <th style="display:none" class="table-borded th editButton"></th>
     </tr>
 
     @foreach (var item in Model)
@@ -29,7 +30,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Notes)
             </td>
-            <td onclick="requestItem('@item.EntryId', '/Entry/Change')">
+            <td style="display:none" class="editButton" onclick="requestItem('@item.EntryId', '/Entry/Change')">
                 Change
             </td>
         </tr>

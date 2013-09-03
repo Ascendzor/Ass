@@ -16,7 +16,7 @@ namespace EnlightenAss.Controllers
 
         public ActionResult Index(int id = 0)
         {
-            return View(db.Clients.ToList());
+            return PartialView(db.Clients.ToList());
         }
 
         /**
@@ -29,7 +29,7 @@ namespace EnlightenAss.Controllers
             {
                 return HttpNotFound();
             }
-            return View(client);
+            return PartialView(client);
         }
 
         /**
@@ -48,7 +48,7 @@ namespace EnlightenAss.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(client);
+            return PartialView(client);
 
         }
 
@@ -66,7 +66,7 @@ namespace EnlightenAss.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return PartialView();
         }
 
         /**
@@ -86,7 +86,7 @@ namespace EnlightenAss.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(client);
+            return PartialView(client);
         }
 
         protected override void Dispose(bool disposing)

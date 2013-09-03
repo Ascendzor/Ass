@@ -3,13 +3,13 @@
 
 <legend><a onclick="requestItem('0', '/Client/Index')">Clients</a>/<u>@ViewBag.ClientName</u></legend>
 
-<a onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">Create New</a>
+<a style="display:none" class="editButton" onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">Create New</a>
 
 <table class="table table-bordered">
     <tr>
         <th class="table-bordered th">Project Name</th>
         <th class="table-bordered th">Notes</th>
-        <th class="table-bordered th"></th>
+        <th style="display:none" class="table-bordered th editButton"></th>
     </tr>
 
     @foreach (var item in Model)
@@ -19,7 +19,7 @@
                 @item.Name
             </td>
             <td>@Html.DisplayFor(modelItem => item.Notes)</td>
-            <td onclick="requestItem('@item.ProjectId', '/Project/Change')">
+            <td style="display:none" class="editButton" onclick="requestItem('@item.ProjectId', '/Project/Change')">
                 Change
             </td>
         </tr>

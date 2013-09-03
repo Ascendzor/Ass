@@ -30,7 +30,7 @@ namespace EnlightenAss.Controllers
             Client client = db.Clients.Find(project.ClientId);
             ViewBag.ClientName = client.Name;
 
-            return View(db.Entries.Where(i => i.ProjectId == id));
+            return PartialView(db.Entries.Where(i => i.ProjectId == id));
         }
 
         /**
@@ -38,7 +38,7 @@ namespace EnlightenAss.Controllers
          */
         public ActionResult IndexAll(int id = 0)
         {
-            return View("Index", db.Entries.ToList());
+            return PartialView("Index", db.Entries.ToList());
         }
 
         /**
@@ -51,7 +51,7 @@ namespace EnlightenAss.Controllers
             //Id to return to
             ViewBag.ProjectIdNum = id;
 
-            return View();
+            return PartialView();
         }
 
         /**
@@ -73,7 +73,7 @@ namespace EnlightenAss.Controllers
 
             //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
-            return View(entry);
+            return PartialView(entry);
         }
 
 
@@ -88,7 +88,7 @@ namespace EnlightenAss.Controllers
                 return HttpNotFound();
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
-            return View(entry);
+            return PartialView(entry);
         }
 
         /**
@@ -111,7 +111,7 @@ namespace EnlightenAss.Controllers
                 return RedirectToAction("Index", new { id = entry.ProjectId });
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
-            return View(entry);
+            return PartialView(entry);
 
         }
 

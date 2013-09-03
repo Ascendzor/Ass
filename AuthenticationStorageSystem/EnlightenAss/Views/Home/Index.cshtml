@@ -14,9 +14,13 @@
                 <legend>Authentication Storage System</legend>
                 <input id="searchText" oninput="search()" name="searchtext" type="text" />
                 <button id="myButton" onclick="search()" class="btn btn-small btn-primary" style="margin-bottom: 10px">Go</button>
+                <form>
+                    <label id="editLabel" class="btn btn-small btn-primary" for="manageToggle">Edit Mode off</label>
+                    <input style="display:none" onclick="toggleManage()" type="checkbox" name="toggled" id="manageToggle" />
+                </form>
             </fieldset>
 
-            <!-- Search results placed inside here -->
+            <!-- Dynamic content placed in here -->
             <div id="partialDiv"></div>
         </div>
     </div>
