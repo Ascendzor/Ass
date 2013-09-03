@@ -25,11 +25,8 @@ namespace EnlightenAss.Controllers
          * Includes keywords such as 'client' to retrieve all client data
          * Return partial view containing the results
          */
-        public ActionResult Results(String searchText)
+        public ActionResult Results(string searchText)
         {
-            // If empty text box get EVERYTHING
-            if (searchText == null) searchText = "";
-
             searchText.ToLower();
             List<Client> clientResults = new List<Client>();
             foreach (Client item in db.Clients)
