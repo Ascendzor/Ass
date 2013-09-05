@@ -4,8 +4,8 @@
 var counter = 0;
     function initialize() {
         counter = 0;
-        
-        changeStyle(0);
+        if(returnId(0)!= null)
+            changeStyle(0);
     }
 
     
