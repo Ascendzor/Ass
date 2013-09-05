@@ -4,10 +4,8 @@
 var counter = 0;
     function initialize() {
         counter = 0;
-        var initalSelection = returnId(counter);
-        if (initalSelection != null)
-            initalSelection.bgColor = "blue";
-
+        
+        changeStyle(0);
     }
 
     
@@ -45,13 +43,14 @@ function handleKeyPressed(e) {
             break;
         case 38://up key
             if (counter > 0) {
-                
+                e.preventDefault();
                 changeStyle(-1);
             }
             break;
         case 40://downkey
             if (returnId(String(counter + 1)) != null) {
                 changeStyle(1);
+                e.preventDefault();
             }
             break;
     }
