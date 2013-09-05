@@ -1,48 +1,79 @@
 ﻿
+
+
+
+@{int counter=0;}
+
 <table class="table table-bordered">
-    <tr>
-        <th class="table-bordered th" onclick="requestItem('0', '/Client/Index')">Client Name</th>
+    
+        <th id = "@counter" class="table-bordered th" onclick="requestItem('0', '/Client/Index')">Client Name</th>
         <th class="table-bordered th">Notes</th>
     </tr>
-    @foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
-    {
-        <tr>
-            <td onclick="requestItem('@item.ClientId', '/Project/Index')">
-                @item.Name
-            </td>
-            <td>
-                @item.Notes
-            </td>
-        </tr>
-    }
-    <tr>
-        <th class="table-bordered th" onclick="requestItem('0', '/Project/IndexAll')">Project Name</th>
-        <th class="table-bordered th">Notes</th>
-    </tr>
-    @foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
-    {
-        <tr>
-            <td onclick="requestItem('@item.ProjectId', '/Entry/Index')">
-                @item.Name
-            </td>
-            <td>
-                @item.Notes
-            </td>
-        </tr>
-    }
-    <tr>
-        <th class="table-bordered th" onclick="requestItem('0', '/Entry/IndexAll')">Entry Name</th>
-        <th class="table-bordered th">Notes</th>
-    </tr>
-    @foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
-    {
-        <tr>
-            <td>
-                @item.Username
-            </td>
-            <td>
-                @item.Notes
-            </td>
-        </tr>
+    @{
+            counter++;
+            foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
+            {
+                <tr>
+                    <td id = "@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Notes
+                    </td>
+                </tr>
+                counter++;
+            }
+    
+            <tr>
+                <th id="@counter" class="table-bordered th" onclick="requestItem('0', '/Project/IndexAll')">Project Name</th>
+                <th class="table-bordered th">Notes</th>
+            </tr>
+        
+            counter++;
+        
+            foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
+            {
+
+                
+                
+                <tr id = "bob">
+                    <td id = "@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Notes
+                    </td>
+                </tr>
+                
+                counter++;
+            
+            }
+            
+            
+            
+            <tr>
+                <th id = "@counter" class="table-bordered th" onclick="requestItem('0', '/Entry/IndexAll')">Entry Name</th>
+                <th class="table-bordered th">Notes</th>
+            </tr>
+        
+            counter++;
+            
+            foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
+            {
+
+                
+                
+                <tr>
+                    <td id = "@counter">
+                        @item.Username
+                    </td>
+                    <td>
+                        @item.Notes
+                    </td>
+                </tr>
+                counter++;
+            }
+        
     }
 </table>
+    

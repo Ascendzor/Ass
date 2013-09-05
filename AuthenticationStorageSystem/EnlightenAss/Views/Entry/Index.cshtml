@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<AssClassLibrary.Entry>
 
+<script src="~/Scripts/KeyboardNav.js"></script>
 
 <legend><a onclick="requestItem('0', '/Client/Index')">Clients</a>/<a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u></legend>
 
@@ -18,10 +19,11 @@
         <th style="display:none" class="table-borded th editButton"></th>
     </tr>
 
+    @{int counter = 0;}
     @foreach (var item in Model)
     {
         <tr>
-            <td>
+            <td id = "@counter">
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>
@@ -34,6 +36,7 @@
                 Change
             </td>
         </tr>
+        counter++;
     }
 
 </table>

@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<AssClassLibrary.Client>
 
+<script src="~/Scripts/KeyboardNav.js"></script>
+
 <legend><u>Clients</u></legend>
 <a style="display:none" class="editButton" onclick="requestItem('0', '/Client/Create')">Create New</a>
+
 
 <table class="table table-bordered">
     <tr>
@@ -9,11 +12,12 @@
         <th class="table-bordered th">Notes</th>
         <th style="display:none" class="table-bordered th editButton"></th>
     </tr>
-
+    @{int counter =0;}
     @foreach (var item in Model)
     {
+        
         <tr class="rowHighlight">
-            <td onclick="requestItem('@item.ClientId', '/Project/Index')">
+            <td id="@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
                 @item.Name
             </td>
             <td>@Html.DisplayFor(modelItem => item.Notes)</td>
@@ -21,5 +25,6 @@
                 Change
             </td>
         </tr>
+        counter++;
     }
 </table>
