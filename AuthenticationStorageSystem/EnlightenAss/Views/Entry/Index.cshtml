@@ -2,7 +2,10 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-<legend><a onclick="requestItem('0', '/Client/Index')">Clients</a>/<a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u></legend>
+<legend>
+    <a onclick="requestItem('0', '/Client/Index')">Clients</a>/<a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u>
+    <a style="display:none" class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</a>
+</legend>
 
 <a style="display:none" class="editButton" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Create New</a>
 <table class="table table-bordered">
@@ -16,14 +19,13 @@
         <th class="table-bordered th">
             @Html.DisplayNameFor(model => model.Notes)
         </th>
-        <th style="display:none" class="table-borded th editButton"></th>
     </tr>
 
     @{int counter = 0;}
     @foreach (var item in Model)
     {
         <tr>
-            <td id = "@counter" onmouseover= "mousedOver(@counter)">
+            <td id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>
@@ -31,9 +33,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td style="display:none" class="editButton" onclick="requestItem('@item.EntryId', '/Entry/Change')">
-                Change
             </td>
         </tr>
         counter++;

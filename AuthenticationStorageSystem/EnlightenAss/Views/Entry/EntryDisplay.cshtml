@@ -2,8 +2,37 @@
 
 
 
-<a style="display:none" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Back to list</a>
+<div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to List</div>
 
-<a style="display:none" class="editButton" onclick="requestItem('@Model.ProjectId', '/Entry/Create')">Create New</a>
+<a style="display:none" class="editButton btn btn-small btn-primary" onclick="requestItem('@Model.EntryId', '/Entry/Change')">Change</a>
 
-<a style="display:none" class="editButton" onclick="requestItem('@Model.EntryId', '/Entry/Change'")">Change</a>
+<table class="table table-bordered">
+
+    <tr>
+        <th class="table-bordered th">
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th class="table-bordered th">
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th class="table-bordered th">
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Username)
+        </td>
+        <td>
+            <input type="text" value="@Model.Password" id="highlightMe" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Notes)
+        </td>
+    </tr>
+</table>
+
+<script>
+    document.getElementById('highlightMe').focus();
+    document.getElementById('highlightMe').select();
+</script>

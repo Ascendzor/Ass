@@ -19,7 +19,7 @@ namespace EnlightenAss.Controllers
             Client client = db.Clients.Find(id);
 
             //if client with id cannot be found return view of all projects (maybe should change to unable to find page)
-            if (client == null) return View(db.Projects.ToList());
+            if (client == null) return PartialView(db.Projects.ToList());
 
             //Set Client name and Client id viewbags, for html links and labels inside view
             ViewBag.ClientName = client.Name;

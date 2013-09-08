@@ -2,7 +2,10 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-<legend><a onclick="requestItem('0', '/Client/Index')">Clients</a>/<u>@ViewBag.ClientName</u></legend>
+<legend>
+    <a onclick="requestItem('0', '/Client/Index')">Clients</a>/<u>@ViewBag.ClientName</u>
+    <a style="display:none" class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Change</a>
+</legend>
 
 <a style="display:none" class="editButton" onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">Create New</a>
 

@@ -19,7 +19,7 @@ namespace EnlightenAss.Controllers
             Project project = db.Projects.Find(id);
 
             //if project with id cannot be found return view of all entries (maybe should change to unable to find page)
-            if (project == null) return View(db.Entries.ToList());
+            if (project == null) return PartialView(db.Entries.ToList());
 
             //Set viewbags values for the html to use (for html links and labels inside view)
             ViewBag.ProjectIdNum = id;
@@ -44,7 +44,7 @@ namespace EnlightenAss.Controllers
                 return HttpNotFound();
             }
 
-            return PartialView();
+            return PartialView(entry);
         }
 
         /**
