@@ -1,0 +1,9 @@
+﻿@model AssClassLibrary.Entry
+
+
+
+<a style="display:none" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Back to list</a>
+
+<a style="display:none" class="editButton" onclick="requestItem('@Model.ProjectId', '/Entry/Create')">Create New</a>
+
+<a style="display:none" class="editButton" onclick="requestItem('@Model.EntryId', '/Entry/Change'")">Change</a>

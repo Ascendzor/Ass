@@ -33,6 +33,20 @@ namespace EnlightenAss.Controllers
             return PartialView(db.Entries.Where(i => i.ProjectId == id));
         }
 
+        public ActionResult EntryDisplay(int id = 0)
+        {
+            //Id to return to
+            ViewBag.ProjectIdNum = id;
+
+            Entry entry = db.Entries.Find(id);
+            if (entry == null)
+            {
+                return HttpNotFound();
+            }
+
+            return PartialView();
+        }
+
         /**
          * Return all entries, rather than entiries under specific project
          */
@@ -41,9 +55,6 @@ namespace EnlightenAss.Controllers
             return PartialView("Index", db.Entries.ToList());
         }
 
-        /**
-         * View to see all fields, edit the data or delete
-         */
         public ActionResult Create(int id = 0)
         {
             //Drop down list for project names

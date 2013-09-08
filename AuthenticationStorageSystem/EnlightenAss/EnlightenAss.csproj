@@ -246,6 +246,7 @@
     <Content Include="Views\Client\Change.cshtml" />
     <Content Include="Views\Project\Change.cshtml" />
     <Content Include="Views\Entry\Change.cshtml" />
+    <Content Include="Views\Entry\EntryDisplay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

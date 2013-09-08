@@ -22,7 +22,7 @@ function changeStyle(x) {
     console.log(counter);
     counter = counter + x;
     var temp2 = returnId(counter);
-    temp2.bgColor = "blue";
+    temp2.bgColor = "0099FF";
     
 
 }
