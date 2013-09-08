@@ -23,7 +23,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td id = "@counter">
+            <td id = "@counter" onmouseover= "mousedOver(@counter)">
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>

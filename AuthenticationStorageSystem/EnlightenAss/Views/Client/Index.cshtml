@@ -17,7 +17,7 @@
     {
         
         <tr class="rowHighlight">
-            <td id="@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
+            <td id="@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
                 @item.Name
             </td>
             <td>@Html.DisplayFor(modelItem => item.Notes)</td>

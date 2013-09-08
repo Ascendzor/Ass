@@ -6,7 +6,7 @@
 
 <table class="table table-bordered">
     
-        <th id = "@counter" class="table-bordered th" onclick="requestItem('0', '/Client/Index')">Client Name</th>
+        <th id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Client/Index')">Client Name</th>
         <th class="table-bordered th">Notes</th>
     </tr>
     @{
@@ -14,7 +14,7 @@
             foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
             {
                 <tr>
-                    <td id = "@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
+                    <td id = "@counter"  onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
                         @item.Name
                     </td>
                     <td>
@@ -25,7 +25,7 @@
             }
     
             <tr>
-                <th id="@counter" class="table-bordered th" onclick="requestItem('0', '/Project/IndexAll')">Project Name</th>
+                <th id="@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Project/IndexAll')">Project Name</th>
                 <th class="table-bordered th">Notes</th>
             </tr>
         
@@ -36,8 +36,8 @@
 
                 
                 
-                <tr id = "bob">
-                    <td id = "@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+                <tr>
+                    <td id = "@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
                         @item.Name
                     </td>
                     <td>
@@ -52,7 +52,7 @@
             
             
             <tr>
-                <th id = "@counter" class="table-bordered th" onclick="requestItem('0', '/Entry/IndexAll')">Entry Name</th>
+                <th id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Entry/IndexAll')">Entry Name</th>
                 <th class="table-bordered th">Notes</th>
             </tr>
         
@@ -64,7 +64,7 @@
                 
                 
                 <tr>
-                    <td id = "@counter">
+                    <td id = "@counter" onmouseover= "mousedOver(@counter)">
                         @item.Username
                     </td>
                     <td>

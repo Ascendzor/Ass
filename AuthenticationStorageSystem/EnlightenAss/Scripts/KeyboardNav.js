@@ -57,6 +57,11 @@ function handleKeyPressed(e) {
     var element = returnId(counter);
 }
 
+function mousedOver(newCounter) {
+    changeStyle(newCounter - counter);
+    printElement(counter);
+}
+
 function printElement(element) {
     console.log(element);
     console.log(element.id);

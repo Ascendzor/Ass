@@ -16,7 +16,7 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td id="@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+            <td id="@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
                 @item.Name
             </td>
             <td>@Html.DisplayFor(modelItem => item.Notes)</td>
