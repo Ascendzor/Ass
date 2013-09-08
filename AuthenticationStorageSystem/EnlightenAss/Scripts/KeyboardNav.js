@@ -19,10 +19,10 @@ function returnId(tempCounter) {
 function changeStyle(x) {
     var temp = returnId(counter);
     temp.bgColor = "white";
-    console.log(counter);
+    
     counter = counter + x;
     var temp2 = returnId(counter);
-    temp2.bgColor = "blue";
+    temp2.bgColor = "#0099FF";
     
 
 }
@@ -43,15 +43,18 @@ function handleKeyPressed(e) {
             break;
         case 38://up key
             if (counter > 0) {
-                e.preventDefault();
+                
                 changeStyle(-1);
             }
+            e.preventDefault();
             break;
         case 40://downkey
             if (returnId(String(counter + 1)) != null) {
                 changeStyle(1);
-                e.preventDefault();
+                
             }
+            
+            e.preventDefault();
             break;
     }
     var element = returnId(counter);
