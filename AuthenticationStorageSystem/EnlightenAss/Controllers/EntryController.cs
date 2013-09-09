@@ -119,7 +119,7 @@ namespace EnlightenAss.Controllers
                 currentEntry.LastModifiedBy = "X";
                 db.Entry(currentEntry).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id = entry.ProjectId });
+                return RedirectToAction("EntryDisplay", new { id = entry.EntryId });
             }
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
             return PartialView(entry);

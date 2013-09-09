@@ -4,10 +4,10 @@
 
 <legend>
     <a onclick="requestItem('0', '/Client/Index')">Clients</a>/<a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u>
-    <a style="display:none" class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</a>
+    <a class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</a>
 </legend>
 
-<a style="display:none" class="editButton" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Create New</a>
+<a class="editButton" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Create New</a>
 <table class="table table-bordered">
     <tr>
         <th class="table-bordered th">

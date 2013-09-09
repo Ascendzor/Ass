@@ -1,4 +1,9 @@
-﻿/* Search database without page reload */
+﻿/* focus on search box on load */
+$(document).ready(function () {
+    $("#searchText").focus();
+});
+
+/* Search database without page reload */
 function search() {
     //throttle
     delay(function () {
@@ -12,7 +17,7 @@ function search() {
             },
             success: function (data) {
                 $('#partialDiv').html(data);
-                onPrtialLoad();
+                //onPrtialLoad();
             }
         });
     }, 200);
@@ -35,9 +40,10 @@ function requestItem(item, url) {
             $('body').css('cursor', 'default');
         },
         success: function (data) {
+            $("#searchText").focus();
             $('#partialDiv').html(data);
-            onPrtialLoad()
-            $('body').css('cursor', 'default');
+            //onPrtialLoad()
+            $('body').css('cursor', 'default');            
         }
     });
 }
@@ -58,7 +64,8 @@ function ajaxSubmitForm(btnClicked) {
         },
         success: function (data) {
             $('#partialDiv').html(data);
-            onPrtialLoad()
+            $('body').css('cursor', 'default');
+            //onPrtialLoad()
         }
     });
 }

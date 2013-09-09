@@ -57,6 +57,11 @@
     </fieldset>
 }
 
+<!-- Set selected input box -->
+<script>
+    $("#Name").focus();
+</script>
+
 <!-- Seperate Form for deleting the item -->
 @using (Html.BeginForm("Delete", "Project", FormMethod.Post))
 {

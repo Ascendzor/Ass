@@ -67,7 +67,7 @@ namespace EnlightenAss.Controllers
                 currentProject.LastModified = DateTime.Now;
                 db.Entry(currentProject).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id = project.ClientId });
+                return RedirectToAction("../Entry/Index", new { id = project.ProjectId });
             }
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
             return PartialView(project);
