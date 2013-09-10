@@ -2,18 +2,26 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-<legend>
-    <a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u>
-    <a class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</a>
-</legend>
+<directory>
+@if(String.IsNullOrEmpty(ViewBag.ProjectName)){
+    Write("All Entries");
+}else{
+    <a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index');">@ViewBag.ClientName</a>
+    Write("/");
+    @ViewBag.ProjectName;
+    Write("/");
+}
+</directory>
+<button class="btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">New Entry</button>
+<button class="editButton btn btn-small btn-primary" style="float:right" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</button>
+<hr />
 
-<a class="editButton" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">Create New</a>
 <table class="table table-bordered">
     <tr>
-        <th class="table-bordered th">
+        <th class="table-bordered th" style="width:300px;">
             @Html.DisplayNameFor(model => model.Username)
         </th>
-        <th class="table-bordered th">
+        <th class="table-bordered th" style="width:300px;">
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th class="table-bordered th">

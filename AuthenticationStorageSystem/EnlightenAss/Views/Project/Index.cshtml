@@ -2,16 +2,23 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-<legend>
-    <u>@ViewBag.ClientName/</u>
-    <a class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Change</a>
-</legend>
+<directory>
+@if (String.IsNullOrEmpty(ViewBag.ClientName))
+{
+    Write("All Projects");
+}else{
+    @ViewBag.ClientName
+    Write("/");
+}
+</directory>
 
-<a class="editButton" onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">Create New</a>
+<button class="btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">New Project</button>
+<a class="editButton btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Change</a>
+<hr />
 
 <table class="table table-bordered">
     <tr>
-        <th class="table-bordered th">Project Name</th>
+        <th class="table-bordered th" style="width:300px;">Project Name</th>
         <th class="table-bordered th">Notes</th>
     </tr>
     @{int counter =0;}

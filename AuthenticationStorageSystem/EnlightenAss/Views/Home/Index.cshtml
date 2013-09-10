@@ -14,7 +14,7 @@
             <fieldset>
                 <legend>Authentication Storage System</legend>
                 <input id="searchText" oninput="search()" name="searchtext" type="text" autocomplete="off"/>
-                <button id="myButton" onclick="search()" class="btn btn-small btn-primary" style="margin-bottom: 10px">Go</button>
+                <button id="myButton" onclick="search(); $('#searchText').focus();" class="btn btn-small btn-primary" style="margin-bottom: 10px">Go</button>
                 <form>
                     <!--<label id="editLabel" class="btn btn-small btn-primary" for="manageToggle">Edit Mode off</label>
                     <input style="display:none" onclick="toggleManage()" type="checkbox" name="toggled" id="manageToggle" />-->

@@ -1,14 +1,16 @@
 ﻿.selectedRow{
     background-color:#ABB;
+    cursor:pointer;
+}
+
+directory{
+    text-decoration:underline;
+    cursor:pointer;
 }
 
 th{
     background-color:#788;
     color: #FFF;
-}
-
-.nameColumn{
-    width:300px;
 }
 
 .test1{

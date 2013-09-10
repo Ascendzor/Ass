@@ -2,13 +2,13 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-<legend><u>Clients</u></legend>
-<a class="editButton" onclick="requestItem('0', '/Client/Create')">Create New</a>
+<directory>All Clients</directory><button class="btn btn-small btn-primary" style="float:right;" onclick="requestItem('0', '/Client/Create')">New Client</button>
+<hr />
 
 
 <table class="table table-bordered">
     <tr>
-        <th class="table-bordered th">Client Name</th>
+        <th class="table-bordered th" style="width:300px;">Client Name</th>
         <th class="table-bordered th">Notes</th>
     </tr>
     @{int counter =0;}
