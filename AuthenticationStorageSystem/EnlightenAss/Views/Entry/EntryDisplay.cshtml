@@ -1,10 +1,10 @@
 ﻿@model AssClassLibrary.Entry
 
-<b>Modifying Entry</b>
+<b>Entry</b>
 
 <div style="margin-left:445px">
-    <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back Project Entries</div>
-    <a class="editButton btn btn-small btn-primary" style="margin-left:20px" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Modify</a>
+    <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Project Entries</div>
+    <a class="editButton btn btn-small btn-primary" style="margin-left:20px" onclick="requestItem('@Model.EntryId', '/Entry/Change')">Modify</a>
 </div>
 <hr />
 
