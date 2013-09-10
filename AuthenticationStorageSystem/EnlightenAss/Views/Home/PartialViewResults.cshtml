@@ -2,7 +2,7 @@
 
 <table class="table table-bordered">
     <tr>
-        <th id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Client/Index')">Client Name</th>
+        <th id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th nameColumn" onclick="requestItem('0', '/Client/Index')">Clients</th>
         <th class="table-bordered th">Notes</th>
     </tr>
     @{
@@ -21,8 +21,8 @@
         }
     
         <tr>
-            <th id="@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Project/IndexAll')">Project Name</th>
-            <th class="table-bordered th">Notes</th>
+            <th id="@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Project/IndexAll')">Projects</th>
+            <th class="table-bordered th"></th>
         </tr>
         
         counter++;
@@ -48,8 +48,8 @@
             
             
         <tr>
-            <th id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Entry/IndexAll')">Entry Name</th>
-            <th class="table-bordered th">Notes</th>
+            <th id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Entry/IndexAll')">Entries</th>
+            <th class="table-bordered th"></th>
         </tr>
         
         counter++;

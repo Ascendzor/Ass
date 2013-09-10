@@ -3,7 +3,7 @@
 <script src="~/Scripts/KeyboardNav.js"></script>
 
 <legend>
-    <a onclick="requestItem('0', '/Client/Index')">Clients</a>/<a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u>
+    <a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>@ViewBag.ProjectName</u>
     <a class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</a>
 </legend>
 

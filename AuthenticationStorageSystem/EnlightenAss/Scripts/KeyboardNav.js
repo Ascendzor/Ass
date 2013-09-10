@@ -18,14 +18,15 @@ function returnId(tempCounter) {
 
 function changeStyle(x) {
     var temp = returnId(counter);
-    temp.bgColor = "white";
+    if (temp.className == "table-bordered th selectedRow") {
+        temp.className = "table-bordered th";
+    } else {
+        temp.className = "";
+    }
     
     counter = counter + x;
     var temp2 = returnId(counter);
-
-    temp2.bgColor = "#0099FF";
-    
-
+    temp2.className += " selectedRow";
 }
 
 function handleKeyPressed(e) {

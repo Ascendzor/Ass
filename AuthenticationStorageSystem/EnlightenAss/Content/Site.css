@@ -1,6 +1,14 @@
-﻿.test0{
-    font-size:2000px;
-    background-color:#4cff00;
+﻿.selectedRow{
+    background-color:#ABB;
+}
+
+th{
+    background-color:#788;
+    color: #FFF;
+}
+
+.nameColumn{
+    width:300px;
 }
 
 .test1{

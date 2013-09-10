@@ -1,6 +1,9 @@
 ﻿@model AssClassLibrary.Entry
 
-
+<legend>
+    <a onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">@ViewBag.ClientName</a>/<u>projectName: @ViewBag.ProjectName</u>
+    <a class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</a>
+</legend>
 
 <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to List</div>
 
