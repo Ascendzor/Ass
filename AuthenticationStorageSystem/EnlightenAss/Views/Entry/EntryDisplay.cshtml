@@ -1,20 +1,22 @@
 ﻿@model AssClassLibrary.Entry
 
-<div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to List</div>
+<b>Modifying Entry</b>
 
-<a class="editButton btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</a>
-<br />
+<div style="margin-left:445px">
+    <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back Project Entries</div>
+    <a class="editButton btn btn-small btn-primary" style="margin-left:20px" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Modify</a>
+</div>
 <hr />
 
 <table class="table table-bordered">
-    <tr>
-        <th class="table-bordered th" style="width:300px;">
+    <tr class="table-bordered headerRow">
+        <th style="width:300px;">
             @Html.DisplayNameFor(model => model.Username)
         </th>
-        <th class="table-bordered th" style="width:300px;">
+        <th style="width:300px;">
             @Html.DisplayNameFor(model => model.Password)
         </th>
-        <th class="table-bordered th">
+        <th>
             @Html.DisplayNameFor(model => model.Notes)
         </th>
     </tr>

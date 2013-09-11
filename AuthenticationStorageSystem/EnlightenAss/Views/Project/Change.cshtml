@@ -1,16 +1,14 @@
 ﻿@model AssClassLibrary.Project
 
-<h2>Change</h2>
+<b>Modifying Project Details</b>
+<div id="backLink" class="btn btn-small btn-primary" style="margin-left:330px" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Project Entries</div>
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-
         @Html.HiddenFor(model => model.ProjectId)
-
-        <legend>Project</legend>
+        <hr />
 
         @Html.HiddenFor(model => model.ProjectId)
 
@@ -39,22 +37,18 @@
         </div>
 
         <div class="details-label">
-            <b>Date Added</b>
-        </div>
-        <div class="details-field">
+            Date Added:<br>
             @Model.DateAdded
         </div>
+        <br>
         <div class="details-label">
-            <b>Last Modified</b>
-        </div>
-        <div class="details-field">
+            Last Modified<br>
             @Model.LastModified
         </div>
+        <br>
 
-        <input class="btn btn-small btn-primary" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
-        <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to List</div>
-
-    </fieldset>
+        <input type="button" value="Delete Project" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
+        <input class="btn btn-small btn-primary" style="margin-left:20px" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
 }
 
 <!-- Set selected input box -->
@@ -66,6 +60,6 @@
 @using (Html.BeginForm("Delete", "Project", FormMethod.Post))
 {
     @Html.HiddenFor(model => model.ProjectId)
-    <input type="button" value="Delete" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
+    
 }
 

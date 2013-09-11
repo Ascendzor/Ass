@@ -3,9 +3,9 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Entry</legend>
+    <b>Creating New Entry</b>
+    <div id="backLink" class="btn btn-small btn-primary" style="margin-left: 375px" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Index')">Back to Project Entries</div>
+    <hr />
 
         <div class="editor-label">
             @Html.LabelFor(model => model.ProjectId, "Project")
@@ -50,7 +50,6 @@
         <p>
             <input type="button" value="Create" onclick="ajaxSubmitForm(this)" class="btn btn-small btn-primary"/>
         </p>
-    </fieldset>
 }
 
 <!-- Set selected input box -->
@@ -58,4 +57,3 @@
     $("#Username").focus();
 </script>
 
-<div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Index')">Back to List</div>

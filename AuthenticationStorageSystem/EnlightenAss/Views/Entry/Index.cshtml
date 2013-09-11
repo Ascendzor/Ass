@@ -13,20 +13,22 @@
     Write(" / ");
 }
 
-</directory>
-<button class="btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">New Entry</button>
-<button class="editButton btn btn-small btn-primary" style="float:right" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Change</button>
+<div style="margin-left:455px;margin-top:0px;">
+    <button class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Modify Project</button>
+    <button class="btn btn-small btn-primary" style="margin-left:20px" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">New Entry</button>
+</div>
 <hr />
 
+
 <table class="table table-bordered">
-    <tr>
-        <th class="table-bordered th" style="width:300px;">
+    <tr class="table-bordered headerRow">
+        <th style="width:300px;">
             @Html.DisplayNameFor(model => model.Username)
         </th>
-        <th class="table-bordered th" style="width:300px;">
+        <th style="width:300px;">
             @Html.DisplayNameFor(model => model.Password)
         </th>
-        <th class="table-bordered th">
+        <th>
             @Html.DisplayNameFor(model => model.Notes)
         </th>
     </tr>
@@ -34,8 +36,8 @@
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        <tr>
-            <td id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
+        <tr id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
+            <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
             <td>

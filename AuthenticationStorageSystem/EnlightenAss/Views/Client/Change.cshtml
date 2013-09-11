@@ -1,13 +1,12 @@
 ﻿@model AssClassLibrary.Client
 
-<h2>Change</h2>
+<b>Modifying Client Details</b> 
+<div id="backLink" class="btn btn-small btn-primary" style="margin-left: 340px;" onclick="requestItem('@Model.ClientId', '/Project/Index')">Back to Client Projects</div>
+<hr />
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-
-    <fieldset>
-        <legend>Client</legend>
 
         @Html.HiddenFor(model => model.ClientId)
 
@@ -28,22 +27,18 @@
         </div>
 
         <div class="details-label">
-            Date Added
-        </div>
-        <div class="details-field">
+            Date Added: <br> 
             @Model.DateAdded
         </div>
+        <br>
         <div class="details-label">
-            Last Modified
-        </div>
-        <div class="details-field">
+            Last Modified: <br>
             @Model.LastModified
         </div>
-
-        <input class="btn btn-small btn-primary" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
-        <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ClientId', '/Project/Index')">Back to List</div>
-
-    </fieldset>
+        <br>
+        <input type="button" value="Delete Client" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
+        <input class="btn btn-small btn-primary" style="margin-left:20px" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
+        
 }
 
 <!-- Set selected input box -->
@@ -55,5 +50,5 @@
 @using (Html.BeginForm("Delete", "Client", FormMethod.Post))
 {
     @Html.HiddenFor(model => model.ClientId)
-    <input type="button" value="Delete" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
+    
 }

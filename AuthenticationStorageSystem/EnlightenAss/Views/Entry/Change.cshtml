@@ -1,13 +1,13 @@
 ﻿@model AssClassLibrary.Entry
 
-<h2>Change</h2>
+<b>Modifying Authentication Details</b>
+<div id="backLink" class="btn btn-small btn-primary" style="margin-left: 300px" onclick="requestItem('@Model.EntryId', '/Entry/EntryDisplay')">Back to Client Projects</div>
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Entry</legend>
+        <hr />
 
         @Html.HiddenFor(model => model.EntryId)
 
@@ -52,22 +52,18 @@
         </div>
 
         <div class="details-label">
-            Date Added
-        </div>
-        <div class="details-field">
+            Date Added:<br>
             @Model.DateAdded
         </div>
+        <br>
         <div class="details-label">
-            Last Modified
-        </div>
-        <div class="details-field">
+            Last Modified:<br>
             @Model.LastModified
         </div>
+        <br>
 
             <input class="btn btn-small btn-primary" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
-            <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.EntryId', '/Entry/EntryDisplay')">Back to List</div>
-        
-    </fieldset>
+            
 }
 
 <!-- Set selected input box -->

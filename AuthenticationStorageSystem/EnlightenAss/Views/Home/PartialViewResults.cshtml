@@ -1,5 +1,8 @@
 ﻿@{int counter = 0;}
 
+<b>Search Results</b>
+<hr />
+
 <table class="table table-bordered">
     <tr id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Client/Index')">
         <th style="width:300px;">Clients</th>
@@ -20,9 +23,9 @@
             counter++;
         }
     
-        <tr>
-            <th id="@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Project/IndexAll')">Projects</th>
-            <th class="table-bordered th"></th>
+        <tr id="@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Project/IndexAll')">
+            <th style="width:300px;">Projects</th>
+            <th></th>
         </tr>
         
         counter++;
@@ -32,8 +35,8 @@
 
                 
                 
-        <tr>
-            <td id = "@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+        <tr id = "@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+            <td>
                 @item.Name
             </td>
             <td>
@@ -47,9 +50,9 @@
             
             
             
-        <tr>
-            <th id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" onclick="requestItem('0', '/Entry/IndexAll')">Entries</th>
-            <th class="table-bordered th"></th>
+        <tr id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Entry/IndexAll')">
+            <th style="width:300px;">Entries</th>
+            <th></th>
         </tr>
         
         counter++;
@@ -59,8 +62,8 @@
 
                 
                 
-        <tr>
-            <td id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
+        <tr id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
+            <td>
                 @item.Username
             </td>
             <td>

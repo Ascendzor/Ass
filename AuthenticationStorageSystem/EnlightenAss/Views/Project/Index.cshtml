@@ -22,20 +22,23 @@
 }
  /
 
-<button class="btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">New Project</button>
-<a class="editButton btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Change</a>
+<div style="float:right; margin-right:293px;">
+    <a class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Modify Client</a>
+    <button class="btn btn-small btn-primary" style="margin-left:20px" onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">New Project...</button>
+    
+</div>
 <hr />
 
 <table class="table table-bordered">
-    <tr>
-        <th class="table-bordered th" style="width:300px;">Project Name</th>
-        <th class="table-bordered th">Notes</th>
+    <tr  class="table-bordered headerRow">
+        <th style="width:300px;">Project Name</th>
+        <th>Notes</th>
     </tr>
     @{int counter =0;}
     @foreach (var item in Model)
     {
-        <tr>
-            <td id="@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+        <tr id="@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+            <td>
                 @item.Name
             </td>
             <td>@Html.DisplayFor(modelItem => item.Notes)</td>

@@ -2,21 +2,22 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-All Clients<button class="btn btn-small btn-primary" style="float:right;" onclick="requestItem('0', '/Client/Create')">New Client</button>
+<b>All Clients</b>
+<button class="btn btn-small btn-primary" style="float:right; margin-right:293px;" onclick="requestItem('0', '/Client/Create')">New Client...</button>
 <hr />
 
 
 <table class="table table-bordered">
-    <tr>
-        <th class="table-bordered th" style="width:300px;">Client Name</th>
-        <th class="table-bordered th">Notes</th>
+    <tr class="table-bordered headerRow">
+        <th style="width:300px;">Client Name</th>
+        <th>Notes</th>
     </tr>
     @{int counter =0;}
     @foreach (var item in Model)
     {
         
-        <tr class="rowHighlight">
-            <td id="@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
+        <tr id="@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
+            <td>
                 @item.Name
             </td>
             <td>@Html.DisplayFor(modelItem => item.Notes)</td>
