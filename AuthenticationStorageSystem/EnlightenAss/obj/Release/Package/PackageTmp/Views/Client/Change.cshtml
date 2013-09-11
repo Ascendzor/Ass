@@ -1,0 +1,54 @@
+﻿@model AssClassLibrary.Client
+
+<b>Modifying Client Details</b> 
+<div id="backLink" class="btn btn-small btn-primary" style="margin-left: 340px;" onclick="requestItem('@Model.ClientId', '/Project/Index')">Back to Client Projects</div>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.ClientId)
+
+        <div class="editor-label">
+            Client Name
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            Notes
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <div class="details-label">
+            Date Added: <br> 
+            @Model.DateAdded
+        </div>
+        <br>
+        <div class="details-label">
+            Last Modified: <br>
+            @Model.LastModified
+        </div>
+        <br>
+        <input type="button" value="Delete Client" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
+        <input class="btn btn-small btn-primary" style="margin-left:20px" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
+        
+}
+
+<!-- Set selected input box -->
+<script>
+    $("#Name").focus();
+</script>
+
+<!-- Seperate Form for deleting the item -->
+@using (Html.BeginForm("Delete", "Client", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.ClientId)
+    
+}

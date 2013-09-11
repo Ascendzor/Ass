@@ -205,6 +205,8 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="Properties\PublishProfiles\enass - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\enass - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\Home.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -235,7 +237,6 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Search\Index.cshtml" />
     <Content Include="Views\Home\PartialViewResults.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Entry\Index.cshtml" />

@@ -1,0 +1,65 @@
+﻿@model AssClassLibrary.Project
+
+<b>Modifying Project Details</b>
+<div id="backLink" class="btn btn-small btn-primary" style="margin-left:330px" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Project Entries</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.ProjectId)
+        <hr />
+
+        @Html.HiddenFor(model => model.ProjectId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClientId, "Client")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ClientId")
+            @Html.ValidationMessageFor(model => model.ClientId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <div class="details-label">
+            Date Added:<br>
+            @Model.DateAdded
+        </div>
+        <br>
+        <div class="details-label">
+            Last Modified<br>
+            @Model.LastModified
+        </div>
+        <br>
+
+        <input type="button" value="Delete Project" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
+        <input class="btn btn-small btn-primary" style="margin-left:20px" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
+}
+
+<!-- Set selected input box -->
+<script>
+    $("#Name").focus();
+</script>
+
+<!-- Seperate Form for deleting the item -->
+@using (Html.BeginForm("Delete", "Project", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.ProjectId)
+    
+}
+

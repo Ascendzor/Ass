@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AssClassLibrary.Project>
+
+<script src="~/Scripts/KeyboardNav.js"></script>
+
+@if (String.IsNullOrEmpty(ViewBag.ClientName))
+{
+    Write("All Projects");
+}else{
+    if (ViewBag.ClientName.Length > 30)
+    {
+        <directory><a>
+        @{Write(ViewBag.ClientName.Substring(0, 30));}
+        @{Write("...");}
+        </a></directory>
+    }
+    else
+    {
+        <directory><a>
+        @{Write(ViewBag.ClientName);}
+        </a></directory>
+    }
+}
+ /
+
+<div style="float:right; margin-right:293px;">
+    <a class="editButton btn btn-small btn-primary" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Modify Client</a>
+    <button class="btn btn-small btn-primary" style="margin-left:20px" onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">New Project...</button>
+    
+</div>
+<hr />
+
+<table class="table table-bordered">
+    <tr  class="table-bordered headerRow">
+        <th style="width:300px;">Project Name</th>
+        <th>Notes</th>
+    </tr>
+    @{int counter =0;}
+    @foreach (var item in Model)
+    {
+        <tr id="@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+            <td>
+                @item.Name
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+        </tr>
+        counter++;
+    }
+
+</table>
+<script>
+    initialize();
+</script>

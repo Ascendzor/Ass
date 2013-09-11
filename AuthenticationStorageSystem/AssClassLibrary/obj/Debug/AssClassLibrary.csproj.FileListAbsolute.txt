@@ -47,3 +47,4 @@ C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debu
 C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csproj.GenerateResource.Cache
 C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.dll
 C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.pdb
+C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csprojResolveAssemblyReference.cache

@@ -1,0 +1,79 @@
+﻿@model AssClassLibrary.Entry
+
+<b>Modifying Authentication Details</b>
+<div id="backLink" class="btn btn-small btn-primary" style="margin-left: 300px" onclick="requestItem('@Model.EntryId', '/Entry/EntryDisplay')">Back to Client Projects</div>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+        <hr />
+
+        @Html.HiddenFor(model => model.EntryId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProjectId, "Project")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ProjectId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ProjectId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Website)
+            @Html.ValidationMessageFor(model => model.Website)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <div class="details-label">
+            Date Added:<br>
+            @Model.DateAdded
+        </div>
+        <br>
+        <div class="details-label">
+            Last Modified:<br>
+            @Model.LastModified
+        </div>
+        <br>
+
+            <input class="btn btn-small btn-primary" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
+            
+}
+
+<!-- Set selected input box -->
+<script>
+    $("#Username").focus();
+</script>
+
+<!-- Seperate Form for deleting the item -->
+@using (Html.BeginForm("Delete", "Entry", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.EntryId)
+    <input type="button" value="Delete" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
+}

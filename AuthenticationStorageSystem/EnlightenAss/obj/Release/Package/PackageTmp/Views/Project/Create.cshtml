@@ -1,0 +1,48 @@
+﻿@model AssClassLibrary.Project
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+        <b>Creating New Project</b>
+        <div id="backLink" class="btn btn-small btn-primary" style="margin-left:360px" onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">Back to Client Projects</div>
+        <hr />
+
+        <!-- Client name (default value = current client) -->
+            <div class="editor-label">
+            @Html.LabelFor(model => model.ClientId, "Client")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ClientId")
+            @Html.ValidationMessageFor(model => model.ClientId)
+        </div>
+
+        <!-- Project name -->
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <!-- Notes for project -->
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <p>
+            <input type="button" value="Create" onclick="ajaxSubmitForm(this)" class="btn btn-small btn-primary"/>
+        </p>
+}
+
+<!-- Set selected input box -->
+<script>
+    $("#Name").focus();
+</script>
+
+
+

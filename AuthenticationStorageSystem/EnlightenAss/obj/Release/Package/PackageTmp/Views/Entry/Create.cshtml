@@ -1,0 +1,59 @@
+﻿@model AssClassLibrary.Entry
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <b>Creating New Entry</b>
+    <div id="backLink" class="btn btn-small btn-primary" style="margin-left: 375px" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Index')">Back to Project Entries</div>
+    <hr />
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ProjectId, "Project")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ProjectId")
+            @Html.ValidationMessageFor(model => model.ProjectId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Password)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Website)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Website)
+            @Html.ValidationMessageFor(model => model.Website)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <p>
+            <input type="button" value="Create" onclick="ajaxSubmitForm(this)" class="btn btn-small btn-primary"/>
+        </p>
+}
+
+<!-- Set selected input box -->
+<script>
+    $("#Username").focus();
+</script>
+

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AssClassLibrary.Client>
+
+<script src="~/Scripts/KeyboardNav.js"></script>
+
+<b>All Clients</b>
+<button class="btn btn-small btn-primary" style="float:right; margin-right:293px;" onclick="requestItem('0', '/Client/Create')">New Client...</button>
+<hr />
+
+
+<table class="table table-bordered">
+    <tr class="table-bordered headerRow">
+        <th style="width:300px;">Client Name</th>
+        <th>Notes</th>
+    </tr>
+    @{int counter =0;}
+    @foreach (var item in Model)
+    {
+        
+        <tr id="@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
+            <td>
+                @item.Name
+            </td>
+            <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+        </tr>
+        counter++;
+    }
+</table>
+<script>
+    initialize();
+</script>

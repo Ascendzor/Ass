@@ -1,0 +1,80 @@
+﻿@{int counter = 0;}
+
+<b>Search Results</b>
+<hr />
+
+<table class="table table-bordered">
+    <tr id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Client/Index')">
+        <th style="width:300px;">Clients</th>
+        <th>Notes</th>
+    </tr>
+    @{
+        counter++;
+        foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
+        {
+        <tr id = "@counter"  onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Notes
+            </td>
+        </tr>
+            counter++;
+        }
+    
+        <tr id="@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Project/IndexAll')">
+            <th style="width:300px;">Projects</th>
+            <th></th>
+        </tr>
+        
+        counter++;
+
+        foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
+        {
+
+                
+                
+        <tr id = "@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.Notes
+            </td>
+        </tr>
+                
+            counter++;
+
+        }
+            
+            
+            
+        <tr id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Entry/IndexAll')">
+            <th style="width:300px;">Entries</th>
+            <th></th>
+        </tr>
+        
+        counter++;
+
+        foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
+        {
+
+                
+                
+        <tr id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
+            <td>
+                @item.Username
+            </td>
+            <td>
+                @item.Notes
+            </td>
+        </tr>
+            counter++;
+        }
+        
+    }
+</table>
+<script>
+    initialize();
+</script>

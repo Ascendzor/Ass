@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-EnlightenAss-20130814133007;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-EnlightenAss-20130814133007.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcel\\Desktop\\Ass\\AuthenticationStorageSystem\\EnlightenAss\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ClientDbContext-Web.config Connection String" description="ClientDbContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\v11.0; Initial Catalog=ClientDbContext-20130814161539; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|ClientDbContext-20130814161539.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcel\\Desktop\\Ass\\AuthenticationStorageSystem\\EnlightenAss\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ClientDbContext']/@connectionString" />
+  </parameter>
+  <parameter name="ProjectDbContext-Web.config Connection String" description="ProjectDbContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\v11.0; Initial Catalog=ProjectDbContext-20130814164134; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|ProjectDbContext-20130814164134.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcel\\Desktop\\Ass\\AuthenticationStorageSystem\\EnlightenAss\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ProjectDbContext']/@connectionString" />
+  </parameter>
+  <parameter name="EntryDbContext-Web.config Connection String" description="EntryDbContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\v11.0; Initial Catalog=EntryDbContext-20130814164201; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|EntryDbContext-20130814164201.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcel\\Desktop\\Ass\\AuthenticationStorageSystem\\EnlightenAss\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='EntryDbContext']/@connectionString" />
+  </parameter>
+  <parameter name="AssClassLibrary.DatabaseContext-Web.config Connection String" description="AssClassLibrary.DatabaseContext Connection String used in web.config by the application to access the database." defaultValue="AssClassLibrary.DatabaseContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcel\\Desktop\\Ass\\AuthenticationStorageSystem\\EnlightenAss\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AssClassLibrary.DatabaseContext']/@connectionString" />
+  </parameter>
+  <parameter name="AssClassLibrary.DatabaseContext_DatabasePublish-Web.config Connection String" description="AssClassLibrary.DatabaseContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="AssClassLibrary.DatabaseContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Marcel\\Desktop\\Ass\\AuthenticationStorageSystem\\EnlightenAss\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AssClassLibrary.DatabaseContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

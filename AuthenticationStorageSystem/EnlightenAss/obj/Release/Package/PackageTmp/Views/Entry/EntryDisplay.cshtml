@@ -1,0 +1,44 @@
+﻿@model AssClassLibrary.Entry
+
+<script src="~/Scripts/KeyboardNav.js"></script>
+
+<b>Entry</b>
+
+<div style="margin-left:445px">
+    <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Project Entries</div>
+    <a class="editButton btn btn-small btn-primary" style="margin-left:20px" onclick="requestItem('@Model.EntryId', '/Entry/Change')">Modify</a>
+</div>
+<hr />
+
+<table class="table table-bordered">
+    <tr class="table-bordered headerRow">
+        <th style="width:300px;">
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th style="width:300px;">
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Username)
+        </td>
+        <td>
+            <input type="text" value="@Model.Password" id="highlightMe" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Notes)
+        </td>
+    </tr>
+</table>
+
+<script>
+    document.getElementById('highlightMe').focus();
+    document.getElementById('highlightMe').select();
+    
+    initialize();
+
+</script>
