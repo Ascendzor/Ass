@@ -2,11 +2,9 @@
 
 
 var counter = 0;
-    function initialize() {
-        counter = 0;
-        if(returnId(0)!= null)
-            changeStyle(0);
-    }
+function initialize() {
+    returnId(0).className += " selectedRow";
+}
 
     
 
@@ -18,8 +16,8 @@ function returnId(tempCounter) {
 
 function changeStyle(x) {
     var temp = returnId(counter);
-    if (temp.className == "table-bordered th selectedRow") {
-        temp.className = "table-bordered th";
+    if (temp.className == "table-bordered headerRow selectedRow") {
+        temp.className = "table-bordered headerRow";
     } else {
         temp.className = "";
     }

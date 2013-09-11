@@ -1,16 +1,16 @@
 ﻿@{int counter = 0;}
 
 <table class="table table-bordered">
-    <tr>
-        <th id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered th" style="width:300px;" onclick="requestItem('0', '/Client/Index')">Clients</th>
-        <th class="table-bordered th">Notes</th>
+    <tr id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Client/Index')">
+        <th style="width:300px;">Clients</th>
+        <th>Notes</th>
     </tr>
     @{
         counter++;
         foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
         {
-        <tr>
-            <td id = "@counter"  onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
+        <tr id = "@counter"  onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
+            <td>
                 @item.Name
             </td>
             <td>

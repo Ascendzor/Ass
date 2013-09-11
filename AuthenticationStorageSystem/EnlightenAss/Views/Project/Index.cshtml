@@ -2,15 +2,25 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-<directory>
 @if (String.IsNullOrEmpty(ViewBag.ClientName))
 {
     Write("All Projects");
 }else{
-    @ViewBag.ClientName
-    Write("/");
+    if (ViewBag.ClientName.Length > 30)
+    {
+        <directory><a>
+        @{Write(ViewBag.ClientName.Substring(0, 30));}
+        @{Write("...");}
+        </a></directory>
+    }
+    else
+    {
+        <directory><a>
+        @{Write(ViewBag.ClientName);}
+        </a></directory>
+    }
 }
-</directory>
+ /
 
 <button class="btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ClientId', '/Project/Create')">New Project</button>
 <a class="editButton btn btn-small btn-primary" style="float:right;" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Change</a>

@@ -1,5 +1,5 @@
 ﻿.selectedRow{
-    background-color:#ABB;
+    background-color:#ABB !important;
     cursor:pointer;
 }
 
@@ -8,9 +8,9 @@ directory{
     cursor:pointer;
 }
 
-th{
+.headerRow{
     background-color:#788;
-    color: #FFF;
+    color:#FFF;
 }
 
 .test1{
