@@ -36,7 +36,6 @@
             @Model.LastModified
         </div>
         <br>
-        <input type="button" value="Delete Client" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
         <input class="btn btn-small btn-primary" style="margin-left:20px" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
         
 }
@@ -49,6 +48,7 @@
 <!-- Seperate Form for deleting the item -->
 @using (Html.BeginForm("Delete", "Client", FormMethod.Post))
 {
+    <input type="button" value="Delete Client" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
     @Html.HiddenFor(model => model.ClientId)
     
 }
