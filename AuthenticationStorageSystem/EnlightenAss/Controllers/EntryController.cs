@@ -35,10 +35,9 @@ namespace EnlightenAss.Controllers
 
         public ActionResult EntryDisplay(int id = 0)
         {
-            //Id to return to
-            ViewBag.ProjectIdNum = id;
-
             Entry entry = db.Entries.Find(id);
+            ViewBag.projectName = entry.Project.Name;
+            ViewBag.clientName = entry.Project.Client.Name;
             if (entry == null)
             {
                 return HttpNotFound();
