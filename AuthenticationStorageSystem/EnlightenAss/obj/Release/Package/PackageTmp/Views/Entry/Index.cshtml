@@ -5,6 +5,8 @@
 @if(String.IsNullOrEmpty(ViewBag.ProjectName)){
     Write("All Entries");
 }else{
+    <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+    <customTag> / </customTag>
     <directory onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index');"><a>
     @ViewBag.ClientName
     </a></directory>
@@ -36,7 +38,7 @@
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        <tr id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
+        <tr id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>

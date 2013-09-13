@@ -3,6 +3,7 @@
 
 var counter = 0;
 function initialize() {
+    counter = 0;
     returnId(0).className += " selectedRow";
 }
 
@@ -45,12 +46,14 @@ function handleKeyPressed(e) {
             if (counter > 0) {
                 
                 changeStyle(-1);
+                window.scrollBy(0, document.getElementById(counter).offsetHeight * -1);
             }
             e.preventDefault();
             break;
         case 40://downkey
             if (returnId(String(counter + 1)) != null) {
                 changeStyle(1);
+                window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
                 
             }
             

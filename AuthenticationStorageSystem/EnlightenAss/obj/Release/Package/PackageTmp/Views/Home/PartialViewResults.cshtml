@@ -4,14 +4,14 @@
 <hr />
 
 <table class="table table-bordered">
-    <tr id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Client/Index')">
+    <tr id = "@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Client/Index')">
         <th style="width:300px;">Clients</th>
     </tr>
     @{
         counter++;
         foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
         {
-        <tr id = "@counter"  onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ClientId', '/Project/Index')">
+        <tr id = "@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
             <td>
                 @item.Name
             </td>
@@ -19,7 +19,7 @@
             counter++;
         }
     
-        <tr id="@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Project/IndexAll')">
+        <tr id="@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Project/IndexAll')">
             <th style="width:300px;">Projects</th>
         </tr>
         
@@ -30,7 +30,7 @@
 
                 
                 
-        <tr id = "@counter" onmouseover= "mousedOver(@counter)" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+        <tr id = "@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
             <td>
                 @item.Name
             </td>
@@ -42,7 +42,7 @@
             
             
             
-        <tr id = "@counter" onmouseover= "mousedOver(@counter)" class="table-bordered headerRow" onclick="requestItem('0', '/Entry/IndexAll')">
+        <tr id = "@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Entry/IndexAll')">
             <th style="width:300px;">Entries</th>
         </tr>
         
@@ -53,7 +53,7 @@
 
                 
                 
-        <tr id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
+        <tr id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
             <td>
                 @item.Username
             </td>

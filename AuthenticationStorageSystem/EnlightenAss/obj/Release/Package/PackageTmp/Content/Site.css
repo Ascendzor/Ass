@@ -1,6 +1,17 @@
 ﻿.selectedRow{
     background-color:#ABB !important;
+}
+
+tr{
     cursor:pointer;
+}
+
+a{
+    cursor: pointer;
+}
+
+i{
+    cursor: pointer;
 }
 
 directory{
