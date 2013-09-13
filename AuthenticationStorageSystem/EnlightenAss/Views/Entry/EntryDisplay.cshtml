@@ -6,33 +6,33 @@
 <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
 <customTag> / </customTag>
 
-@if (ViewBag.clientName.Length > 30)
+@if (Model.Project.Client.Name.Length > 30)
 {
-    <directory onclick="requestItem('@ViewBag.ClientId', '/Project/Index');"><a>
-    @{Write(ViewBag.clientName.Substring(0, 27));}
+    <directory onclick="requestItem('@Model.Project.ClientId', '/Project/Index');"><a>
+    @{Write(Model.Project.Client.Name.Substring(0, 27));}
     </a></directory>
 }
 else
 {
-    <directory onclick="requestItem('@ViewBag.ClientId', '/Project/Index');"><a>
-    @{Write(ViewBag.clientName);}
+    <directory onclick="requestItem('@Model.Project.ClientId', '/Project/Index');"><a>
+    @{Write(Model.Project.Client.Name);}
     </a></directory>
 }
  / 
-@if (ViewBag.projectName.Length > 30)
+@if (Model.Project.Name.Length > 30)
 {
-        <directory onclick="requestItem('@ViewBag.ProjectId', '/Entry/Index');"><a>
-        @{Write(ViewBag.projectName.Substring(0, 27));}
+        <directory onclick="requestItem('@Model.ProjectId', '/Entry/Index');"><a>
+        @{Write(Model.Project.Name.Substring(0, 27));}
         @{Write("...");}
         </a></directory>
 }else
 {
-        <directory onclick="requestItem('@ViewBag.ProjectId', '/Entry/Index');"><a>
-        @{Write(ViewBag.projectName);}
+        <directory onclick="requestItem('@Model.ProjectId', '/Entry/Index');"><a>
+        @{Write(Model.Project.Name);}
         </a></directory>    
 }
  / 
-@ViewBag.entryUsername
+@Model.Username
 
 <div style="margin-left:445px">
     <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Project Entries</div>
@@ -71,5 +71,4 @@ else
         document.getElementById('highlightMe').select();
     }
     focusTextBox();
-    initialize();
 </script>
