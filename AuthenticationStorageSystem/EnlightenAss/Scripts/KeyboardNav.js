@@ -3,6 +3,7 @@
 
 var counter = 0;
 function initialize() {
+    counter = 0;
     returnId(0).className += " selectedRow";
 }
 
