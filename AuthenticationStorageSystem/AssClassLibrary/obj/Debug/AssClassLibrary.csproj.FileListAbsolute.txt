@@ -48,3 +48,13 @@ C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debu
 C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.dll
 C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.pdb
 C:\Users\Marcel\Desktop\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.dll.config
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.dll
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\AssClassLibrary.pdb
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\EntityFramework.dll
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\bin\Debug\EntityFramework.xml
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.Migrations.myMigration.resources
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.csproj.GenerateResource.Cache
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.dll
+C:\Users\Public\Ass\Ass\AuthenticationStorageSystem\AssClassLibrary\obj\Debug\AssClassLibrary.pdb
