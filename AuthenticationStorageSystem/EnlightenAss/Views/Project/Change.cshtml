@@ -5,49 +5,66 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(true)
+ @Html.ValidationSummary(true)
 
-        @Html.HiddenFor(model => model.ProjectId)
-        <hr />
+ @Html.HiddenFor(model => model.ProjectId)
 
-        @Html.HiddenFor(model => model.ProjectId)
+    <hr />
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ClientId, "Client")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("ClientId")
-            @Html.ValidationMessageFor(model => model.ClientId)
-        </div>
+ @Html.HiddenFor(model => model.ProjectId)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Notes)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Notes)
-            @Html.ValidationMessageFor(model => model.Notes)
-        </div>
 
-        <div class="details-label">
-            Date Added:<br>
-            @Model.DateAdded
-        </div>
-        <br>
-        <div class="details-label">
-            Last Modified<br>
-            @Model.LastModified
-        </div>
-        <br>
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ClientId, "Client")
+    </div>
 
-        <input class="btn btn-small btn-primary" style="margin-left:20px" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
+    <div class="editor-field">
+        @Html.DropDownList("ClientId")
+        @Html.ValidationMessageFor(model => model.ClientId)
+    </div>
+
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+
+
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Notes)
+    </div>
+
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Notes)
+        @Html.ValidationMessageFor(model => model.Notes)
+    </div>
+    
+    <!-- Having hidden fors stop the date modified and added labels changing to default time on validation fail -->
+    @Html.HiddenFor(model => model.DateAdded)
+    @Html.HiddenFor(model => model.LastModified)
+
+    <div class="details-label">
+        Date Added:<br>
+        @Model.DateAdded
+    </div>
+
+    <br>
+
+    <div class="details-label">
+        Last Modified<br>
+        @Model.LastModified
+    </div>
+
+    <br>
+
+    <input class="btn btn-small btn-primary" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)" />
 }
 
 <!-- Set selected input box -->
@@ -59,5 +76,6 @@
 @using (Html.BeginForm("Delete", "Project", FormMethod.Post))
 {
     @Html.HiddenFor(model => model.ProjectId)
+
     <input type="button" value="Delete Project" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
 }

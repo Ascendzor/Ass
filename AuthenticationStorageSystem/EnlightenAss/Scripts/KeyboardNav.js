@@ -1,19 +1,14 @@
 // JavaScript source code
 
+function returnId(tempCounter) {
+    return document.getElementById(String(tempCounter));
+}
 
 var counter = 0;
 function initialize() {
     counter = 0;
     returnId(0).className += " selectedRow";
 }
-
-    
-
-function returnId(tempCounter) {
-    return document.getElementById(String(tempCounter));
-}
-
-
 
 function changeStyle(x) {
     var temp = returnId(counter);
@@ -74,5 +69,5 @@ function printElement(element) {
         
 }
 
-window.onload = initialize;
+//window.onload = initialize;
 document.onkeydown = handleKeyPressed;

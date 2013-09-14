@@ -13,7 +13,9 @@ namespace EnlightenAss.Controllers
     {
         private DatabaseContext db = new DatabaseContext();
 
-        //returns projects where ClientId = id
+        /**
+         * Returns projects where ClientId = id
+         */
         public ActionResult Index(int id = 0)
         {
             Client client = db.Clients.Find(id);
@@ -26,7 +28,6 @@ namespace EnlightenAss.Controllers
             ViewBag.ClientId = id;
 
             //return list of projects with matching client id
-            //var projects = db.Projects.Include(p => p.Client);
             return PartialView(db.Projects.Where(i => i.ClientId == id));
         }
 
@@ -45,17 +46,15 @@ namespace EnlightenAss.Controllers
         public ActionResult Change(int id = 0)
         {
             Project project = db.Projects.Find(id);
-            if (project == null)
-            {
-                return HttpNotFound();
-            }
+            if (project == null) return HttpNotFound();
+
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
             return PartialView(project);
         }
 
         /**
          * Some fields cannot be edited by the user, therefore they are changed statically 
-         **/
+         */
         [HttpPost]
         public ActionResult Change(Project project)
         {
@@ -102,7 +101,7 @@ namespace EnlightenAss.Controllers
 
         /**
          * Some fields cannot be set by the user, therefore they are set statically 
-         **/
+         */
         [HttpPost]
         public ActionResult Create(Project project)
         {

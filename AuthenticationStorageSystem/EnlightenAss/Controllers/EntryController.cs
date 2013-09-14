@@ -13,7 +13,9 @@ namespace EnlightenAss.Controllers
     {
         private DatabaseContext db = new DatabaseContext();
 
-        //Returns entries where ProjectId = id
+        /**
+         * Returns entries where ProjectId = id
+         */
         public ActionResult Index(int id = 0)
         {
             Project project = db.Projects.Find(id);
@@ -36,16 +38,7 @@ namespace EnlightenAss.Controllers
         public ActionResult EntryDisplay(int id = 0)
         {
             Entry entry = db.Entries.Find(id);
-            ViewBag.EntryId = entry.EntryId;
-            ViewBag.EntryUsername = entry.Username;
-            ViewBag.projectId = entry.Project.ProjectId;
-            ViewBag.ProjectName = entry.Project.Name;
-            ViewBag.ClientId = entry.Project.Client.ClientId;
-            ViewBag.ClientName = entry.Project.Client.Name;
-            if (entry == null)
-            {
-                return HttpNotFound();
-            }
+            if (entry == null) return HttpNotFound();
 
             return PartialView(entry);
         }
@@ -70,7 +63,7 @@ namespace EnlightenAss.Controllers
 
         /**
          * Some fields cannot be set by the user, therefore they are set statically 
-         **/
+         */
         [HttpPost]
         public ActionResult Create(Entry entry)
         {
@@ -107,7 +100,7 @@ namespace EnlightenAss.Controllers
 
         /**
          * Some fields cannot be edited by the user, therefore they are changed statically 
-         **/
+         */
         [HttpPost]
         public ActionResult Change(Entry entry)
         {
