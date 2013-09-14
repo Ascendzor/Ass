@@ -1,17 +1,38 @@
 ﻿.selectedRow{
-    background-color:#ABB !important;
+    background-color:#788;
+    color:#FFF;
+}
+
+.headerRow.selectedRow{
+    background-color:#788;
+    color:#FFF;
 }
 
 .Development{
-    background-color:red;
+    background-color:rgba(168, 0, 0, 0.62)
 }
 
-.Staging{
-    background-color:green;
+.Development.selectedRow{
+    background-color:rgb(168, 0, 0);
+    color: white;
 }
 
 .Testing{
-    background-color:yellow;
+    background-color:rgba(255, 148, 0, 0.62);
+}
+
+.Testing.selectedRow{
+    background-color:rgb(255, 148, 0);
+    color: white;
+}
+
+.Staging{
+    background-color:rgba(26, 194, 0, 0.62);
+}
+
+.Staging.selectedRow{
+    background-color:rgb(26, 194, 0);
+    color: white;
 }
 
 tr{
@@ -32,8 +53,8 @@ directory{
 }
 
 .headerRow{
-    background-color:#788;
-    color:#FFF;
+    background-color:#ABB;
+    font-size:16px;
 }
 
 .test1{

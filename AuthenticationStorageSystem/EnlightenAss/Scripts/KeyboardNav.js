@@ -41,14 +41,14 @@ function handleKeyPressed(e) {
         case 38:
             if (counter > 0) {
                 changeStyle(-1);
-                window.scrollBy(0, $("#" + counter).offsetHeight * -1);
+                window.scrollBy(0, document.getElementById(counter).offsetHeight * -1);
             }
             e.preventDefault();
             break;
         case 40:
             if (document.getElementById(counter + 1) != null) {
                 changeStyle(1);
-                window.scrollBy(0, $("#" + counter).offsetHeight * 1);
+                window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
             }
             e.preventDefault();
             break;
