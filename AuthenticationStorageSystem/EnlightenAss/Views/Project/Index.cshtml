@@ -1,20 +1,25 @@
 ﻿@model IEnumerable<AssClassLibrary.Project>
 
 <script src="~/Scripts/KeyboardNav.js"></script>
-
+<link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
 @if (String.IsNullOrEmpty(ViewBag.ClientName))
 {
     Write("All Projects");
 }else{
     if (ViewBag.ClientName.Length > 30)
     {
+        <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+        <customTag> / </customTag>
         <directory><a>
+
         @{Write(ViewBag.ClientName.Substring(0, 27));}
         @{Write("...");}
         </a></directory>
     }
     else
     {
+        <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+        <customTag> / </customTag>
         <directory><a>
         @{Write(ViewBag.ClientName);}
         </a></directory>
@@ -33,7 +38,7 @@
     <tr  class="table-bordered headerRow">
         <th style="width:300px;">Project Name</th>
     </tr>
-    @{int counter =0;}
+    @{int counter = 0;}
     @foreach (var item in Model)
     {
         <tr id="@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">

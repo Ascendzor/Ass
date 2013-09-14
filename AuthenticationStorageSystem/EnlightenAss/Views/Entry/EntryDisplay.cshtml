@@ -3,6 +3,9 @@
 <script src="~/Scripts/KeyboardNav.js"></script>
 
 
+<a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+<customTag> / </customTag>
+
 @if (ViewBag.clientName.Length > 30)
 {
     <directory onclick="requestItem('@ViewBag.ClientId', '/Project/Index');"><a>

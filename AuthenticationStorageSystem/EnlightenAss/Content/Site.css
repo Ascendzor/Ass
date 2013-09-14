@@ -6,6 +6,14 @@ tr{
     cursor:pointer;
 }
 
+a{
+    cursor: pointer;
+}
+
+i{
+    cursor: pointer;
+}
+
 directory{
     text-decoration:underline;
     cursor:pointer;
