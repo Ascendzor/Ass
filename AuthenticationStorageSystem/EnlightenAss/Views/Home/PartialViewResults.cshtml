@@ -53,7 +53,7 @@
 
                 
                 
-        <tr id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
+        <tr class="@item.DevState" id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
             <td>
                 @item.Username
             </td>
@@ -65,4 +65,5 @@
 </table>
 <script>
     initialize();
+    filterByDevState("Development"); filterByDevState("Testing"); filterByDevState("Staging");
 </script>

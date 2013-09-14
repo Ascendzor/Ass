@@ -73,3 +73,12 @@ var delay = (function () {
         timer = setTimeout(callback, ms);
     };
 })();
+
+
+/* Hide or show entry table rows based off traffic light filter */
+function filterByDevState(id) {
+    if ($("#" + id).is(":checked"))
+        $("." + id).show();
+    else
+        $("." + id).hide();
+}
