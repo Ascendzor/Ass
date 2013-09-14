@@ -2,7 +2,34 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-<b>Entry</b>
+
+@if (ViewBag.clientName.Length > 30)
+{
+    <directory onclick="requestItem('@ViewBag.ClientId', '/Project/Index');"><a>
+    @{Write(ViewBag.clientName.Substring(0, 27));}
+    </a></directory>
+}
+else
+{
+    <directory onclick="requestItem('@ViewBag.ClientId', '/Project/Index');"><a>
+    @{Write(ViewBag.clientName);}
+    </a></directory>
+}
+ / 
+@if (ViewBag.projectName.Length > 30)
+{
+        <directory onclick="requestItem('@ViewBag.ProjectId', '/Entry/Index');"><a>
+        @{Write(ViewBag.projectName.Substring(0, 27));}
+        @{Write("...");}
+        </a></directory>
+}else
+{
+        <directory onclick="requestItem('@ViewBag.ProjectId', '/Entry/Index');"><a>
+        @{Write(ViewBag.projectName);}
+        </a></directory>    
+}
+ / 
+@ViewBag.entryUsername
 
 <div style="margin-left:445px">
     <div id="backLink" class="btn btn-small btn-primary" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Project Entries</div>

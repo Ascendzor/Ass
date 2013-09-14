@@ -47,7 +47,6 @@
         </div>
         <br>
 
-        <input type="button" value="Delete Project" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
         <input class="btn btn-small btn-primary" style="margin-left:20px" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)"/>
 }
 
@@ -60,6 +59,5 @@
 @using (Html.BeginForm("Delete", "Project", FormMethod.Post))
 {
     @Html.HiddenFor(model => model.ProjectId)
-    
+    <input type="button" value="Delete Project" class="btn btn-small btn-primary" onclick="ajaxSubmitForm(this)" />
 }
-

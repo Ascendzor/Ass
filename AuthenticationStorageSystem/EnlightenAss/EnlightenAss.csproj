@@ -205,7 +205,9 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="Properties\PublishProfiles\enass - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\enass - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\enass - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\enass - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\Home.js" />
