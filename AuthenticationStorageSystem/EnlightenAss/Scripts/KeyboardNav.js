@@ -20,8 +20,8 @@ function initialize() {
  * Add selected class to the row being selected
  * Parameter 'x' will equal 1 to go up, -1 to go down
  */
-function changeStyle(x) {
-    $("#" + counter).removeClass("selectedRow");
+function changeStyle(x, oldSelected) {
+    $("#" + oldSelected).removeClass("selectedRow");
     counter += x;
     $("#" + counter).addClass("selectedRow");
 }
@@ -32,22 +32,38 @@ function changeStyle(x) {
  * enter    = 13 = call onclick function of selected row
  */
 function handleKeyPressed(e) {
+    var oldSelected = counter;
 
-    switch(e.keyCode)
-    {
+    switch (e.keyCode) {
         case 13:
             $("#" + counter).click();
             break;
         case 38:
             if (counter > 0) {
-                changeStyle(-1);
+                var tempCounter = counter;                                  //Store counter incase reach null row
+                while ($('#' + (counter - 1)).css('display') == 'none') {   //Check if next row is hidden
+                    counter--;                                              //If hidden skip it
+                    if (document.getElementById(counter - 1) == null) {     //If next row is null revert back to old row
+                        counter = tempCounter + 1;                          //and break
+                        break;
+                    }
+                }
+                changeStyle(-1, oldSelected);
                 window.scrollBy(0, document.getElementById(counter).offsetHeight * -1);
             }
             e.preventDefault();
             break;
         case 40:
-            if (document.getElementById(counter + 1) != null) {
-                changeStyle(1);
+            if (document.getElementById(counter + 1) != null) {             //Store counter incase reach null row
+                var tempCounter = counter;                                  //Check if next row is hidden
+                while ($('#' + (counter+1)).css('display') == 'none') {     //If hidden skip it
+                    counter++;                                              //If next row is null revert back to old row
+                    if (document.getElementById(counter + 1) == null) {     //and break
+                        counter = tempCounter-1;
+                        break;
+                    }
+                }
+                changeStyle(1, oldSelected);
                 window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
             }
             e.preventDefault();
