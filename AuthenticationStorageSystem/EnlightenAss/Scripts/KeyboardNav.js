@@ -11,23 +11,17 @@ function initialize() {
 }
 
 function changeStyle(x) {
-    var temp = returnId(counter);
-    if (temp.className == "table-bordered headerRow selectedRow") {
-        temp.className = "table-bordered headerRow";
-    } else {
-        temp.className = "";
-    }
-    
-    counter = counter + x;
-    var temp2 = returnId(counter);
-    temp2.className += " selectedRow";
+    $("#" + counter).removeClass("selectedRow");
+    counter += x;
+    $("#" + counter).addClass("selectedRow");
 }
 
+/**
+ * up key   = 38
+ * down key = 40
+ * enter    = 13
+ */
 function handleKeyPressed(e) {
-    //up key =38
-    //down key=40
-    //enter =13
-    //key.Code
 
     switch(e.keyCode)
     {
@@ -51,11 +45,9 @@ function handleKeyPressed(e) {
                 window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
                 
             }
-            
             e.preventDefault();
             break;
     }
-    var element = returnId(counter);
 }
 
 function mousedOver(newCounter) {

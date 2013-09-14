@@ -7,10 +7,12 @@ namespace AssClassLibrary.Migrations
     {
         public override void Up()
         {
+            AddColumn("dbo.Entries", "DevState", c => c.String());
         }
         
         public override void Down()
         {
+            DropColumn("dbo.Entries", "DevState");
         }
     }
 }

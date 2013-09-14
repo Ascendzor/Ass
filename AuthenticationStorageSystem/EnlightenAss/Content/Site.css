@@ -2,6 +2,18 @@
     background-color:#ABB !important;
 }
 
+.Development{
+    background-color:red;
+}
+
+.Staging{
+    background-color:green;
+}
+
+.Testing{
+    background-color:yellow;
+}
+
 tr{
     cursor:pointer;
 }

@@ -34,6 +34,13 @@
         @Html.EditorFor(model => model.Password)
         @Html.ValidationMessageFor(model => model.Password)
     </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.DevState, "Development State")
+    </div>
+    <div class="details-label">
+        @Model.DevState
+    </div>
 
     <div class="editor-label">
         @Html.LabelFor(model => model.Website)
@@ -55,12 +62,12 @@
     @Html.HiddenFor(model => model.DateAdded)
     @Html.HiddenFor(model => model.LastModified)
     <div class="details-label">
-        Date Added:<br>
+        Date Added<br>
         @Model.DateAdded
     </div>
     <br>
     <div class="details-label">
-        Last Modified:<br>
+        Last Modified<br>
         @Model.LastModified
     </div>
     <br>

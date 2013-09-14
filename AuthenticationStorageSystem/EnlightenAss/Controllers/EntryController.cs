@@ -55,6 +55,10 @@ namespace EnlightenAss.Controllers
         {
             //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", id);
+            
+            //Drop down list for development states
+            ViewBag.DevState = createDevStateList();
+
             //Id to return to
             ViewBag.ProjectIdNum = id;
 
@@ -80,6 +84,9 @@ namespace EnlightenAss.Controllers
 
             //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
+            //Drop down list for development states
+            ViewBag.DevState = createDevStateList();
+
             return PartialView(entry);
         }
 
@@ -90,11 +97,11 @@ namespace EnlightenAss.Controllers
         public ActionResult Change(int id = 0)
         {
             Entry entry = db.Entries.Find(id);
-            if (entry == null)
-            {
-                return HttpNotFound();
-            }
+            if (entry == null) return HttpNotFound();
+
+            //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
+
             return PartialView(entry);
         }
 
@@ -117,7 +124,9 @@ namespace EnlightenAss.Controllers
                 db.SaveChanges();
                 return RedirectToAction("EntryDisplay", new { id = entry.EntryId });
             }
+            //Drop down list for project names
             ViewBag.ProjectId = new SelectList(db.Projects, "ProjectId", "Name", entry.ProjectId);
+
             return PartialView(entry);
 
         }
@@ -135,6 +144,22 @@ namespace EnlightenAss.Controllers
             return RedirectToAction("Index", new { id = projectId });
         }
 
+        /**
+         * Return a list of the three development states
+         * Development, testing staging
+         */
+        private List<SelectListItem> createDevStateList()
+        {
+            //Drop down list for development states
+            List<SelectListItem> devStates = new List<SelectListItem>();
+            SelectListItem dev = new SelectListItem() { Text = "Development", Value = "Development" };
+            SelectListItem testing = new SelectListItem() { Text = "Testing", Value = "Testing" };
+            SelectListItem staging = new SelectListItem() { Text = "Staging", Value = "Staging" };
+            devStates.Add(dev); devStates.Add(testing); devStates.Add(staging);
+            
+            return devStates;
+        }
+        
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

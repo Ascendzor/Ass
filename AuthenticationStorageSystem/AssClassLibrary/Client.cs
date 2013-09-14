@@ -51,6 +51,7 @@ namespace AssClassLibrary
         public bool isArchived { get; set; }
         public DateTime LastModified { get; set; }
         public String LastModifiedBy { get; set; }
+        public String DevState { get; set; }
 
         public virtual Project Project { get; set; }
     }
