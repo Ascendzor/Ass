@@ -10,7 +10,6 @@
 <table class="table table-bordered">
     <tr class="table-bordered headerRow">
         <th style="width:300px;">Client Name</th>
-        <th>Notes</th>
     </tr>
     @{int counter =0;}
     @foreach (var item in Model)
@@ -20,7 +19,6 @@
             <td>
                 @item.Name
             </td>
-            <td>@Html.DisplayFor(modelItem => item.Notes)</td>
         </tr>
         counter++;
     }

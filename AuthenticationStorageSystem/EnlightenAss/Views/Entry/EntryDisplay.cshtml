@@ -53,7 +53,7 @@ else
         <td>
             @Html.DisplayFor(modelItem => Model.Username)
         </td>
-        <td>
+        <td onclick="focusTextBox();">
             <input type="text" value="@Model.Password" id="highlightMe" readonly="true"/>
         </td>
         <td>
@@ -63,9 +63,10 @@ else
 </table>
 
 <script>
-    document.getElementById('highlightMe').focus();
-    document.getElementById('highlightMe').select();
-    
+    function focusTextBox(){
+        document.getElementById('highlightMe').focus();
+        document.getElementById('highlightMe').select();
+    }
+    focusTextBox();
     initialize();
-
 </script>

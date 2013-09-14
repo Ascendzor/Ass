@@ -1,5 +1,8 @@
 ﻿.selectedRow{
     background-color:#ABB !important;
+}
+
+tr{
     cursor:pointer;
 }
 

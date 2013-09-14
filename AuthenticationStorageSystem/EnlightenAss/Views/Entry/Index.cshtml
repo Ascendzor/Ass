@@ -36,7 +36,7 @@
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        <tr id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')" onmouseover= "mousedOver(@counter)">
+        <tr id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
