@@ -9,17 +9,43 @@
     <script src="~/Scripts/KeyboardNav.js"></script>
 </head>
 <body>
-    <div class="containerDiv">
+	<!--
+		<div class="navbar navbar-inverse navbar-fixed-top navbar-inner" style="min-height:30px">
+            <h5 class="mainTitle"><a onclick="window.location.reload();">
+				<i class="icon-large icon-white icon-home" style="margin-right:3px"></i></a> Authentication Storage System
+                <input id="searchText" oninput="search()" name="searchtext" type="text" autocomplete="off"/>
+				<button id="myButton" style="margin-bottom:5px; margin-left:5px" onclick="search(); $('#searchText').focus();" class="btn btn-default navbar-btn" >Go</button>
+			</h5>
+		</div>
+	-->
+    
+	<div class="navbar navbar-inverse navbar-fixed-top navbar-inner" style="min-height:30px">
+		<h5 class="mainTitle"><a onclick="window.location.reload();">
+			<i class="icon-large icon-white icon-home" style="margin-right:3px"></i></a> Authentication Storage System
+			<input id="searchText" oninput="search()" name="searchtext" type="text" autocomplete="off"/>
+			<button id="myButton" style="margin-bottom:5px; margin-left:5px" onclick="search(); $('#searchText').focus();" class="btn btn-default navbar-btn" >Go</button>
+			<!-- Traffic Light -->
+            <input checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')"/>
+            <input checked="checked" type="checkbox" id="Testing" onclick="filterByDevState('Testing')"/>
+            <input checked="checked" type="checkbox" id="Staging" onclick="filterByDevState('Staging')"/>
+		</h5>
+	</div>
+	
+	
+	
+	<div class="containerDiv">
         <div class="contentDiv">
-            <fieldset>
+            <!--
+			<fieldset>
                 <legend>Authentication Storage System</legend>
                 <input id="searchText" oninput="search()" name="searchtext" type="text" autocomplete="off"/>
                 <button id="myButton" onclick="search(); $('#searchText').focus();" class="btn btn-small btn-primary" style="margin-bottom: 10px">Go</button>
-                <!-- Traffic Light -->
+                 Traffic Light
                 <input checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')"/>
                 <input checked="checked" type="checkbox" id="Testing" onclick="filterByDevState('Testing')"/>
                 <input checked="checked" type="checkbox" id="Staging" onclick="filterByDevState('Staging')"/>
             </fieldset>
+			-->
             <div id="errorDiv"></div>
             <!-- Dynamic content placed in here -->
             <div id="partialDiv"></div>

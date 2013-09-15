@@ -30,6 +30,14 @@
             @Html.EditorFor(model => model.Password)
             @Html.ValidationMessageFor(model => model.Password)
         </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DevState, "Development State")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("DevState")
+            @Html.ValidationMessageFor(model => model.DevState)
+        </div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Website)

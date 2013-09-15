@@ -1,78 +1,74 @@
-// JavaScript source code
+/*
+ * Keyboard navigation up and down table
+ * Table rows must have incremeneting IDs
+ * Enter invokes the selected elements onclick function
+ */
 
-
+// Global counter to identify what row is seleceted
 var counter = 0;
+
+/*
+ * Function is invoked when a partial view is loaded onto the page
+ * (from within the view html)
+ */
 function initialize() {
-    counter = 0;
-    returnId(0).className += " selectedRow";
+    $("#" + (counter = 0)).addClass("selectedRow");
 }
 
-    
-
-function returnId(tempCounter) {
-    return document.getElementById(String(tempCounter));
+/*
+ * Remove selected class from the row being unselected
+ * Add selected class to the row being selected
+ * Parameter 'x' will equal 1 to go up, -1 to go down
+ */
+function changeStyle(x, oldSelected) {
+    $("#" + oldSelected).removeClass("selectedRow");
+    counter += x;
+    $("#" + counter).addClass("selectedRow");
 }
 
-
-
-function changeStyle(x) {
-    var temp = returnId(counter);
-    if (temp.className == "table-bordered headerRow selectedRow") {
-        temp.className = "table-bordered headerRow";
-    } else {
-        temp.className = "";
-    }
-    
-    counter = counter + x;
-    var temp2 = returnId(counter);
-    temp2.className += " selectedRow";
-}
-
+/**
+ * up key   = 38 = changeStyle() + scroll window
+ * down key = 40 = changeStyle() + scroll window
+ * enter    = 13 = call onclick function of selected row
+ */
 function handleKeyPressed(e) {
-    //up key =38
-    //down key=40
-    //enter =13
-    //key.Code
+    var oldSelected = counter;
 
-    switch(e.keyCode)
-    {
-        case 13://enter
-            var loadElement = returnId(String(counter));
-            if (loadElement != null) {
-                loadElement.click();
-            }
+    switch (e.keyCode) {
+        case 13:
+            $("#" + counter).click();
             break;
-        case 38://up key
+        case 38:
             if (counter > 0) {
-                
-                changeStyle(-1);
+                var tempCounter = counter;                                  //Store counter incase reach null row
+                while ($('#' + (counter - 1)).css('display') == 'none') {   //Check if next row is hidden
+                    counter--;                                              //If hidden skip it
+                    if (document.getElementById(counter - 1) == null) {     //If next row is null revert back to old row
+                        counter = tempCounter + 1;                          //and break
+                        break;
+                    }
+                }
+                changeStyle(-1, oldSelected);
                 window.scrollBy(0, document.getElementById(counter).offsetHeight * -1);
             }
             e.preventDefault();
             break;
-        case 40://downkey
-            if (returnId(String(counter + 1)) != null) {
-                changeStyle(1);
+        case 40:
+            if (document.getElementById(counter + 1) != null) {             //Store counter incase reach null row
+                var tempCounter = counter;                                  //Check if next row is hidden
+                while ($('#' + (counter+1)).css('display') == 'none') {     //If hidden skip it
+                    counter++;                                              //If next row is null revert back to old row
+                    if (document.getElementById(counter + 1) == null) {     //and break
+                        counter = tempCounter-1;
+                        break;
+                    }
+                }
+                changeStyle(1, oldSelected);
                 window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
-                
             }
-            
             e.preventDefault();
             break;
     }
-    var element = returnId(counter);
 }
 
-function mousedOver(newCounter) {
-    changeStyle(newCounter - counter);
-    printElement(counter);
-}
-
-function printElement(element) {
-    console.log(element);
-    console.log(element.id);
-        
-}
-
-window.onload = initialize;
 document.onkeydown = handleKeyPressed;

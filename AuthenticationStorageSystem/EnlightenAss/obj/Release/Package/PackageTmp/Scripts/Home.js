@@ -13,7 +13,8 @@ function search() {
             dataType: 'html',
             error: function (xhr, status, error) {
                 //do something about the error
-                alert("requestItem errored ", xhr, "\n", status, "\n", error);
+                console.log("ERROR\nSomething went wrong with the search\nXHR=" + xhr + "\nStatus=" + status + "\nError=" + error);
+                data = "Something went wrong with the search\n" + xhr + "\n" + status + "\n" + error;
             },
             success: function (data) {
                 $('#partialDiv').html(data);
@@ -35,7 +36,8 @@ function requestItem(item, url) {
         dataType: 'html',
         error: function (xhr, status, error) {
             //do something about the error
-            alert("requestItem errored ", xhr, "\n", status, "\n", error);
+            console.log("ERROR\nSomething went wrong with the request\nXHR=" + xhr + "\nStatus=" + status + "\nError=" + error);
+            data = "Something went wrong with the request\n" + xhr + "\n" + status + "\n" + error;
         },
         success: function (data) {
             $("#searchText").focus();
@@ -54,7 +56,8 @@ function ajaxSubmitForm(btnClicked) {
         data: $form.serialize(),
         error: function (xhr, status, error) {
             //do something about the error
-            alert("ajaxSubmitForm errored ", xhr, "\n", status, "\n", error);
+            console.log("ERROR\nSomething went wrong with the form submit\nXHR=" + xhr + "\nStatus=" + status + "\nError=" + error);
+            data = "Something went wrong with the form submit\n" + xhr + "\n" + status + "\n" + error;
         },
         success: function (data) {
             $('#partialDiv').html(data);
@@ -70,3 +73,12 @@ var delay = (function () {
         timer = setTimeout(callback, ms);
     };
 })();
+
+
+/* Hide or show entry table rows based off traffic light filter */
+function filterByDevState(id) {
+    if ($("#" + id).is(":checked"))
+        $("." + id).show();
+    else
+        $("." + id).hide();
+}

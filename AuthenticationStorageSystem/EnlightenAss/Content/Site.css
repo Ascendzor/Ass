@@ -35,16 +35,8 @@
     color: white;
 }
 
-tr{
+tr, a, i{
     cursor:pointer;
-}
-
-a{
-    cursor: pointer;
-}
-
-i{
-    cursor: pointer;
 }
 
 directory{
@@ -57,9 +49,25 @@ directory{
     font-size:16px;
 }
 
-.test1{
-    font-size:40px;
-    color:#0094ff;
+
+body{
+	padding-top:50px;
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background:url("/Content/brickwall.png");
+    background-repeat:repeat;
+}
+
+.mainTitle {
+	margin-left:425px;
+	color:#CEE3F6;
+}
+
+#searchText{
+    width: 600px;
+	margin-top:10px;
+	margin-left:15px;
 }
 
 .containerDiv{
@@ -106,15 +114,10 @@ background-color:#CEE3F6;
 }
 
 .contentDiv{
-    padding: 10px;
-    padding-left:40px;
+    padding:35px;
     /*background-color: #CEE3F6;*/
     background-color:#FFF;
     min-height:700px;
-}
-
-#searchText{
-    width:600px;
 }
 
 /*
@@ -125,14 +128,6 @@ background-color:#CEE3F6;
     text-align: right;
 }
     */
-
-body {
-    font-size: .85em;
-    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    color: #232323;
-    background:url("/Content/use_your_illusion.png");
-    background-repeat:repeat;
-}
 
 header, footer, nav, section {
     display: block;

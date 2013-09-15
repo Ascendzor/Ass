@@ -4,10 +4,31 @@
 <hr />
 
 <table class="table table-bordered">
-    <tr id = "@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Client/Index')">
-        <th style="width:300px;">Clients</th>
-    </tr>
-    @{
+
+    @{ 
+        <tr id = "@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Entry/IndexAll')">
+            <th style="width: 300px;">Entries</th>
+        </tr>
+        
+        counter++;
+
+        foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
+        {
+
+                
+                
+        <tr class="@item.DevState" id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
+            <td>
+                @item.Username
+            </td>
+        </tr>
+            counter++;
+        }
+        
+        
+        <tr id = "@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Client/Index')">
+            <th style="width: 300px;">Clients</th>
+        </tr>
         counter++;
         foreach (var item in (List<AssClassLibrary.Client>)ViewData["clientResults"])
         {
@@ -20,7 +41,7 @@
         }
     
         <tr id="@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Project/IndexAll')">
-            <th style="width:300px;">Projects</th>
+            <th style="width: 300px;">Projects</th>
         </tr>
         
         counter++;
@@ -39,30 +60,12 @@
             counter++;
 
         }
-            
-            
-            
-        <tr id = "@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Entry/IndexAll')">
-            <th style="width:300px;">Entries</th>
-        </tr>
-        
-        counter++;
 
-        foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
-        {
-
-                
-                
-        <tr id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
-            <td>
-                @item.Username
-            </td>
-        </tr>
-            counter++;
-        }
         
     }
 </table>
 <script>
     initialize();
+    if (document.getElementById(1) != null) changeStyle(1, 0); //band aid MUST be improved
+    filterByDevState("Development"); filterByDevState("Testing"); filterByDevState("Staging");
 </script>
