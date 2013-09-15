@@ -4,7 +4,7 @@
 {
     @Html.ValidationSummary(true)
             <b>Creating New Client</b>
-            <div id="backLink" class="btn btn-small btn-primary" style="margin-left: 410px;" onclick="requestItem('0', '/Client/Index')">Back to Clients</div>
+            <div id="backLink" class="btn btn-default btn-inverse" style="margin-left: 410px;" onclick="requestItem('0', '/Client/Index')">Back to Clients</div>
         <hr />
 
         <div class="editor-label">
@@ -23,7 +23,7 @@
         </div>
 
         <p>
-            <input type="button" value="Create" onclick="this.disabled = true;ajaxSubmitForm(this)" class="btn btn-small btn-primary"/>
+            <input type="button" value="Create" onclick="this.disabled = true;ajaxSubmitForm(this)" class="btn btn-small btn-info"/>
         </p>
 }
 
