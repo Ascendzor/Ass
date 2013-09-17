@@ -20,6 +20,9 @@
         <tr class="@item.DevState" id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
             <td>
                 @item.Username
+				<div style="color:GrayText">
+					@item.Notes
+				</div>
             </td>
         </tr>
             counter++;
@@ -35,7 +38,11 @@
         <tr id = "@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
             <td>
                 @item.Name
+				<div style="color:GrayText">
+					@item.Notes
+				</div>
             </td>
+			
         </tr>
             counter++;
         }
@@ -54,6 +61,9 @@
         <tr id = "@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
             <td>
                 @item.Name
+				<div style="color:GrayText; margin-left:350px; margin-top:0px;">
+					@item.Notes
+				</div>
             </td>
         </tr>
                 
