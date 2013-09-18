@@ -39,6 +39,10 @@ tr, a, i{
     cursor:pointer;
 }
 
+h1, h2, h3, h4, h5, b, p {
+	display: inline;
+}
+
 directory{
     text-decoration:underline;
     cursor:pointer;

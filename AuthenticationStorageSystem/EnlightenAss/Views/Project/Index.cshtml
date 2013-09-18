@@ -9,20 +9,20 @@
     if (ViewBag.ClientName.Length > 30)
     {
         <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
-        <customTag> / </customTag>
+        <p> / </p>
         <directory><a>
-
+		<h3>
         @{Write(ViewBag.ClientName.Substring(0, 27));}
         @{Write("...");}
-        </a></directory>
+        </h3></a></directory>
     }
     else
     {
         <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
-        <customTag> / </customTag>
-        <directory><a>
+        <p> / </p>
+        <directory><a><h3>
         @{Write(ViewBag.ClientName);}
-        </a></directory>
+        </h3></a></directory>
     }
 }
  /

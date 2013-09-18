@@ -6,12 +6,12 @@
     Write("All Entries");
 }else{
     <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
-    <customTag> / </customTag>
+    <p> / </p>
     <directory onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index');"><a>
     @ViewBag.ClientName
     </a></directory>
     Write(" / ");
-    @ViewBag.ProjectName;
+    <h3>@ViewBag.ProjectName</h3>
     Write(" / ");
 }
 

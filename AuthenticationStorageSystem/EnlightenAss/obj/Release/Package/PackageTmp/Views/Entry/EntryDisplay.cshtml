@@ -4,7 +4,7 @@
 
 
 <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
-<customTag> / </customTag>
+<p> / </p>
 
 @if (Model.Project.Client.Name.Length > 30)
 {
@@ -31,8 +31,8 @@ else
         @{Write(Model.Project.Name);}
         </a></directory>    
 }
- / 
-@Model.Username
+ <p> / </p> 
+<h3>@Model.Username</h3>
 
 <div style="margin-left:445px">
     <div id="backLink" class="btn btn-default btn-inverse" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Entries</div>
