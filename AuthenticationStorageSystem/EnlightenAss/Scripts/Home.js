@@ -5,8 +5,8 @@ $(document).ready(function () {
 
 /* Search database without page reload */
 function search() {
-    //throttle
-    delay(function () {
+
+    delay(function () {                             // delay to throttle number of database queries
         $.ajax({
             url: '/Home/Search',
             data: { searchText: document.getElementById("searchText").value },
@@ -16,7 +16,7 @@ function search() {
                 console.log("ERROR\nSomething went wrong with the search\nXHR=" + xhr + "\nStatus=" + status + "\nError=" + error);
                 data = "Something went wrong with the search\n" + xhr + "\n" + status + "\n" + error;
             },
-            success: function (data) {
+            success: function (data) {              // on success replace the html inside partialDiv with the returned partial view
                 $('#partialDiv').html(data);
             }
         });
@@ -31,15 +31,15 @@ function goBack() {
 function requestItem(item, url) {
 
     $.ajax({
-        url: url,
-        data: { id: item },
+        url: url,                                   // url to controller action
+        data: { id: item },                         // id of the client/project/index selected
         dataType: 'html',
         error: function (xhr, status, error) {
             //do something about the error
             console.log("ERROR\nSomething went wrong with the request\nXHR=" + xhr + "\nStatus=" + status + "\nError=" + error);
             data = "Something went wrong with the request\n" + xhr + "\n" + status + "\n" + error;
         },
-        success: function (data) {
+        success: function (data) {                  // on success replace the html inside partialDiv with the returned partial view
             $("#searchText").focus();
             $('#partialDiv').html(data);
         }
@@ -52,14 +52,14 @@ function ajaxSubmitForm(btnClicked) {
 
     $.ajax({
         type: "POST",
-        url: $form.attr('action'),
+        url: $form.attr('action'),                  // the forms action which will map to a controller method
         data: $form.serialize(),
         error: function (xhr, status, error) {
-            //do something about the error
+            //do something about the error 
             console.log("ERROR\nSomething went wrong with the form submit\nXHR=" + xhr + "\nStatus=" + status + "\nError=" + error);
             data = "Something went wrong with the form submit\n" + xhr + "\n" + status + "\n" + error;
         },
-        success: function (data) {
+        success: function (data) {                  // on success replace the html inside partialDiv with the returned partial view
             $('#partialDiv').html(data);
         }
     });
@@ -75,10 +75,17 @@ var delay = (function () {
 })();
 
 
-/* Hide or show entry table rows based off traffic light filter */
+/**
+ * Hide or show entry table rows based off traffic light checkboxes
+ * Switch traffic light image to light on and off 
+ */
 function filterByDevState(id) {
-    if ($("#" + id).is(":checked"))
+    if ($("#" + id).is(":checked")) {
         $("." + id).show();
-    else
+        $("#" + id + "Light").attr("src", "Content/Traffic_Lights/" + id + "On.png");
+    }
+    else {
         $("." + id).hide();
+        $("#" + id + "Light").attr("src", "Content/Traffic_Lights/" + id + "Off.png");
+    }
 }

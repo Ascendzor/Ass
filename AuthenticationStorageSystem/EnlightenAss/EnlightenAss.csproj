@@ -204,6 +204,12 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Traffic_Lights\StagingOff.png" />
+    <Content Include="Content\Traffic_Lights\StagingOn.png" />
+    <Content Include="Content\Traffic_Lights\DevelopmentOff.png" />
+    <Content Include="Content\Traffic_Lights\DevelopmentOn.png" />
+    <Content Include="Content\Traffic_Lights\TestingOff.png" />
+    <Content Include="Content\Traffic_Lights\TestingOn.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Properties\PublishProfiles\enass - FTP %282%29.pubxml" />

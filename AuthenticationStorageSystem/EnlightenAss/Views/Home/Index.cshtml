@@ -15,10 +15,19 @@
 			<i class="icon-large icon-white icon-home" style="margin-right:3px"></i></a> Authentication Storage System
 			<input id="searchText" oninput="search()" name="searchtext" type="text" autocomplete="off"/>
 			<button id="myButton" style="margin-bottom:5px; margin-left:5px" onclick="search(); $('#searchText').focus();" class="btn btn-default navbar-btn" >Go</button>
-			<!-- Traffic Light -->
-            <input checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')"/>
-            <input checked="checked" type="checkbox" id="Testing" onclick="filterByDevState('Testing')"/>
-            <input checked="checked" type="checkbox" id="Staging" onclick="filterByDevState('Staging')"/>
+            <!-- Traffic Light -->
+            <div id="trafficLights" style="display:inline">
+                <input style="display:none" checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')" />
+                <input style="display:none" checked="checked" type="checkbox" id="Testing" onclick="filterByDevState('Testing')" />
+                <input style="display:none" checked="checked" type="checkbox" id="Staging" onclick="filterByDevState('Staging')" />
+                <label for="Staging" class="TrafficLight">
+                    <img id="StagingLight" src="Content/Traffic_Lights/StagingOn.png" style="width: 47px; height: 59px" /></label>
+                <label for="Testing" class="TrafficLight">
+                    <img id="TestingLight" src="Content/Traffic_Lights/TestingOn.png" style="width: 40px; height: 59px" /></label>
+                <label for="Development" class="TrafficLight">
+                    <img id="DevelopmentLight" src="Content/Traffic_Lights/DevelopmentOn.png" style="width: 42px; height: 59px" /></label>
+            </div>
+
 		</div>
 	</div>	
 	<div class="containerDiv">

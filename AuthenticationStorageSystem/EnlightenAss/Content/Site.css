@@ -1,4 +1,9 @@
-﻿.selectedRow{
+﻿.TrafficLight{
+    display: inline;
+    margin-right:-4px;
+}
+
+.selectedRow{
     background-color:#788;
     color:#FFF;
 }
@@ -71,7 +76,7 @@ body{
 }
 
 #searchText{
-    width: 600px;
+    width: 550px;
 	margin-top:10px;
 	margin-left:15px;
 }
