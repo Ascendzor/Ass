@@ -2,16 +2,19 @@
 
 <script src="~/Scripts/KeyboardNav.js"></script>
 
-<h3>All Clients</h3><br>
-<button class="btn btn-default btn-inverse" style="float:right; margin-right:293px;" onclick="requestItem('0', '/Client/Create')">New Client...</button>
+<h3>All Clients</h3>
+<div class="rightButtonGroup">
+    <button class="btn btn-default btn-inverse" onclick="requestItem('0', '/Client/Create')">New Client...</button>
+</div>
+<br>
 <hr />
 
 
 <table class="table table-bordered">
     <tr class="table-bordered headerRow">
-        <th style="width:300px;">Client Name</th>
+        <th style="width: 300px;">Client Name</th>
     </tr>
-    @{int counter =0;}
+    @{int counter = 0;}
     @foreach (var item in Model)
     {
         

@@ -3,40 +3,44 @@
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
-        <h3>Creating New Project</h3><br>
-        <div id="backLink" class="btn btn-default btn-inverse" style="margin-left:360px" onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">Back to Projects</div>
-        <hr />
+    <h3>Creating New Project</h3>
+    
+    <div class="rightButtonGroup">
+        <div id="backLink" class="btn btn-default btn-inverse" onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index')">Back to Projects</div>
+    </div>
+    <br>
+    <hr />
 
-        <!-- Client name (default value = current client) -->
-            <div class="editor-label">
-            @Html.LabelFor(model => model.ClientId, "Client")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("ClientId")
-            @Html.ValidationMessageFor(model => model.ClientId)
-        </div>
+    <!-- Client name (default value = current client) -->
+    <div class="editor-label">
+        @Html.LabelFor(model => model.ClientId, "Client")
+    </div>
+    <div class="editor-field">
+        @Html.DropDownList("ClientId")
+        @Html.ValidationMessageFor(model => model.ClientId)
+    </div>
 
-        <!-- Project name -->
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
+    <!-- Project name -->
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
 
-        <!-- Notes for project -->
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Notes)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Notes)
-            @Html.ValidationMessageFor(model => model.Notes)
-        </div>
+    <!-- Notes for project -->
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Notes)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Notes)
+        @Html.ValidationMessageFor(model => model.Notes)
+    </div>
 
-        <p>
-            <input type="button" value="Create" onclick="this.disabled = true; ajaxSubmitForm(this)" class="btn btn-small btn-info"/>
-        </p>
+    <p>
+        <input type="button" value="Create" onclick="this.disabled = true; ajaxSubmitForm(this)" class="btn btn-small btn-info" />
+    </p>
 }
 
 <!-- Set selected input box -->

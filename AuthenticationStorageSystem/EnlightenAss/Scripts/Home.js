@@ -78,6 +78,8 @@ var delay = (function () {
 /**
  * Hide or show entry table rows based off traffic light checkboxes
  * Switch traffic light image to light on and off 
+ * id = checkbox element id, testing, staging and development
+ * Table rows for entries class name = testing or staging or development
  */
 function filterByDevState(id) {
     if ($("#" + id).is(":checked")) {

@@ -18,7 +18,7 @@
                 
                 
         <tr class="@item.DevState" id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
-            <td>
+            <td class="entry">
                 @item.Username
             </td>
         </tr>
@@ -67,6 +67,5 @@
 </table>
 <script>
     initialize();
-    if (document.getElementById(1) != null) changeStyle(1, 0); //band aid MUST be improved
     filterByDevState("Development"); filterByDevState("Testing"); filterByDevState("Staging");
 </script>

@@ -27,6 +27,7 @@ namespace EnlightenAss.Controllers
             ViewBag.ProjectIdNum = id;
             ViewBag.ClientIdNum = project.ClientId;
             ViewBag.ProjectName = project.Name;
+            ViewBag.ProjectNotes = project.Notes;
 
             //Client this project is under
             Client client = db.Clients.Find(project.ClientId);

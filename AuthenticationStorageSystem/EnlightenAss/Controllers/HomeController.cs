@@ -17,7 +17,8 @@ namespace EnlightenAss.Controllers
         }
 
         /**
-         * Checks if a given string exists within each of the clients names.
+         * Checks if a given string exists within each of the client/project/entry names.
+         * If searchText matches a client or project name, return all projects or entries for that client/project
          * The given string and clients names are set to lowercase to make the contains() case-Insensitive
          * returns a list of clients who contained the given string
          */
@@ -38,7 +39,7 @@ namespace EnlightenAss.Controllers
             List<Project> projectResults = new List<Project>();
             foreach (Project item in db.Projects)
             {
-                if (item.Name.ToLower().Contains(searchText))
+                if (item.Name.ToLower().Contains(searchText) || item.Client.Name.ToLower() == searchText)
                 {
                     projectResults.Add(item);
                 }
@@ -48,14 +49,14 @@ namespace EnlightenAss.Controllers
             List<Entry> entryResults = new List<Entry>();
             foreach (Entry item in db.Entries)
             {
-                if (item.Username.ToLower().Contains(searchText))
+                if (item.Username.ToLower().Contains(searchText) || item.Project.Name.ToLower() == searchText)
                 {
                     entryResults.Add(item);
                 }
             }
             ViewData["entryResults"] = entryResults;
 
-            return PartialView("PartialViewResults");
+            return PartialView("SearchResults");
         }
 
     }

@@ -248,7 +248,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\PartialViewResults.cshtml" />
+    <Content Include="Views\Home\SearchResults.cshtml" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Entry\Index.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />

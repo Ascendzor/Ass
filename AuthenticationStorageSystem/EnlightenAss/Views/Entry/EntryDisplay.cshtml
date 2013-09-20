@@ -4,7 +4,7 @@
 
 
 <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
-<p> / </p>
+<p>/ </p>
 
 @if (Model.Project.Client.Name.Length > 30)
 {
@@ -18,34 +18,38 @@ else
     @{Write(Model.Project.Client.Name);}
     </a></directory>
 }
- / 
+/ 
 @if (Model.Project.Name.Length > 30)
 {
-        <directory onclick="requestItem('@Model.ProjectId', '/Entry/Index');"><a>
+    <directory onclick="requestItem('@Model.ProjectId', '/Entry/Index');"><a>
         @{Write(Model.Project.Name.Substring(0, 27));}
         @{Write("...");}
         </a></directory>
-}else
+}
+else
 {
-        <directory onclick="requestItem('@Model.ProjectId', '/Entry/Index');"><a>
+    <directory onclick="requestItem('@Model.ProjectId', '/Entry/Index');"><a>
         @{Write(Model.Project.Name);}
         </a></directory>    
 }
- <p> / </p> 
+<p>/ </p>
 <h3>@Model.Username</h3>
 
-<div style="margin-left:445px">
+
+<div class="rightButtonGroup">
     <div id="backLink" class="btn btn-default btn-inverse" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Entries</div>
     <a class="editButton btn btn-default btn-inverse" style="margin-left:20px" onclick="requestItem('@Model.EntryId', '/Entry/Change')">Modify</a>
 </div>
+<br />
+<p class="text-muted">@Model.Notes</p>
 <hr />
 
 <table class="table table-bordered">
     <tr class="table-bordered headerRow">
-        <th style="width:300px;">
+        <th style="width: 300px;">
             @Html.DisplayNameFor(model => model.Username)
         </th>
-        <th style="width:300px;">
+        <th style="width: 300px;">
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
@@ -66,7 +70,7 @@ else
 </table>
 
 <script>
-    function focusTextBox(){
+    function focusTextBox() {
         document.getElementById('highlightMe').focus();
         document.getElementById('highlightMe').select();
     }

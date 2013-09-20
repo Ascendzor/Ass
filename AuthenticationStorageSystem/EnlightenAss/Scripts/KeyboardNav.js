@@ -12,7 +12,9 @@ var counter = 0;
  * (from within the view html)
  */
 function initialize() {
-    $("#" + (counter = 0)).addClass("selectedRow");
+    counter = parseInt($("td:first").parent("tr:first").attr('id'));        // Get first table row
+    if (isNaN(counter)) counter = 0;                                        // If empty table
+    $("#" + (counter)).addClass("selectedRow");
 }
 
 /*
@@ -40,11 +42,11 @@ function handleKeyPressed(e) {
             break;
         case 38:
             if (counter > 0) {
-                var tempCounter = counter;                                  //Store counter incase reach null row
-                while ($('#' + (counter - 1)).css('display') == 'none') {   //Check if next row is hidden
-                    counter--;                                              //If hidden skip it
-                    if (document.getElementById(counter - 1) == null) {     //If next row is null revert back to old row
-                        counter = tempCounter + 1;                          //and break
+                var tempCounter = counter;                                  // Store counter incase reach null row
+                while ($('#' + (counter - 1)).css('display') == 'none') {   // Check if next row is hidden
+                    counter--;                                              // If hidden skip it
+                    if (document.getElementById(counter - 1) == null) {     // If next row is null revert back to old row
+                        counter = tempCounter + 1;                          // and break
                         break;
                     }
                 }
@@ -54,16 +56,16 @@ function handleKeyPressed(e) {
             e.preventDefault();
             break;
         case 40:
-            if (document.getElementById(counter + 1) != null) {             //Store counter incase reach null row
-                var tempCounter = counter;                                  //Check if next row is hidden
-                while ($('#' + (counter+1)).css('display') == 'none') {     //If hidden skip it
-                    counter++;                                              //If next row is null revert back to old row
-                    if (document.getElementById(counter + 1) == null) {     //and break
+            if (document.getElementById(counter + 1) != null) {             // Store counter incase reach null row
+                var tempCounter = counter;                                  // Check if next row is hidden
+                while ($('#' + (counter+1)).css('display') == 'none') {     // If hidden skip it
+                    counter++;                                              // If next row is null revert back to old row
+                    if (document.getElementById(counter + 1) == null) {     // and break
                         counter = tempCounter-1;
                         break;
                     }
                 }
-                changeStyle(1, oldSelected);
+                changeStyle(+1, oldSelected);
                 window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
             }
             e.preventDefault();

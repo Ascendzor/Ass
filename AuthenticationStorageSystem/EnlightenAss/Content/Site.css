@@ -14,7 +14,7 @@
 }
 
 .Development{
-    background-color:rgba(168, 0, 0, 0.62)
+    background-color:rgba(168, 0, 0, 0.4);
 }
 
 .Development.selectedRow{
@@ -23,7 +23,7 @@
 }
 
 .Testing{
-    background-color:rgba(255, 148, 0, 0.62);
+    background-color:rgba(255, 148, 0, 0.4);
 }
 
 .Testing.selectedRow{
@@ -32,12 +32,22 @@
 }
 
 .Staging{
-    background-color:rgba(26, 194, 0, 0.62);
+    background-color:rgba(26, 194, 0, 0.4);
 }
 
 .Staging.selectedRow{
     background-color:rgb(26, 194, 0);
     color: white;
+}
+
+.entry{
+    border-collapse: collapse;
+    border-bottom: 1px solid black;
+    border-top: 0px !important;
+}
+
+.text-muted {
+    color: #999999;
 }
 
 tr, a, i{
@@ -54,8 +64,13 @@ directory{
 }
 
 .headerRow{
-    background-color:#ABB;
+    background-color:rgba(170, 187, 187, 0.55);
     font-size:16px;
+}
+
+.rightButtonGroup{
+    margin-top:0px;
+    float:right;
 }
 
 body{

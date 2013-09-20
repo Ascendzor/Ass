@@ -26,6 +26,7 @@ namespace EnlightenAss.Controllers
             //Set Client name and Client id viewbags, for html links and labels inside view
             ViewBag.ClientName = client.Name;
             ViewBag.ClientId = id;
+            ViewBag.ClientNotes = client.Notes;
 
             //return list of projects with matching client id
             return PartialView(db.Projects.Where(i => i.ClientId == id));

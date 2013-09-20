@@ -1,7 +1,11 @@
 ﻿@model AssClassLibrary.Client
 
-<h3>Modifying Client Details</h3><br>
-<div id="backLink" class="btn btn-default btn-inverse" style="margin-left: 340px;" onclick="requestItem('@Model.ClientId', '/Project/Index')">Back to Projects</div>
+<h3>Modifying Client Details</h3>
+
+<div class="rightButtonGroup">
+    <div id="backLink" class="btn btn-default btn-inverse"  onclick="requestItem('@Model.ClientId', '/Project/Index')">Back to Projects</div>
+</div>
+<br>
 <hr />
 
 @using (Html.BeginForm())
@@ -72,3 +76,5 @@
  @Html.HiddenFor(model => model.ClientId)
     
 }
+
+

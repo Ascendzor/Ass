@@ -1,8 +1,11 @@
 ﻿@model AssClassLibrary.Entry
 
-<h3>Modifying Authentication Details</h3><br>
-<div id="backLink" class="btn btn-default btn-inverse" style="margin-left: 300px" onclick="requestItem('@Model.EntryId', '/Entry/EntryDisplay')">Back to Entry</div>
+<h3>Modifying Authentication Details</h3>
 
+<div class="rightButtonGroup">
+    <div id="backLink" class="btn btn-default btn-inverse" onclick="requestItem('@Model.EntryId', '/Entry/EntryDisplay')">Back to Entry</div>
+</div>
+<br />
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
