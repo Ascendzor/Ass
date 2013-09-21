@@ -51,7 +51,10 @@ function handleKeyPressed(e) {
                     }
                 }
                 changeStyle(-1, oldSelected);
-                window.scrollBy(0, document.getElementById(counter).offsetHeight * -1);
+
+                // Only scroll up when selected element is near top of page
+                if (($("#" + counter).offset().top - $(window).scrollTop()) < (window.innerHeight - (window.innerHeight/1.3)))
+                    window.scrollBy(0, document.getElementById(counter).offsetHeight * -1);
             }
             e.preventDefault();
             break;
@@ -66,7 +69,10 @@ function handleKeyPressed(e) {
                     }
                 }
                 changeStyle(+1, oldSelected);
-                window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
+
+                // Only scroll down when selected element is near bottom of page
+                if (($("#" + counter).offset().top - $(window).scrollTop()) > (window.innerHeight - (window.innerHeight/4)))
+                    window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
             }
             e.preventDefault();
             break;

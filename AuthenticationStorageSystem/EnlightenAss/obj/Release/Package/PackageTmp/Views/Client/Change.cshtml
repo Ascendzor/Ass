@@ -1,0 +1,80 @@
+﻿@model AssClassLibrary.Client
+
+<h3>Modifying Client Details</h3>
+
+<div class="rightButtonGroup">
+    <div id="backLink" class="btn btn-default btn-inverse"  onclick="requestItem('@Model.ClientId', '/Project/Index')">Back to Projects</div>
+</div>
+<br>
+<hr />
+
+@using (Html.BeginForm())
+{
+ @Html.ValidationSummary(true)
+
+ @Html.HiddenFor(model => model.ClientId)
+
+
+
+    <div class="editor-label">
+        Client Name
+       
+    </div>
+
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+
+
+    <div class="editor-label">
+        Notes
+       
+    </div>
+
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Notes)
+        @Html.ValidationMessageFor(model => model.Notes)
+    </div>
+        
+
+
+    <!-- Having hidden fors stop the date modified and added labels changing to default time on validation fail -->
+    @Html.HiddenFor(model => model.DateAdded)
+    @Html.HiddenFor(model => model.LastModified)
+
+    <div class="details-label">
+        Date Added
+        <br>
+        @Model.DateAdded
+    </div>
+
+    <br>
+
+    <div class="details-label">
+        Last Modified
+        <br>
+        @Model.LastModified
+    </div>
+
+    <br>
+    <input class="btn btn-small btn-info" type="button" value="Save changes" onclick="ajaxSubmitForm(this)" />
+        
+}
+
+<!-- Set selected input box -->
+<script>
+    $("#Name").focus();
+</script>
+
+<!-- Seperate Form for deleting the item -->
+@using (Html.BeginForm("Delete", "Client", FormMethod.Post))
+{
+
+    <input type="button" value="Delete Client" class="btn btn-small btn-danger" onclick="ajaxSubmitForm(this)" />
+ @Html.HiddenFor(model => model.ClientId)
+    
+}
+
+
