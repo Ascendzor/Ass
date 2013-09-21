@@ -40,6 +40,7 @@ function handleKeyPressed(e) {
         case 13:
             $("#" + counter).click();
             break;
+
         case 38:
             if (counter > 0) {
                 var tempCounter = counter;                                  // Store counter incase reach null row
@@ -53,11 +54,14 @@ function handleKeyPressed(e) {
                 changeStyle(-1, oldSelected);
 
                 // Only scroll up when selected element is near top of page
-                if (($("#" + counter).offset().top - $(window).scrollTop()) < (window.innerHeight - (window.innerHeight/1.3)))
+                if ($("#" + counter).offset().top - $(window).scrollTop() < (window.innerHeight / 4))
                     window.scrollBy(0, document.getElementById(counter).offsetHeight * -1);
+                scrollIntoView();
+                
             }
             e.preventDefault();
             break;
+
         case 40:
             if (document.getElementById(counter + 1) != null) {             // Store counter incase reach null row
                 var tempCounter = counter;                                  // Check if next row is hidden
@@ -69,14 +73,29 @@ function handleKeyPressed(e) {
                     }
                 }
                 changeStyle(+1, oldSelected);
-
+                
                 // Only scroll down when selected element is near bottom of page
-                if (($("#" + counter).offset().top - $(window).scrollTop()) > (window.innerHeight - (window.innerHeight/4)))
+                if ($("#" + counter).offset().top - $(window).scrollTop() > (window.innerHeight - (window.innerHeight / 4)))
                     window.scrollBy(0, document.getElementById(counter).offsetHeight * 1);
+                scrollIntoView();
             }
             e.preventDefault();
             break;
     }
 }
+
+/**
+ * If selected element is outside of view scroll to it
+ */
+function scrollIntoView() {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var offset = $("#" + counter).offset().top;
+
+    if (!((offset <= docViewBottom) && (offset >= docViewTop)))
+        $(window).scrollTop($("#" + counter).position().top - (window.innerHeight / 2));
+}
+
 
 document.onkeydown = handleKeyPressed;
