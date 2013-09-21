@@ -132,7 +132,6 @@
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\NavigateController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
