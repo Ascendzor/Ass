@@ -84,10 +84,12 @@ var delay = (function () {
 function filterByDevState(id) {
     if ($("#" + id).is(":checked")) {
         $("." + id).show();
-        $("#" + id + "Light").attr("src", "Content/Traffic_Lights/" + id + "On.png");
+        $("#" + id + "LightOn").show();
+        $("#" + id + "LightOff").hide();
     }
     else {
         $("." + id).hide();
-        $("#" + id + "Light").attr("src", "Content/Traffic_Lights/" + id + "Off.png");
+        $("#" + id + "LightOn").hide();
+        $("#" + id + "LightOff").show();
     }
 }
