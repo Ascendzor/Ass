@@ -1,6 +1,5 @@
-AuthenticationStorageSystem/EnlightenAss/bin/*
-
-AuthenticationStorageSystem/EnlightenAss/obj/*
-AuthenticationStorageSystem/EnlightenAss.v11.suo
-AuthenticationStorageSystem/AssClassLibrary/bin/*
-AuthenticationStorageSystem/AssClassLibrary/obj/*
+/EnlightenAss/bin/
+/EnlightenAss/obj/
+/EnlightenAss.v11.suo
+/AssClassLibrary/bin/
+/AssClassLibrary/obj/
