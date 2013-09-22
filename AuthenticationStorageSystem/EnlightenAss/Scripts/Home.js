@@ -42,6 +42,7 @@ function requestItem(item, url) {
         success: function (data) {                  // on success replace the html inside partialDiv with the returned partial view
             $("#searchText").focus();
             $('#partialDiv').html(data);
+            $('body').scrollTop(0);
         }
     });
 }
