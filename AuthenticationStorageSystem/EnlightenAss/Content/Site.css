@@ -3,6 +3,13 @@
     margin-right:-4px;
 }
 
+.feedback{
+    display:inline;
+    float:right;
+    margin-bottom:-20px;
+    color:black;
+}
+
 .selectedRow{
     background-color:#788;
     color:#FFF;
@@ -85,7 +92,7 @@ body{
 .mainTitle {
 	margin-left:auto;
 	margin-right:auto;
-	width:1000px;
+    width:1000px;
 	color:#CEE3F6;
 
 }
