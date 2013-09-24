@@ -45,13 +45,13 @@ else
     @foreach (var item in Model)
     {
         <tr class="@item.DevState" id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
-            <td class="entry">
+            <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
-            <td class="entry">
+            <td>
                 @Html.DisplayFor(modelItem => item.Website)
             </td>
-            <td class="entry">
+            <td>
                 @Html.DisplayFor(modelItem => item.Notes)
             </td>
         </tr>

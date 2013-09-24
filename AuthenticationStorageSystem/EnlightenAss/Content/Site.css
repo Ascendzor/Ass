@@ -15,6 +15,16 @@
     color:#FFF;
 }
 
+tr.selectedRow td{
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+}
+
+tr.selectedRow th{
+    border-top:2px solid black;
+    border-bottom:2px solid black;
+}
+
 .headerRow.selectedRow{
     background-color:#788;
     color:#FFF;
@@ -30,20 +40,20 @@
 }
 
 .Testing{
-    background-color:rgba(255, 148, 0, 0.4);
+    background-color:rgba(255, 168, 0, 0.4);
 }
 
 .Testing.selectedRow{
-    background-color:rgb(255, 148, 0);
+    background-color:#dda900;
     color: white;
 }
 
 .Staging{
-    background-color:rgba(26, 194, 0, 0.4);
+    background-color:rgba(0, 168, 0, 0.4);
 }
 
 .Staging.selectedRow{
-    background-color:rgb(26, 194, 0);
+    background-color:#00782d;
     color: white;
 }
 
