@@ -37,8 +37,8 @@ else
 
 
 <div class="rightButtonGroup">
-    <div id="backLink" class="btn btn-default btn-inverse" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back to Entries</div>
-    <a class="editButton btn btn-default btn-inverse" style="margin-left:20px" onclick="requestItem('@Model.EntryId', '/Entry/Change')">Modify</a>
+    <a class="editButton btn btn-default btn-inverse" onclick="requestItem('@Model.EntryId', '/Entry/Change')">Modify</a>
+    <div id="backLink" class="btn btn-default btn-inverse" style="margin-left:20px" onclick="requestItem('@Model.ProjectId', '/Entry/Index')">Back</div>
 </div>
 <br />
 <p class="text-muted">@Model.Notes</p>
