@@ -3,3 +3,9 @@
 /EnlightenAss.v11.suo
 /AssClassLibrary/bin/
 /AssClassLibrary/obj/
+
+obj/
+bin/
+*.suo
+
+
