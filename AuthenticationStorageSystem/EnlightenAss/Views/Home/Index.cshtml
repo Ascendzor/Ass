@@ -13,8 +13,11 @@
 	<div class="navbar navbar-inverse navbar-fixed-top navbar-inner" style="min-height:30px">
 		<div class="mainTitle"><a onclick="window.location.reload();">
 			<i class="icon-large icon-white icon-home" style="margin-right:3px"></i></a> Authentication Storage System
-			<input id="searchText" oninput="search()" name="searchtext" type="text" autocomplete="off"/>
-			<button id="myButton" style="margin-bottom:5px; margin-left:5px" onclick="search(); $('#searchText').focus();" class="btn btn-default navbar-btn" >Go</button>
+            
+			<input id="searchText" oninput="search()" name="searchtext" type="text" autocomplete="off"/>    
+			<button type="button" id="myButton" style="margin-bottom:5px; margin-left:5px" onclick="search(); $('#searchText').focus();" class="btn btn-default navbar-btn" >Go</button>
+                      
+
             <!-- Traffic Light -->
             <div id="trafficLights" style="display:inline">
                 <input style="display:none" checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')" />

@@ -9,7 +9,7 @@ function search() {
     delay(function () {                             // delay to throttle number of database queries
         $.ajax({
             url: '/Home/Search',
-            data: { searchText: document.getElementById("searchText").value },
+            data: { searchText: $("#searchText").val() },
             dataType: 'html',
             error: function (xhr, status, error) {
                 //do something about the error
