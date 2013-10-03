@@ -1,0 +1,24 @@
+﻿<h3>Search Results</h3>
+<br>
+<hr />
+
+<table class="table table-bordered">
+
+        <tr id = "0" class="table-bordered headerRow" onclick="requestItem('0', '/Entry/IndexAll')">
+            <th style="width: 300px;">Entries </th>
+        </tr>
+        
+        <tr id = "1" class="table-bordered headerRow" onclick="requestItem('0', '/Client/Index')">
+            <th style="width: 300px;">Clients</th>
+        </tr>
+    
+        <tr id="2" class="table-bordered headerRow" onclick="requestItem('0', '/Project/IndexAll')">
+            <th style="width: 300px;">Projects</th>
+        </tr>
+    
+</table>
+<script>
+    initialize();
+</script>
+<hr />
+<div style="text-align:center;"> <p>It appears your search found nothing... </p> </div>

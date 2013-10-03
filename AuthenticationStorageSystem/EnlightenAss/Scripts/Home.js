@@ -1,7 +1,22 @@
 ﻿/* focus on search box on load */
 $(document).ready(function () {
-    $("#searchText").focus();
+    $("#searchText").focus();    
 });
+
+/**
+ * Called whenever the partial div is changed
+ * Filters table by the development state, inializes the keyboard navigation
+ * Stops onclick event from firing when clicking on a link
+ */
+function onPartialDivChange() {
+    filterByDevState("Development"); filterByDevState("Testing"); filterByDevState("Staging");
+    initialize();
+    $(document).ready(function () {
+        $(".externalLink a").click(function (e) {
+            e.stopPropagation();
+        });
+    }); 
+}
 
 /* Search database without page reload */
 function search() {
@@ -10,7 +25,7 @@ function search() {
         $.ajax({
             url: '/Home/Search',
             data: { searchText: $("#searchText").val() },
-            dataType: 'html',
+            dataType: 'text',
             error: function (xhr, status, error) {
                 //do something about the error
                 console.log("ERROR\nSomething went wrong with the search\nXHR=" + xhr + "\nStatus=" + status + "\nError=" + error);
@@ -18,6 +33,7 @@ function search() {
             },
             success: function (data) {              // on success replace the html inside partialDiv with the returned partial view
                 $('#partialDiv').html(data);
+                onPartialDivChange();
             }
         });
     }, 200);
@@ -43,6 +59,7 @@ function requestItem(item, url) {
             $("#searchText").focus();
             $('#partialDiv').html(data);
             $('html, body').scrollTop(0);
+            onPartialDivChange();
         }
     });
 }
@@ -62,6 +79,7 @@ function ajaxSubmitForm(btnClicked) {
         },
         success: function (data) {                  // on success replace the html inside partialDiv with the returned partial view
             $('#partialDiv').html(data);
+            onPartialDivChange();
         }
     });
 }

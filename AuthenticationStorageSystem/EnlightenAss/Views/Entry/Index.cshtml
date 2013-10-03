@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<AssClassLibrary.Entry>
 
-<script src="~/Scripts/KeyboardNav.js"></script>
 
 @if (String.IsNullOrEmpty(ViewBag.ProjectName))
 {
@@ -48,8 +47,8 @@ else
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Website)
+            <td class="externalLink">
+                <a href="http://@item.Website">@item.Website</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Notes)
@@ -59,7 +58,3 @@ else
     }
 
 </table>
-<script>
-    initialize();
-    filterByDevState("Development"); filterByDevState("Testing"); filterByDevState("Staging");
-</script>

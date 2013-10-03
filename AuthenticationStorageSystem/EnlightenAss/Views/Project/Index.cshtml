@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<AssClassLibrary.Project>
 
-<script src="~/Scripts/KeyboardNav.js"></script>
-<link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
 @if (String.IsNullOrEmpty(ViewBag.ClientName))
 {
     <h3>All Projects</h3>
@@ -55,6 +53,3 @@ else
     }
 
 </table>
-<script>
-    initialize();
-</script>

@@ -1,22 +1,20 @@
 ﻿@{int counter = 0;}
 
-<h3>Search Results</h3><br>
+<h3>Search Results</h3>
+<br>
 <hr />
 
 <table class="table table-bordered">
 
     @{ 
         <tr id = "@counter" class="table-bordered headerRow" onclick="requestItem('0', '/Entry/IndexAll')">
-            <th style="width: 300px;">Entries</th>
+            <th style="width: 300px;">Entries </th>
         </tr>
         
         counter++;
 
         foreach (var item in (List<AssClassLibrary.Entry>)ViewData["entryResults"])
-        {
-
-                
-                
+        {                
         <tr class="@item.DevState" id = "@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
             <td>
                 @item.Username
@@ -36,7 +34,7 @@
             <td>
                 @item.Name
             </td>
-			
+
         </tr>
             counter++;
         }
@@ -49,23 +47,16 @@
 
         foreach (var item in (List<AssClassLibrary.Project>)ViewData["projectResults"])
         {
-
-                
-                
         <tr id = "@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
             <td>
                 @item.Name
             </td>
         </tr>
-                
             counter++;
-
         }
-
-        
     }
 </table>
 <script>
-    initialize();
-    filterByDevState("Development"); filterByDevState("Testing"); filterByDevState("Staging");
+    //initialize();
+    //filterByDevState("Development"); filterByDevState("Testing"); filterByDevState("Staging");
 </script>
