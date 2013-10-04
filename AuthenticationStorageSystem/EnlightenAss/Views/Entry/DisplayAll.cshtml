@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AssClassLibrary.Entry>
+
+
+    <h3>All Entries</h3>
+
+
+<div class="rightButtonGroup">
+    <button type="button" class="editButton btn btn-default btn-inverse" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Modify Project</button>
+    <button type="button" class="btn btn-default btn-inverse" style="margin-left:20px" onclick="requestItem('@ViewBag.ProjectIdNum', '/Entry/Create')">New Entry</button>
+</div>
+<br />
+<p class="text-muted">@ViewBag.ProjectNotes</p>
+<hr />
+
+
+<table class="table table-bordered">
+    <tr class="table-bordered headerRow">
+        <th style="width: 300px;">
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th style="width: 300px;">
+            @Html.DisplayNameFor(model => model.Website)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+    </tr>
+
+    @{int counter = 0;}
+    @foreach (var item in Model)
+    {
+        <tr class="@item.DevState" id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td class="externalLink">
+                <a href="http://@item.Website">@item.Website</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+        </tr>
+        counter++;
+    }
+
+</table>

@@ -33,28 +33,42 @@
     <div class="editor-label">
         @Html.LabelFor(model => model.Name)
     </div>
+    
+    
 
     <div class="editor-field">
         @Html.EditorFor(model => model.Name)
         @Html.ValidationMessageFor(model => model.Name)
     </div>
 
-
+    
 
     <div class="editor-label">
         @Html.LabelFor(model => model.Notes)
     </div>
 
+    
     <div class="editor-field">
         @Html.EditorFor(model => model.Notes)
         @Html.ValidationMessageFor(model => model.Notes)
     </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.isArchived)
+    </div>
+    
+    <div class="editor-field">
+            @Html.EditorFor(model => model.isArchived)
+            @Html.ValidationMessageFor(model => model.isArchived)
+    </div>
+    <br />
     
     <!-- Having hidden fors stop the date modified and added labels changing to default time on validation fail -->
     @Html.HiddenFor(model => model.DateAdded)
     @Html.HiddenFor(model => model.LastModified)
 
     <div class="details-label">
+        
         Date Added<br>
         @Model.DateAdded
     </div>

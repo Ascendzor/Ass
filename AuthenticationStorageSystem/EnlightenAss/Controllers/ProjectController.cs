@@ -27,7 +27,6 @@ namespace EnlightenAss.Controllers
             ViewBag.ClientName = client.Name;
             ViewBag.ClientId = id;
             ViewBag.ClientNotes = client.Notes;
-
             //return list of projects with matching client id
             return PartialView(db.Projects.Where(i => i.ClientId == id));
         }
@@ -37,7 +36,7 @@ namespace EnlightenAss.Controllers
          */
         public ActionResult IndexAll(int id = 0)
         {
-            return PartialView("Index", db.Projects.ToList());
+            return PartialView("DisplayAll", db.Projects.ToList());
         }
 
 
@@ -65,13 +64,13 @@ namespace EnlightenAss.Controllers
                 currentProject.Name = project.Name;
                 currentProject.Notes = project.Notes;
                 currentProject.LastModified = DateTime.Now;
+                currentProject.isArchived = project.isArchived;
                 db.Entry(currentProject).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("../Entry/Index", new { id = project.ProjectId });
             }
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
             return PartialView(project);
-
         }
 
         /**
@@ -101,8 +100,8 @@ namespace EnlightenAss.Controllers
         }
 
         /**
-         * Some fields cannot be set by the user, therefore they are set statically 
-         */
+         * Some fields cannot be set by the user, therefore they are set statically
+         **/
         [HttpPost]
         public ActionResult Create(Project project)
         {

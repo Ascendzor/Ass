@@ -37,6 +37,16 @@
         @Html.EditorFor(model => model.Notes)
         @Html.ValidationMessageFor(model => model.Notes)
     </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.isArchived)
+    </div>
+    
+    <div class="editor-field">
+            @Html.EditorFor(model => model.isArchived)
+            @Html.ValidationMessageFor(model => model.isArchived)
+    </div>
+    <br />
         
 
 

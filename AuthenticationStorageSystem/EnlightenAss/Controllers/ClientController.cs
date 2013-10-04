@@ -44,6 +44,7 @@ namespace EnlightenAss.Controllers
                 currentClient.Name = client.Name;
                 currentClient.Notes = client.Notes;
                 currentClient.LastModified = DateTime.Now;
+                //currentClient.isArchived = true;   needed code
                 db.Entry(currentClient).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("../Project/Index", new { id = client.ClientId });

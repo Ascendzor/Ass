@@ -2,6 +2,7 @@
 
 
 <h3>All Clients</h3>
+
 <div class="rightButtonGroup">
     <button type="button" class="btn btn-default btn-inverse" onclick="requestItem('0', '/Client/Create')">New Client...</button>
 </div>
@@ -16,12 +17,11 @@
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        
-        <tr id="@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
-            <td>
-                @item.Name
-            </td>
-        </tr>
-        counter++;
+            <tr id="@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
+                <td>
+                    @item.Name
+                </td>
+            </tr>
+            counter++;
     }
 </table>

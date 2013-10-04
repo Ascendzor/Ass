@@ -1,12 +1,7 @@
 ﻿@model IEnumerable<AssClassLibrary.Entry>
 
 
-@if (String.IsNullOrEmpty(ViewBag.ProjectName))
-{
-    <h3>All Entries</h3>
-}
-else
-{
+@{
     <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
     <p>/ </p>
     <directory onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index');"><a>
@@ -16,7 +11,8 @@ else
     <h3>@ViewBag.ProjectName</h3>
     Write(" / ");
 
-}
+    }
+
 
 <div class="rightButtonGroup">
     <button type="button" class="editButton btn btn-default btn-inverse" onclick="requestItem('@ViewBag.ProjectIdNum', '/Project/Change')">Modify Project</button>
@@ -43,18 +39,21 @@ else
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        <tr class="@item.DevState" id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
-            <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td class="externalLink">
-                <a href="http://@item.Website">@item.Website</a>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-        </tr>
-        counter++;
+        if(!item.isArchived)
+        {
+            <tr class="@item.DevState" id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td class="externalLink">
+                    <a href="http://@item.Website">@item.Website</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+            </tr>
+            counter++;
+        }
     }
 
 </table>

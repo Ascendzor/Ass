@@ -60,6 +60,16 @@
         @Html.EditorFor(model => model.Notes)
         @Html.ValidationMessageFor(model => model.Notes)
     </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.isArchived)
+    </div>
+    
+    <div class="editor-field">
+            @Html.EditorFor(model => model.isArchived)
+            @Html.ValidationMessageFor(model => model.isArchived)
+    </div>
+    <br />
 
     <!-- Having hidden fors stop the date modified and added labels changing to default time on validation fail -->
     @Html.HiddenFor(model => model.DateAdded)

@@ -49,7 +49,7 @@ namespace EnlightenAss.Controllers
          */
         public ActionResult IndexAll(int id = 0)
         {
-            return PartialView("Index", db.Entries.ToList());
+            return PartialView("DisplayAll", db.Entries.ToList());
         }
 
         public ActionResult Create(int id = 0)

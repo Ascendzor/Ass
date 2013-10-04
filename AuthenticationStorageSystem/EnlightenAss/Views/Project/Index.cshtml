@@ -1,32 +1,25 @@
 ﻿@model IEnumerable<AssClassLibrary.Project>
 
-@if (String.IsNullOrEmpty(ViewBag.ClientName))
-{
-    <h3>All Projects</h3>
-}
-else
-{
-    if (ViewBag.ClientName.Length > 30)
-    {
-    <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
-    <p>/ </p>
-    <h3>
-        @{Write(ViewBag.ClientName.Substring(0, 27));}
-        @{Write("...");}
-    </h3>
+@{
+        if (ViewBag.ClientName.Length > 30)
+        {
+            <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+            <p>/ </p>
+            <h3>
+                @{Write(ViewBag.ClientName.Substring(0, 27));}
+                @{Write("...");}
+            </h3>
+        }
+        else
+        {
+            <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+            <p>/ </p>
+            <h3>
+                @{Write(ViewBag.ClientName);}
+            </h3>
+            <p>/ </p>
+        }
     }
-    else
-    {
-    <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
-    <p>/ </p>
-    <h3>
-        @{Write(ViewBag.ClientName);}
-    </h3>
-    <p>/ </p>
-
-    }
-}
-
 
 <div class="rightButtonGroup">
     <button type="button" class="editButton btn btn-default btn-inverse" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Modify Client</button>
@@ -44,12 +37,15 @@ else
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        <tr id="@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
-            <td>
-                @item.Name
-            </td>
-        </tr>
-        counter++;
+        if(!item.isArchived)
+        {
+            <tr id="@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+                <td>
+                    @item.Name
+                </td>
+            </tr>
+            counter++;
+        }
     }
 
 </table>
