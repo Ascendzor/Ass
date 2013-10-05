@@ -28,7 +28,7 @@ namespace EnlightenAss.Controllers
             ViewBag.ClientId = id;
             ViewBag.ClientNotes = client.Notes;
             //return list of projects with matching client id
-            return PartialView(db.Projects.Where(i => i.ClientId == id));
+            return PartialView(db.Projects.Where(i => i.ClientId == id && !i.isArchived));
         }
 
         /**

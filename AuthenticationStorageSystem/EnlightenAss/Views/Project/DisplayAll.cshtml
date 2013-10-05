@@ -21,12 +21,12 @@
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-            <tr id="@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
-                <td>
-                    @item.Name
-                </td>
-            </tr>
-            counter++;
+        <tr id="@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
+            <td>
+                @item.Name
+            </td>
+        </tr>
+        counter++;
     }
 
 </table>
