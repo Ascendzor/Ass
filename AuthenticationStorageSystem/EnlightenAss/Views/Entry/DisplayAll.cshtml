@@ -18,26 +18,18 @@
         <th style="width: 300px;">
             @Html.DisplayNameFor(model => model.Username)
         </th>
-        <th style="width: 300px;">
-            @Html.DisplayNameFor(model => model.Website)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Notes)
-        </th>
+        <th style="width: 100px;">isArchived</th>
     </tr>
 
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        <tr class="@item.DevState" id="@counter" onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
-            <td>
+        <tr class="@item.DevState" id="@counter">
+            <td onclick="requestItem('@item.EntryId', '/Entry/EntryDisplay')">
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
-            <td class="externalLink">
-                <a href="http://@item.Website">@item.Website</a>
-            </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Notes)
+                <input type="checkbox" checked="@item.isArchived" onclick="toggleIsArchived('@item.EntryId', 'Entry/toggleIsArchived');"/>
             </td>
         </tr>
         counter++;

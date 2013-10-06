@@ -44,6 +44,7 @@ namespace EnlightenAss.Controllers
                 currentClient.Name = client.Name;
                 currentClient.Notes = client.Notes;
                 currentClient.LastModified = DateTime.Now;
+                currentClient.isArchived = client.isArchived;
                 db.Entry(currentClient).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("../Project/Index", new { id = client.ClientId });
@@ -87,6 +88,15 @@ namespace EnlightenAss.Controllers
             }
 
             return PartialView(client);
+        }
+
+        //toggles the given clients isArchived value
+        public void toggleIsArchived(int id)
+        {
+            Client currentClient = db.Clients.Find(id);
+            currentClient.isArchived = !currentClient.isArchived;
+            db.Entry(currentClient).State = EntityState.Modified;
+            db.SaveChanges();
         }
 
         protected override void Dispose(bool disposing)

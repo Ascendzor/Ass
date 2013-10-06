@@ -161,6 +161,15 @@ namespace EnlightenAss.Controllers
             
             return devStates;
         }
+
+        //toggles the given entry's isArchived value
+        public void toggleIsArchived(int id)
+        {
+            Entry currentEntry = db.Entries.Find(id);
+            currentEntry.isArchived = !currentEntry.isArchived;
+            db.Entry(currentEntry).State = EntityState.Modified;
+            db.SaveChanges();
+        }
         
         protected override void Dispose(bool disposing)
         {

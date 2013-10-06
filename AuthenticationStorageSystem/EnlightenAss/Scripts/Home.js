@@ -22,6 +22,22 @@ $(document).ready(function () {
     }
 });
 
+/*
+ * called whenever an item is toggled to be archived or deArchived
+ * tells the server to toggle the isArchived state of the clicked on client
+ */
+function toggleIsArchived(id, url) {
+    console.log("url given: " + url);
+    $.ajax({
+        url: url,
+        data: {
+            id: id,
+        },
+        success: function (data) { }
+    });
+
+}
+
 /* home function performs an empty search, refreshing the partial view to its default state */
 function home() {
     $("#searchText").focus();
