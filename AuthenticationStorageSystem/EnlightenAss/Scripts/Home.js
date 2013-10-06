@@ -3,8 +3,8 @@ $(document).ready(function () {
     
     $("#searchText").focus();
 
+    //when back is pressed, run the appropriate search to recover the previous state
     window.onpopstate = function () {
-        console.log(history.state);
         if (history.state == null) {
             $("#searchText").val("");
             search();
@@ -12,14 +12,10 @@ $(document).ready(function () {
             $("#searchText").val(history.state.text);
             search();
         } else {
-            console.log("exitted something");
+            getItem(history.state.id, history.state.type);
         }
     };
 });
-
-function printHistoryLength() {
-    console.log(history.length);
-}
 
 /**
  * Called whenever the partial div is changed
@@ -61,20 +57,21 @@ function goBack() {
     history.back();
 }
 
-/* Request partial view and display it without page reload */
+/* store a history state for the requested item, then request an item */
 function requestItem(item, url) {    
 
-    //set a back page and store the data necessary to use that page
-    if ($("#searchText").val() == "") {
-        console.log("item state pushed");
-        history.pushState({ type: url, id: item });
-    } else {
+    //store the data necessary use to recover previous state
+    if($("#searchText").val() != "") {
         history.pushState({ type: "search", text: $("#searchText").val() });
-        console.log("search state has been pushed");
-        $("#searchText").val("");
-        history.pushState({ type: url, id: item });
+        $("#searchText").val(""); 
     }
+    history.pushState({ type: url, id: item });
 
+    getItem(item, url);
+}
+
+/* Request partial view and display it without page reload */
+function getItem(item, url) {
     $.ajax({
         url: url,                                   // url to controller action
         data: { id: item },                         // id of the client/project/index selected
