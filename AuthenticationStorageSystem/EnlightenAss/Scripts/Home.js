@@ -52,7 +52,7 @@ function home() {
  * Stops onclick event from firing when clicking on a link
  */
 function onPartialDivChange() {
-    filterByDevState("Development"); filterByDevState("Testing"); filterByDevState("Staging");
+    filterByDevState("Development"); filterByDevState("Staging"); filterByDevState("Production");
     initialize();
     $(document).ready(function () {
         $(".externalLink a").click(function (e) {

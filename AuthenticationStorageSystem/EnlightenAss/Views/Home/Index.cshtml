@@ -23,16 +23,16 @@
             <!-- Traffic Light -->
             <div id="trafficLights" style="display: inline">
                 <input style="display: none" checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')" />
-                <input style="display: none" checked="checked" type="checkbox" id="Testing" onclick="filterByDevState('Testing')" />
                 <input style="display: none" checked="checked" type="checkbox" id="Staging" onclick="filterByDevState('Staging')" />
+                <input style="display: none" checked="checked" type="checkbox" id="Production" onclick="filterByDevState('Production')" />
+
+                <label for="Production" class="TrafficLight">
+                    <img id="ProductionLightOn" src="Content/Traffic_Lights/ProductionOn.png" style="width: 47px; height: 59px" />
+                    <img id="ProductionLightOff" src="Content/Traffic_Lights/ProductionOff.png" style="width: 47px; height: 59px; display: none" /></label>
 
                 <label for="Staging" class="TrafficLight">
-                    <img id="StagingLightOn" src="Content/Traffic_Lights/StagingOn.png" style="width: 47px; height: 59px" />
-                    <img id="StagingLightOff" src="Content/Traffic_Lights/StagingOff.png" style="width: 47px; height: 59px; display: none" /></label>
-
-                <label for="Testing" class="TrafficLight">
-                    <img id="TestingLightOn" src="Content/Traffic_Lights/TestingOn.png" style="width: 40px; height: 59px" />
-                    <img id="TestingLightOff" src="Content/Traffic_Lights/TestingOff.png" style="width: 40px; height: 59px; display: none" /></label>
+                    <img id="StagingLightOn" src="Content/Traffic_Lights/StagingOn.png" style="width: 40px; height: 59px" />
+                    <img id="StagingLightOff" src="Content/Traffic_Lights/StagingOff.png" style="width: 40px; height: 59px; display: none" /></label>
 
                 <label for="Development" class="TrafficLight">
                     <img id="DevelopmentLightOn" src="Content/Traffic_Lights/DevelopmentOn.png" style="width: 42px; height: 59px" />
