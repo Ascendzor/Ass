@@ -3,7 +3,7 @@
 @{
         if (ViewBag.ClientName.Length > 30)
         {
-            <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+            <a onclick="home();"><i class="icon-large icon-home"></i></a>
             <p>/ </p>
             <h3>
                 @{Write(ViewBag.ClientName.Substring(0, 27));}
@@ -12,7 +12,7 @@
         }
         else
         {
-            <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+            <a onclick="home();"><i class="icon-large icon-home"></i></a>
             <p>/ </p>
             <h3>
                 @{Write(ViewBag.ClientName);}
@@ -20,6 +20,7 @@
             <p>/ </p>
         }
     }
+
 
 <div class="rightButtonGroup">
     <button type="button" class="editButton btn btn-default btn-inverse" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Modify Client</button>

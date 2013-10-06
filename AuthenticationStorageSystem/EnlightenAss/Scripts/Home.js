@@ -111,7 +111,6 @@ function getItem(item, url) {
             data = "Something went wrong with the request\n" + xhr + "\n" + status + "\n" + error;
         },
         success: function (data) {                  // on success replace the html inside partialDiv with the returned partial view
-            $("#searchText").focus();
             $('#partialDiv').html(data);
             $('html, body').scrollTop(0);
             onPartialDivChange();

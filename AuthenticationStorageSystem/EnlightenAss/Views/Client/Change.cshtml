@@ -10,9 +10,9 @@
 
 @using (Html.BeginForm())
 {
- @Html.ValidationSummary(true)
+    @Html.ValidationSummary(true)
 
- @Html.HiddenFor(model => model.ClientId)
+    @Html.HiddenFor(model => model.ClientId)
 
 
 
@@ -24,12 +24,9 @@
         @Html.EditorFor(model => model.Name)
         @Html.ValidationMessageFor(model => model.Name)
     </div>
-
-
-
+    
     <div class="editor-label">
         Notes
-       
     </div>
 
     <div class="editor-field; form-move-right">
@@ -43,8 +40,8 @@
     
     <div class="editor-field; form-move-right">
 
-            @Html.EditorFor(model => model.isArchived)
-            @Html.ValidationMessageFor(model => model.isArchived)
+        @Html.EditorFor(model => model.isArchived)
+        @Html.ValidationMessageFor(model => model.isArchived)
     </div>
     <br />
         
@@ -57,17 +54,18 @@
     <div class="editor-label">
         Date Added       
     </div>
-	<div class="editor-field; form-move-right">
-		@Model.DateAdded
-	</div>
+    <div class="editor-field; form-move-right">
+        @Model.DateAdded
+    </div>
     <div class="editor-label">
         Last Modified
     </div>
-	<div class="editor-field; form-move-right">
-		@Model.LastModified
-	</div>
+    <div class="editor-field; form-move-right">
+        @Model.LastModified
+    </div>
 
-    <br><br>
+    <br>
+    <br>
     <input class="btn btn-small btn-info" type="button" value="Save changes" onclick="ajaxSubmitForm(this)" />
         
 }
@@ -82,7 +80,7 @@
 {
 
     <input type="button" value="Delete Client" class="btn btn-small btn-danger" onclick="ajaxSubmitForm(this)" />
- @Html.HiddenFor(model => model.ClientId)
+    @Html.HiddenFor(model => model.ClientId)
     
 }
 

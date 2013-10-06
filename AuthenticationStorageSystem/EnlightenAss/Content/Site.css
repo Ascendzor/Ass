@@ -1,4 +1,16 @@
-﻿.form-move-right {
+﻿tr.selectedRow a.externalLink{
+    color: white;
+}
+tr a.externalLink{
+    color: black;
+}
+
+#goButton{
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.form-move-right {
 	margin-left:150px;
 }
 

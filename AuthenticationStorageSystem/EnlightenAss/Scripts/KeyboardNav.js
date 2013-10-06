@@ -38,6 +38,7 @@ function handleKeyPressed(e) {
 
     switch (e.keyCode) {
         case 13:
+        case 39:
             $("#" + counter).click();
             break;
 
@@ -80,6 +81,11 @@ function handleKeyPressed(e) {
                 scrollIntoView();
             }
             e.preventDefault();
+            break;
+
+        case 37:
+            console.log("yes");
+            $("#upDirButton").click();
             break;
     }
 }

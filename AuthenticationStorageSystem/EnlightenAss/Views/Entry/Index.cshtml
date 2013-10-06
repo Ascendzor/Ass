@@ -2,7 +2,7 @@
 
 
 @{
-    <a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+    <a onclick="home();"><i class="icon-large icon-home"></i></a>
     <p>/ </p>
     <directory onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index');"><a>
     @ViewBag.ClientName
@@ -12,6 +12,7 @@
     Write(" / ");
 
     }
+<button id="upDirButton" style="display:none" type="button" class="btn btn-default btn-inverse" onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index');"></button>
 
 
 <div class="rightButtonGroup">
@@ -29,10 +30,10 @@
             @Html.DisplayNameFor(model => model.Username)
         </th>
         <th style="width: 300px;">
-            @Html.DisplayNameFor(model => model.Website)
+            @Html.DisplayNameFor(model => model.Notes)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Notes)
+            @Html.DisplayNameFor(model => model.Website)
         </th>
     </tr>
 
@@ -44,11 +45,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Username)
                 </td>
-                <td class="externalLink">
-                    <a href="http://@item.Website">@item.Website</a>
-                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Notes)
+                </td>
+                <td class="externalLink">
+                    <a class="externalLink" href="http://@item.Website">@item.Website</a>
                 </td>
             </tr>
             counter++;

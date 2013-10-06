@@ -1,6 +1,6 @@
 ﻿@model AssClassLibrary.Entry
 
-<a onclick="window.location.reload();"><i class="icon-large icon-home"></i></a>
+<a onclick="home()"><i class="icon-large icon-home"></i></a>
 <p>/ </p>
 
 @if (Model.Project.Client.Name.Length > 30)
@@ -31,7 +31,7 @@ else
 }
 <p>/ </p>
 <h3>@Model.Username</h3>
-
+<button id="upDirButton" style="display:none" type="button" class="btn btn-default btn-inverse" onclick="requestItem('@Model.ProjectId', '/Entry/Index');"></button>
 
 <div class="rightButtonGroup">
     <button type="button" class="editButton btn btn-default btn-inverse" onclick="requestItem('@Model.EntryId', '/Entry/Change')">Modify</button>
@@ -50,27 +50,27 @@ else
             @Html.DisplayNameFor(model => model.Password)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Notes)
-            
+            @Html.DisplayNameFor(model => model.Website)
+
         </th>
     </tr>
     <tr class="@Model.DevState">
-        <td>
-            @Html.DisplayFor(modelItem => Model.Username)
+        <td onclick="focusTextBox('username');">
+            <input type="text" value="@Model.Username" id="username" readonly="true"/>
         </td>
-        <td onclick="focusTextBox();">
-            <input type="text" value="@Model.Password" id="highlightMe" readonly="true"/>
+        <td onclick="focusTextBox('password');">
+            <input type="text" value="@Model.Password" id="password" readonly="true"/>
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => Model.Notes)
+        <td class="externalLink">
+            <a class="externalLink" href="http://@Model.Website">@Model.Website</a>
         </td>
     </tr>
 </table>
 
 <script>
-    function focusTextBox() {
-        document.getElementById('highlightMe').focus();
-        document.getElementById('highlightMe').select();
+    function focusTextBox(element) {
+        document.getElementById(element).focus();
+        document.getElementById(element).select();
     }
-    focusTextBox();
+    focusTextBox('password');
 </script>
