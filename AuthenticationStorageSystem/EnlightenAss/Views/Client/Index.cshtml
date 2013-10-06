@@ -18,8 +18,8 @@
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        <tr id="@counter">
-            <td onclick="requestItem('@item.ClientId', '/Project/Index')">
+        <tr id="@counter" onclick="requestItem('@item.ClientId', '/Project/Index')">
+            <td>
                 @item.Name
             </td>
             <td>

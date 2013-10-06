@@ -84,7 +84,6 @@ function handleKeyPressed(e) {
             break;
 
         case 37:
-            console.log("yes");
             $("#upDirButton").click();
             break;
     }
