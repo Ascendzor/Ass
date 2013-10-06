@@ -6,9 +6,11 @@ $(document).ready(function () {
     window.onpopstate = function () {
         console.log(history.state);
         if (history.state == null) {
+            $("#searchText").val("");
             search();
         } else if (history.state.type == "search") {
-            console.log("search");
+            $("#searchText").val(history.state.text);
+            search();
         } else {
             console.log("exitted something");
         }
