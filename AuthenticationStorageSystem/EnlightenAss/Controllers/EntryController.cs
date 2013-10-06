@@ -33,7 +33,7 @@ namespace EnlightenAss.Controllers
             Client client = db.Clients.Find(project.ClientId);
             ViewBag.ClientName = client.Name;
 
-            return PartialView(db.Entries.Where(i => i.ProjectId == id));
+            return PartialView(db.Entries.Where(i => i.ProjectId == id && !i.isArchived));
         }
 
         public ActionResult EntryDisplay(int id = 0)
@@ -119,6 +119,7 @@ namespace EnlightenAss.Controllers
                 currentEntry.Password = entry.Password;
                 currentEntry.Website = entry.Website;
                 currentEntry.Notes = entry.Notes;
+                currentEntry.isArchived = entry.isArchived;
                 currentEntry.LastModified = DateTime.Now;
                 currentEntry.LastModifiedBy = "X";
                 db.Entry(currentEntry).State = EntityState.Modified;
