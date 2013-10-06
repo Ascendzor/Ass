@@ -1,7 +1,23 @@
 ﻿/* focus on search box on load */
 $(document).ready(function () {
-    $("#searchText").focus();    
+    
+    $("#searchText").focus();
+
+    window.onpopstate = function () {
+        console.log(history.state);
+        if (history.state == null) {
+            search();
+        } else if (history.state.type == "search") {
+            console.log("search");
+        } else {
+            console.log("exitted something");
+        }
+    };
 });
+
+function printHistoryLength() {
+    console.log(history.length);
+}
 
 /**
  * Called whenever the partial div is changed
@@ -44,7 +60,18 @@ function goBack() {
 }
 
 /* Request partial view and display it without page reload */
-function requestItem(item, url) {
+function requestItem(item, url) {    
+
+    //set a back page and store the data necessary to use that page
+    if ($("#searchText").val() == "") {
+        console.log("item state pushed");
+        history.pushState({ type: url, id: item });
+    } else {
+        history.pushState({ type: "search", text: $("#searchText").val() });
+        console.log("search state has been pushed");
+        $("#searchText").val("");
+        history.pushState({ type: url, id: item });
+    }
 
     $.ajax({
         url: url,                                   // url to controller action
