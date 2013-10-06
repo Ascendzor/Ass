@@ -15,6 +15,11 @@ $(document).ready(function () {
             getItem(history.state.id, history.state.type);
         }
     };
+
+    //ie doesn't pop on pageReady so you have to search if it has been loaded on ie
+    if (navigator.appName == "Microsoft Internet Explorer") {
+        search();
+    }
 });
 
 /* home function performs an empty search, refreshing the partial view to its default state */
