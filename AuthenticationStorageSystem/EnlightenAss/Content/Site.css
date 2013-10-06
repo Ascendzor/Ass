@@ -43,20 +43,20 @@ tr.selectedRow th{
     color: white;
 }
 
-.Testing{
+.Staging{
     background-color:rgba(255, 168, 0, 0.4);
 }
 
-.Testing.selectedRow{
+.Staging.selectedRow{
     background-color:#dda900;
     color: white;
 }
 
-.Staging{
+.Production{
     background-color:rgba(0, 168, 0, 0.4);
 }
 
-.Staging.selectedRow{
+.Production.selectedRow{
     background-color:#00782d;
     color: white;
 }

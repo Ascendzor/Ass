@@ -155,8 +155,8 @@ namespace EnlightenAss.Controllers
             //Drop down list for development states
             List<SelectListItem> devStates = new List<SelectListItem>();
             SelectListItem dev = new SelectListItem() { Text = "Development", Value = "Development" };
-            SelectListItem testing = new SelectListItem() { Text = "Testing", Value = "Testing" };
-            SelectListItem staging = new SelectListItem() { Text = "Staging", Value = "Staging" };
+            SelectListItem testing = new SelectListItem() { Text = "Staging", Value = "Staging" };
+            SelectListItem staging = new SelectListItem() { Text = "Production", Value = "Production" };
             devStates.Add(dev); devStates.Add(testing); devStates.Add(staging);
             
             return devStates;
