@@ -14,14 +14,14 @@
     <div class="editor-label">
         Client Name
     </div>
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
         @Html.EditorFor(model => model.Name)
         @Html.ValidationMessageFor(model => model.Name)
     </div>
     <div class="editor-label">
         @Html.LabelFor(model => model.Notes)
     </div>
-    <div class="editor-field">
+    <div class="editor-field; form-move-right ">
         @Html.EditorFor(model => model.Notes)
         @Html.ValidationMessageFor(model => model.Notes)
     </div>

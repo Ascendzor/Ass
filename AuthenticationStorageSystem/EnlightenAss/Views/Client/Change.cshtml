@@ -17,11 +17,10 @@
 
 
     <div class="editor-label">
-        Client Name
-       
+        Client Name       
     </div>
 
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
         @Html.EditorFor(model => model.Name)
         @Html.ValidationMessageFor(model => model.Name)
     </div>
@@ -33,7 +32,7 @@
        
     </div>
 
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
         @Html.EditorFor(model => model.Notes)
         @Html.ValidationMessageFor(model => model.Notes)
     </div>
@@ -42,7 +41,7 @@
         @Html.LabelFor(model => model.isArchived)
     </div>
     
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
             @Html.EditorFor(model => model.isArchived)
             @Html.ValidationMessageFor(model => model.isArchived)
     </div>
@@ -54,21 +53,20 @@
     @Html.HiddenFor(model => model.DateAdded)
     @Html.HiddenFor(model => model.LastModified)
 
-    <div class="details-label">
-        Date Added
-        <br>
-        @Model.DateAdded
+    <div class="editor-label">
+        Date Added       
     </div>
-
-    <br>
-
-    <div class="details-label">
+	<div class="editor-field; form-move-right">
+		@Model.DateAdded
+	</div>
+    <div class="editor-label">
         Last Modified
-        <br>
-        @Model.LastModified
     </div>
+	<div class="editor-field; form-move-right">
+		@Model.LastModified
+	</div>
 
-    <br>
+    <br><br>
     <input class="btn btn-small btn-info" type="button" value="Save changes" onclick="ajaxSubmitForm(this)" />
         
 }

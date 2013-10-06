@@ -17,72 +17,67 @@
     <div class="editor-label">
         @Html.LabelFor(model => model.ProjectId, "Project")
     </div>
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
         @Html.DropDownList("ProjectId", String.Empty)
         @Html.ValidationMessageFor(model => model.ProjectId)
     </div>
-
     <div class="editor-label">
         @Html.LabelFor(model => model.Username)
     </div>
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
         @Html.EditorFor(model => model.Username)
         @Html.ValidationMessageFor(model => model.Username)
     </div>
-
     <div class="editor-label">
         @Html.LabelFor(model => model.Password)
     </div>
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
         @Html.EditorFor(model => model.Password)
         @Html.ValidationMessageFor(model => model.Password)
-    </div>
-    
+    </div>    
     <div class="editor-label">
         @Html.LabelFor(model => model.DevState, "Development State")
     </div>
-    <div class="details-label">
+    <div class="editor-field; form-move-right">
         @Model.DevState
-    </div>
-
+    </div><br>
     <div class="editor-label">
         @Html.LabelFor(model => model.Website)
     </div>
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
         @Html.EditorFor(model => model.Website)
         @Html.ValidationMessageFor(model => model.Website)
     </div>
-
     <div class="editor-label">
         @Html.LabelFor(model => model.Notes)
     </div>
-    <div class="editor-field">
+    <div class="editor-field; form-move-right">
         @Html.EditorFor(model => model.Notes)
         @Html.ValidationMessageFor(model => model.Notes)
-    </div>
-    
+    </div>    
     <div class="editor-label">
         @Html.LabelFor(model => model.isArchived)
-    </div>
-    
-    <div class="editor-field">
+    </div>    
+    <div class="editor-field; form-move-right">
         @Html.EditorFor(model => model.isArchived)
         @Html.ValidationMessageFor(model => model.isArchived)
     </div>
-    <br />
-
     <!-- Having hidden fors stop the date modified and added labels changing to default time on validation fail -->
     @Html.HiddenFor(model => model.DateAdded)
     @Html.HiddenFor(model => model.LastModified)
-    <div class="details-label">
-        Date Added<br>
-        @Model.DateAdded
+	<br>
+    <div class="editor-label">
+        Date Added
     </div>
-    <br>
-    <div class="details-label">
-        Last Modified<br>
-        @Model.LastModified
+	<div class="editor-field; form-move-right">
+		@Model.DateAdded
+	</div>	
+    <div class="editor-label">
+        Last Modified
     </div>
+	<div class="editor-field; form-move-right">
+		@Model.LastModified
+	</div>
     <br>
 
     <input class="btn btn-small btn-info" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)" />
