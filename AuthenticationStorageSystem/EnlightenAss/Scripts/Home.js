@@ -21,6 +21,7 @@ $(document).ready(function () {
 function home() {
     $("#searchText").focus();
     $("#searchText").val("");
+    history.pushState({ type: "search", text: $("#searchText").val() });
     search();
 }
 
