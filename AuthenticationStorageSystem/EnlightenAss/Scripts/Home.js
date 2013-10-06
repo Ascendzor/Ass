@@ -17,6 +17,13 @@ $(document).ready(function () {
     };
 });
 
+/* home function performs an empty search, refreshing the partial view to its default state */
+function home() {
+    $("#searchText").focus();
+    $("#searchText").val("");
+    search();
+}
+
 /**
  * Called whenever the partial div is changed
  * Filters table by the development state, inializes the keyboard navigation
