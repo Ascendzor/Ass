@@ -21,7 +21,7 @@ $(document).ready(function () {
 function home() {
     $("#searchText").focus();
     $("#searchText").val("");
-    history.pushState({ type: "search", text: $("#searchText").val() });
+    history.pushState({ type: "search", text: $("#searchText").val() }, "title", "");
     search();
 }
 
@@ -70,10 +70,10 @@ function requestItem(item, url) {
 
     //store the data necessary use to recover previous state
     if($("#searchText").val() != "") {
-        history.pushState({ type: "search", text: $("#searchText").val() });
+        history.pushState({ type: "search", text: $("#searchText").val() }, "title", "");
         $("#searchText").val(""); 
     }
-    history.pushState({ type: url, id: item });
+    history.pushState({ type: url, id: item }, "title", "");
 
     getItem(item, url);
 }
