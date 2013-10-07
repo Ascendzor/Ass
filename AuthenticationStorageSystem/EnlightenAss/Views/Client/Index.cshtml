@@ -22,9 +22,9 @@
             <td onclick="requestItem('@item.ClientId', '/Project/Index')">
                 @item.Name
             </td>
-            <td onclick="toggleIsArchived(@counter);">
+            <td>
+                <input type="checkbox" value="@item.isArchived" onclick="toggleIsArchived('@item.ClientId');"/>
                 @item.isArchived
-                <input type="checkbox" value="@item.isArchived" />
             </td>
         </tr>
         counter++;

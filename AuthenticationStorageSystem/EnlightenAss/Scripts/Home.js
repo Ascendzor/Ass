@@ -22,6 +22,18 @@ $(document).ready(function () {
     }
 });
 
+function toggleIsArchived(id) {
+    console.log("javascript: " + id);
+    $.ajax({
+        url: 'Client/toggleIsArchived',
+        data: {
+            id: id,
+        },
+        success: function (data) { }
+    });
+
+}
+
 /* home function performs an empty search, refreshing the partial view to its default state */
 function home() {
     $("#searchText").focus();

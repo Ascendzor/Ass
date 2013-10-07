@@ -90,6 +90,15 @@ namespace EnlightenAss.Controllers
             return PartialView(client);
         }
 
+        public void toggleIsArchived(int id)
+        {
+            Client currentClient = db.Clients.Find(id);
+            System.Diagnostics.Debug.Write("["+currentClient + "]\n");
+            currentClient.isArchived = !currentClient.isArchived;
+            db.Entry(currentClient).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
