@@ -21,6 +21,9 @@
         }
     }
 
+<a onclick="$('#link').show()"><i class="icon-large icon-magnet"></i></a>
+<label id="link" style="display:none">/Home/Link/?url=/Project/Index&id=@ViewBag.ClientId</label>
+<script> $("#link").text(window.location.origin + $("#link").text()); </script>
 
 <div class="rightButtonGroup">
     <button type="button" class="editButton btn btn-default btn-inverse" onclick="requestItem('@ViewBag.ClientId', '/Client/Change')">Modify Client</button>

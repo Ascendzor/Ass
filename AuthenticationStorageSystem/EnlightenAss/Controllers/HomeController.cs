@@ -13,7 +13,16 @@ namespace EnlightenAss.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Url = "";
+            ViewBag.Id = "";
             return View();
+        }
+
+        public ActionResult Link(string url = "", int id = 0)
+        {
+            ViewBag.Url = url;
+            ViewBag.Id = id;
+            return View("Index");
         }
 
         /**

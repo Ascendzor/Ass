@@ -14,28 +14,9 @@ namespace EnlightenAss.Controllers
         private DatabaseContext db = new DatabaseContext();
         //
         // GET: /Search/
-        public ActionResult Index(String type = "", int id = 0)
+        public ActionResult Index(string url = "", int id = 0)
         {
-            
-            if (type == "Entry")
-            {
-                ViewBag.Type = "test";
-                ViewBag.Id = "3";
-                return View("../Home/Index");
-                //return RedirectToAction("EntryDisplay", "Entry", new { id = id });
-            }
-            else if (type == "Project")
-            {
-
-            }
-            else if (type == "Client")
-            {
-
-            }
-            
-
             return View();
         }
-        
     }
 }

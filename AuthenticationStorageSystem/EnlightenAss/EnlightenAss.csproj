@@ -133,7 +133,7 @@
     <Compile Include="Controllers\EntryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
-    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\LinkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -203,12 +203,12 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Content\Traffic_Lights\StagingOff.png" />
-    <Content Include="Content\Traffic_Lights\StagingOn.png" />
+    <Content Include="Content\Traffic_Lights\ProductionOff.png" />
+    <Content Include="Content\Traffic_Lights\ProductionOn.png" />
     <Content Include="Content\Traffic_Lights\DevelopmentOff.png" />
     <Content Include="Content\Traffic_Lights\DevelopmentOn.png" />
-    <Content Include="Content\Traffic_Lights\TestingOff.png" />
-    <Content Include="Content\Traffic_Lights\TestingOn.png" />
+    <Content Include="Content\Traffic_Lights\StagingOff.png" />
+    <Content Include="Content\Traffic_Lights\StagingOn.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Properties\PublishProfiles\enass - FTP %282%29.pubxml" />
@@ -264,6 +264,9 @@
     <Content Include="Views\Entry\EntryDisplay.cshtml" />
     <Content Include="Views\Project\DisplayAll.cshtml" />
     <Content Include="Views\Entry\DisplayAll.cshtml" />
+    <Content Include="Views\Home\NoResults.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

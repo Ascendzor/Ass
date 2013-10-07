@@ -31,7 +31,11 @@ else
 }
 <p>/ </p>
 <h3>@Model.Username</h3>
-<button id="upDirButton" style="display:none" type="button" class="btn btn-default btn-inverse" onclick="requestItem('@Model.ProjectId', '/Entry/Index');"></button>
+
+<a onclick="$('#link').show()"><i class="icon-large icon-magnet"></i></a>
+<label id="link" style="display:none">/Home/Link/?url=/Entry/EntryDisplay&id=@Model.EntryId</label>
+<script> $("#link").text(window.location.origin + $("#link").text()); </script>
+<button id="upDirButton" style="display:none" type="button" onclick="requestItem('@Model.ProjectId', '/Entry/Index');"></button>
 
 <div class="rightButtonGroup">
     <button type="button" class="editButton btn btn-default btn-inverse" onclick="requestItem('@Model.EntryId', '/Entry/Change')">Modify Entry</button>

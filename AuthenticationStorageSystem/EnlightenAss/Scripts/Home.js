@@ -1,25 +1,26 @@
 ﻿/* focus on search box on load */
 $(document).ready(function () {
-    
     $("#searchText").focus();
 
     //when back is pressed, run the appropriate search to recover the previous state
-    window.onpopstate = function () {
-        if (history.state == null) {
-            $("#searchText").val("");
-            search();
-        } else if (history.state.type == "search") {
-            $("#searchText").val(history.state.text);
-            search();
-        } else {
-            getItem(history.state.id, history.state.type);
-        }
-    };
+    setTimeout(function () { 
+        window.onpopstate = function () {
+            if (history.state == null) {
+                $("#searchText").val("");
+                search();
+            } else if (history.state.type == "search") {
+                $("#searchText").val(history.state.text);
+                search();
+            } else {
+                getItem(history.state.id, history.state.type);
+            }
+        };
+    }, 500); // Timeout to ignore initial popstate in chrome
 
-    //ie doesn't pop on pageReady so you have to search if it has been loaded on ie
-    if (navigator.appName == "Microsoft Internet Explorer") {
+    if ($("#linkUrl").text() == "")
         search();
-    }
+    else
+        requestItem($("#linkId").text(), $("#linkUrl").text());
 });
 
 /*
@@ -65,7 +66,7 @@ function onPartialDivChange() {
         $(".archivetd").click(function (e) {
             e.stopPropagation();
         });
-    }); 
+    });
 }
 
 /* Search database without page reload */
@@ -94,12 +95,12 @@ function goBack() {
 }
 
 /* store a history state for the requested item, then request an item */
-function requestItem(item, url) {    
+function requestItem(item, url) {
 
     //store the data necessary use to recover previous state
-    if($("#searchText").val() != "") {
+    if ($("#searchText").val() != "") {
         history.pushState({ type: "search", text: $("#searchText").val() }, "title", "");
-        $("#searchText").val(""); 
+        $("#searchText").val("");
     }
     history.pushState({ type: url, id: item }, "title", "");
 
@@ -172,10 +173,4 @@ function filterByDevState(id) {
         $("#" + id + "LightOn").hide();
         $("#" + id + "LightOff").show();
     }
-}
-
-function checkArchived(checkboxtd) {
-    $(checkboxtd).children().prop('checked', !$(checkboxtd).children().attr('checked'));
-    console.log($(checkboxtd).children());
-    $(checkboxtd).children().click();
 }
