@@ -23,7 +23,7 @@
                 @item.Name
             </td>
             <td>
-                <input type="checkbox" checked="@item.isArchived" onclick="toggleIsArchived('@item.ClientId');"/>
+                <input type="checkbox" checked="@item.isArchived" onclick="toggleIsArchived('@item.ClientId', 'Client/toggleIsArchived');"/>
             </td>
         </tr>
         counter++;

@@ -26,9 +26,10 @@ $(document).ready(function () {
  * called whenever an item is toggled to be archived or deArchived
  * tells the server to toggle the isArchived state of the clicked on client
  */
-function toggleIsArchived(id) {
+function toggleIsArchived(id, url) {
+    console.log("url given: " + url);
     $.ajax({
-        url: 'Client/toggleIsArchived',
+        url: url,
         data: {
             id: id,
         },

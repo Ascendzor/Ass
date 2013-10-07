@@ -119,6 +119,15 @@ namespace EnlightenAss.Controllers
             ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name", project.ClientId);
             return PartialView(project);
         }
+        
+        //toggles the given projects isArchived value
+        public void toggleIsArchived(int id)
+        {
+            Project currentProject = db.Projects.Find(id);
+            currentProject.isArchived = !currentProject.isArchived;
+            db.Entry(currentProject).State = EntityState.Modified;
+            db.SaveChanges();
+        }
 
         protected override void Dispose(bool disposing)
         {

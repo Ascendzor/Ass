@@ -17,13 +17,17 @@
 <table class="table table-bordered">
     <tr class="table-bordered headerRow">
         <th style="width: 300px;">Project Name</th>
+        <th style="width: 100px;">isArchived</th>
     </tr>
     @{int counter = 0;}
     @foreach (var item in Model)
     {
-        <tr id="@counter" onclick="requestItem('@item.ProjectId', '/Entry/Index')">
-            <td>
+        <tr id="@counter">
+            <td onclick="requestItem('@item.ProjectId', '/Entry/Index')">
                 @item.Name
+            </td>
+            <td>
+                <input type="checkbox" checked="@item.isArchived" onclick="toggleIsArchived('@item.ProjectId', 'Project/toggleIsArchived');"/>
             </td>
         </tr>
         counter++;
