@@ -174,3 +174,10 @@ function filterByDevState(id) {
         $("#" + id + "LightOff").show();
     }
 }
+
+function getDomain() {
+    if (!window.location.origin) {
+        window.location.origin = window.location.protocol + "//" + window.location.hostname
+    }
+    $("#link").text(window.location.origin + $("#link").text());
+}

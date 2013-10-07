@@ -15,7 +15,7 @@
 
 <a onclick="$('#link').show()"><i class="icon-large icon-magnet"></i></a>
 <label id="link" style="display:none">/Home/Link/?url=/Entry/Index&id=@ViewBag.ProjectIdNum</label>
-<script> $("#link").text(window.location.origin + $("#link").text()); </script>
+<script> getDomain(); </script>
 <button id="upDirButton" style="display:none" type="button" class="btn btn-default btn-inverse" onclick="requestItem('@ViewBag.ClientIdNum', '/Project/Index');"></button>
 
 
