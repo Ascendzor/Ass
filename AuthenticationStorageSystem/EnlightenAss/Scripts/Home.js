@@ -25,9 +25,10 @@ $(document).ready(function () {
 /*
  * called whenever an item is toggled to be archived or deArchived
  * tells the server to toggle the isArchived state of the clicked on client
+ * If the function was invoked from the td (not by clicking the checkbox) invert the checked value
  */
-function toggleIsArchived(id, url) {
-    console.log("url given: " + url);
+function toggleIsArchived(id, url, checkbox, td) {
+    if (td) $(checkbox).prop('checked', !$(checkbox).attr('checked'))
     $.ajax({
         url: url,
         data: {
@@ -56,6 +57,12 @@ function onPartialDivChange() {
     initialize();
     $(document).ready(function () {
         $(".externalLink a").click(function (e) {
+            e.stopPropagation();
+        });
+        $(".archiveCheckBox").click(function (e) {
+            e.stopPropagation();
+        });
+        $(".archivetd").click(function (e) {
             e.stopPropagation();
         });
     }); 
@@ -165,4 +172,10 @@ function filterByDevState(id) {
         $("#" + id + "LightOn").hide();
         $("#" + id + "LightOff").show();
     }
+}
+
+function checkArchived(checkboxtd) {
+    $(checkboxtd).children().prop('checked', !$(checkboxtd).children().attr('checked'));
+    console.log($(checkboxtd).children());
+    $(checkboxtd).children().click();
 }

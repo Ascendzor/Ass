@@ -28,8 +28,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
             </td>
-            <td>
-                <input type="checkbox" checked="@item.isArchived" onclick="toggleIsArchived('@item.EntryId', 'Entry/toggleIsArchived');"/>
+            <td class="archivetd" onclick="toggleIsArchived('@item.EntryId', 'Entry/toggleIsArchived', $(this).children(), true);">
+                <input class="archiveCheckBox" type="checkbox" checked="@item.isArchived" onclick="toggleIsArchived('@item.EntryId', 'Entry/toggleIsArchived', this, false)"/>
             </td>
         </tr>
         counter++;

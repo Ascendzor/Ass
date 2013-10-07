@@ -22,8 +22,8 @@
             <td>
                 @item.Name
             </td>
-            <td>
-                <input type="checkbox" checked="@item.isArchived" onclick="toggleIsArchived('@item.ClientId', 'Client/toggleIsArchived');"/>
+            <td class="archivetd" onclick="toggleIsArchived('@item.ClientId', 'Client/toggleIsArchived', $(this).children(), true);">
+                <input class="archiveCheckBox" type="checkbox" checked="@item.isArchived" onclick="toggleIsArchived('@item.ClientId', 'Client/toggleIsArchived', this, false);"/>
             </td>
         </tr>
         counter++;
