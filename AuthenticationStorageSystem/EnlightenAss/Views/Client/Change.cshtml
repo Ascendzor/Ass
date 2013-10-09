@@ -66,7 +66,7 @@
 
     <br>
     <br>
-    <input class="btn btn-small btn-info" type="button" value="Save changes" onclick="ajaxSubmitForm(this)" />
+    <input class="btn btn-small btn-info save-button" type="button" value="Save changes" onclick="ajaxSubmitForm(this)" />
         
 }
 
@@ -79,7 +79,7 @@
 @using (Html.BeginForm("Delete", "Client", FormMethod.Post))
 {
 
-    <input type="button" value="Delete Client" class="btn btn-small btn-danger" onclick="ajaxSubmitForm(this)" />
+    <input type="button" value="Delete Client" class="btn btn-small btn-danger delete-button" onclick="ajaxSubmitForm(this)" />
     @Html.HiddenFor(model => model.ClientId)
     
 }

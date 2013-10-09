@@ -80,7 +80,7 @@
 	</div>
     <br>
 
-    <input class="btn btn-small btn-info" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)" />
+    <input class="btn btn-small btn-info save-button" type="button" value="Save Changes" onclick="ajaxSubmitForm(this)" />
             
 }
 
@@ -89,9 +89,9 @@
     $("#Username").focus();
 </script>
 
-<!-- Seperate Form for deleting the item -->
+<!-- Separate Form for deleting the item -->
 @using (Html.BeginForm("Delete", "Entry", FormMethod.Post))
 {
     @Html.HiddenFor(model => model.EntryId)
-    <input type="button" value="Delete" class="btn btn-small btn-danger" onclick="ajaxSubmitForm(this)" />
+    <input type="button" value="Delete Entry" class="btn btn-small btn-danger delete-button" onclick="ajaxSubmitForm(this)" />
 }
