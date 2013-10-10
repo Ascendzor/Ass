@@ -5,6 +5,27 @@ tr a.externalLink{
     color: black;
 }
 
+#trafficLights{
+    padding-right: 10px;
+    margin-top: -2px;
+    padding-bottom:2px;
+    float:right;
+}
+
+
+.traffic-light-on{
+    margin-bottom:5px;  
+    margin-left:20px;
+    padding-right:1px;
+}
+
+.traffic-light-off{
+    margin-bottom:5px; 
+    margin-left:20px;
+    padding-right:5px;
+    display:none;
+}
+
 #goButton{
     margin-bottom: 5px;
     margin-left: 5px;
@@ -16,14 +37,13 @@ tr a.externalLink{
 
 .TrafficLight{
     display: inline;
-    margin-right:-4px;
 }
 
 .feedback{
     display:inline;
     float:right;
     margin-bottom:-20px;
-    color:black;
+    color:white;
 }
 
 .selectedRow{
@@ -124,7 +144,7 @@ body{
 }
 
 #searchText{
-    width: 550px;
+    width: 695px;
 	margin-top:10px;
 	margin-left:15px;
 }
