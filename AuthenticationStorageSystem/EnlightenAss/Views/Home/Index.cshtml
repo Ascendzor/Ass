@@ -1,72 +1,39 @@
-﻿﻿<!DOCTYPE html>
-<html>
-<head>
-    <title>Layout Page Content</title>
-    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet" />
-	<link href="~/Content/bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />
-	<link href="/Content/Site.css" rel="Stylesheet" type="text/css" />
-    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
-    <script src="~/Scripts/Home.js"></script>
-    <script src="~/Scripts/KeyboardNav.js"></script>
-</head>
-<body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top navbar-inner" style="min-height: 30px">
-        <div class="mainTitle">
-            <a onclick="home();">
-                <i class="icon-large icon-white icon-home" style="margin-right: 3px"></i></a>Authentication Storage System
+﻿<div class="navbar navbar-inverse navbar-fixed-top navbar-inner" style="min-height: 30px">
+    <div class="mainTitle">
+        <a onclick="home();">
+            <i class="icon-large icon-white icon-home" style="margin-right: 3px"></i></a>Authentication Storage System
             
 			<input id="searchText" oninput="search()" name="searchtext" type="text" autocomplete="off" />
-            <button type="button" id="goButton" onclick="search(); $('#searchText').focus();" class="btn btn-default navbar-btn">Go</button>
+        <button type="button" id="goButton" onclick="search(); $('#searchText').focus();" class="btn btn-default navbar-btn">Go</button>
 
-            <div id="trafficLights">
-                <input style="display: none" checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')" />
-                <input style="display: none" checked="checked" type="checkbox" id="Staging" onclick="filterByDevState('Staging')" />
-                <input style="display: none" checked="checked" type="checkbox" id="Production" onclick="filterByDevState('Production')" />
+        <div id="trafficLights">
+            <input style="display: none" checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')" />
+            <input style="display: none" checked="checked" type="checkbox" id="Staging" onclick="filterByDevState('Staging')" />
+            <input style="display: none" checked="checked" type="checkbox" id="Production" onclick="filterByDevState('Production')" />
 
-                <label for="Production" class="TrafficLight">
-                    <img id="ProductionLightOn" src="/Content/Traffic_Lights/ProductionOn[TEST].png" title="Hide Production" class="traffic-light-on" /> 
-                    <img id="ProductionLightOff" src="/Content/Traffic_Lights/ProductionOff[TEST].png" title="Show Production" class="traffic-light-off" />Production</label>
+            <label for="Production" class="TrafficLight">
+                <img id="ProductionLightOn" src="/Content/Traffic_Lights/ProductionOn[TEST].png" title="Hide Production" class="traffic-light-on" />
+                <img id="ProductionLightOff" src="/Content/Traffic_Lights/ProductionOff[TEST].png" title="Show Production" class="traffic-light-off" />Production</label>
 
-                <label for="Staging" class="TrafficLight">
-                    <img id="StagingLightOn" src="/Content/Traffic_Lights/StagingOn[TEST].png" title="Hide Staging"  class="traffic-light-on"/> 
-                    <img id="StagingLightOff" src="/Content/Traffic_Lights/StagingOff[TEST].png" title="Show Staging"class="traffic-light-off"/>Staging</label>
+            <label for="Staging" class="TrafficLight">
+                <img id="StagingLightOn" src="/Content/Traffic_Lights/StagingOn[TEST].png" title="Hide Staging" class="traffic-light-on" />
+                <img id="StagingLightOff" src="/Content/Traffic_Lights/StagingOff[TEST].png" title="Show Staging" class="traffic-light-off" />Staging</label>
 
-                <label for="Development" class="TrafficLight">
-                    <img id="DevelopmentLightOn" src="/Content/Traffic_Lights/DevelopmentOn[TEST].png" title="Hide Development" class="traffic-light-on"/> 
-                    <img id="DevelopmentLightOff" src="/Content/Traffic_Lights/DevelopmentOff[TEST].png" title="Show Development"class="traffic-light-off"/>Development</label>
-            </div>
-            <!-- Traffic Light
-            <div id="trafficLights" style="display: inline">
-                <input style="display: none" checked="checked" type="checkbox" id="Development" onclick="filterByDevState('Development')" />
-                <input style="display: none" checked="checked" type="checkbox" id="Staging" onclick="filterByDevState('Staging')" />
-                <input style="display: none" checked="checked" type="checkbox" id="Production" onclick="filterByDevState('Production')" />
-
-                <label for="Production" class="TrafficLight">
-                    <img id="ProductionLightOn" src="/Content/Traffic_Lights/ProductionOn.png" title="Hide Production" style="width: 47px; height: 59px" />
-                    <img id="ProductionLightOff" src="/Content/Traffic_Lights/ProductionOff.png" title="Show Production" style="width: 47px; height: 59px; display: none" /></label>
-
-                <label for="Staging" class="TrafficLight">
-                    <img id="StagingLightOn" src="/Content/Traffic_Lights/StagingOn.png" title="Hide Staging" style="width: 40px; height: 59px" />
-                    <img id="StagingLightOff" src="/Content/Traffic_Lights/StagingOff.png" title="Show Staging" style="width: 40px; height: 59px; display: none" /></label>
-
-                <label for="Development" class="TrafficLight">
-                    <img id="DevelopmentLightOn" src="/Content/Traffic_Lights/DevelopmentOn.png" title="Hide Development" style="width: 42px; height: 59px" />
-                    <img id="DevelopmentLightOff" src="/Content/Traffic_Lights/DevelopmentOff.png" title="Show Development" style="width: 42px; height: 59px; display: none" /></label>
-            </div>
-                 -->
-        </div>
-        <div class="feedback">Feedback: marcel@optimaldesign.co.nz</div>
-    </div>
-    <div class="containerDiv">
-        <div class="contentDiv">
-            <div id="errorDiv"></div>
-            <!-- Dynamic content placed in here -->
-            <div id="partialDiv">
-                <label style="display:none" id="linkUrl">@ViewBag.Url</label>
-                <label style="display:none" id="linkId">@ViewBag.Id</label>
-            </div>
+            <label for="Development" class="TrafficLight">
+                <img id="DevelopmentLightOn" src="/Content/Traffic_Lights/DevelopmentOn[TEST].png" title="Hide Development" class="traffic-light-on" />
+                <img id="DevelopmentLightOff" src="/Content/Traffic_Lights/DevelopmentOff[TEST].png" title="Show Development" class="traffic-light-off" />Development</label>
         </div>
     </div>
-</body>
-</html>
+    <div class="feedback">Feedback: marcel@optimaldesign.co.nz</div>
+</div>
+<div class="containerDiv">
+    <div class="contentDiv">
+        <div id="errorDiv"></div>
+        <!-- Dynamic content placed in here -->
+        <div id="partialDiv" class="partialDiv">
+            <label style="display: none" id="linkUrl">@ViewBag.Url</label>
+            <label style="display: none" id="linkId">@ViewBag.Id</label>
+        </div>
+    </div>
+</div>
+

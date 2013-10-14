@@ -24,13 +24,14 @@ $(document).ready(function () {
 });
 
 /*
- * called whenever an item is toggled to be archived or deArchived
+ * Called whenever an item is toggled to be archived or deArchived
  * tells the server to toggle the isArchived state of the clicked on client
  * If the function was invoked from the td (not by clicking the checkbox) invert the checked value
  */
 function toggleIsArchived(id, url, checkbox, td) {
     if (td) $(checkbox).prop('checked', !$(checkbox).attr('checked'))
     $.ajax({
+        cache: false,
         url: url,
         data: {
             id: id,
@@ -74,6 +75,7 @@ function search() {
 
     delay(function () {                             // delay to throttle number of database queries
         $.ajax({
+            cache: false,
             url: '/Home/Search',
             data: { searchText: $("#searchText").val() },
             dataType: 'text',
@@ -110,6 +112,7 @@ function requestItem(item, url) {
 /* Request partial view and display it without page reload */
 function getItem(item, url) {
     $.ajax({
+        cache: false,
         url: url,                                   // url to controller action
         data: { id: item },                         // id of the client/project/index selected
         dataType: 'html',
@@ -131,6 +134,7 @@ function ajaxSubmitForm(btnClicked) {
     var $form = $(btnClicked).parents('form');
 
     $.ajax({
+        cache: false,
         type: "POST",
         url: $form.attr('action'),                  // the forms action which will map to a controller method
         data: $form.serialize(),

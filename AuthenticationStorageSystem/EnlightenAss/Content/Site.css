@@ -139,13 +139,17 @@ directory{
     float:right;
 }
 
+.navbar-fixed-top{
+    margin-bottom: 0px;
+}
+
 body{
-	padding-top:32px;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
     color: #232323;
     background:url("/Content/brickwall.png");
     background-repeat:repeat;
+    padding-top: 60px;
 }
 
 .mainTitle {
@@ -206,6 +210,7 @@ background-color:#CEE3F6;
 }
 
 .contentDiv{
+    
     padding:35px;
     /*background-color: #CEE3F6;*/
     background-color:#FFF;
