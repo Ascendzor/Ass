@@ -23,6 +23,7 @@ tr a.externalLink{
     margin-top: -2px;
     padding-bottom:2px;
     float:right;
+    color:#CEE3F6;
 }
 
 
@@ -161,7 +162,7 @@ body{
 }
 
 #searchText{
-    width: 695px;
+    width: 400px;
 	margin-top:10px;
 	margin-left:15px;
 }
